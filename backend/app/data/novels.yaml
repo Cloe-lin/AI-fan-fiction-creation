@@ -1,0 +1,39 @@
+novels:
+  - id: modaozuoshi
+    title: 魔道祖师
+    collection: modaozuoshi
+    text_subdir: modaozuoshi/text
+    source_file: modaozuoshi.txt
+    novel_source: ../魔道祖师全文+番外by墨香铜臭（未修改版）.txt
+    source_encoding: utf-8
+    default_after_ending: true
+    ending_summary: >
+      原著主线至观音庙真相大白后收束：金光瑶败亡，魏无羡与蓝忘机结为道侣，
+      云游天下；江澄与魏无羡的恩怨并未彻底和解，但杀意暂歇；温宁仍追随魏无羡；
+      蓝曦臣因金光瑶之事心神受创。后续创作默认接在此结局之后，写人物后来的生活与新事件，
+      不得回写或补写观音庙之前的中间篇章。
+    ending_state:
+      - 魏无羡与蓝忘机已确认感情，常云游或居于云深不知处
+      - 江澄仍掌云梦江氏，对魏无羡态度复杂
+      - 温宁可自由行动，忠于魏无羡
+      - 蓝曦臣需要时间疗伤，对世事更谨慎
+      - 仙门格局因金光瑶事有所震动，但日常秩序仍在
+
+  - id: shiyongzhuyizhe
+    title: 实用主义者的爱情
+    collection: shiyongzhuyizhe
+    text_subdir: shiyongzhuyizhe/text
+    source_file: shiyongzhuyizhe.txt
+    novel_source: ../《实用主义者的爱情》（精校版全本+番外完）作者：孟中得意.txt
+    source_encoding: gbk
+    default_after_ending: true
+    ending_summary: >
+      原著写到费霓与方穆扬假戏真做、共同走过清苦年代，方穆扬学画成名，父母待遇恢复，
+      二人过上更安稳的生活；方穆静与瞿桦的婚姻线亦有发展。后续创作默认接在正篇结局之后，
+      写人物成名/安稳生活之后的新故事，不得回写住院分房等中间篇章的补白。
+    ending_state:
+      - 费霓与方穆扬已真心相爱，共同生活
+      - 方穆扬画作成名，生活条件改善
+      - 费霓仍务实，但更愿为感情投入
+      - 方穆静嫁给瞿桦，姐弟各有家庭
+      - 时代进入改革开放前后的新阶段

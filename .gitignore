@@ -1,0 +1,36 @@
+# Secrets
+backend/.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual env
+backend/venv/
+venv/
+.venv/
+
+# Vector DB (regenerable via setup_rag.py)
+backend/app/data/chroma/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs / caches
+*.log
+.cache/
+.pytest_cache/
+.mypy_cache/

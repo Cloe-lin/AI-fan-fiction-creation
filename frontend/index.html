@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 同人文平台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a26;
+      --border: #2a2a3a;
+      --text-primary: #e8e6e3;
+      --text-secondary: #9a9590;
+      --accent: #c9a96e;
+      --accent-dim: #8a7344;
+      --accent-glow: rgba(201, 169, 110, 0.15);
+      --success: #6ec9a9;
+      --warning: #c9a96e;
+      --error: #c96e6e;
+      --font-serif: 'Noto Serif SC', serif;
+      --font-sans: 'Noto Sans SC', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+    }
+
+    .panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .panel h2 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.9rem;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent-dim);
+    }
+
+    textarea { resize: vertical; min-height: 80px; }
+
+    .character-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .character-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.7rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .character-chip:hover { border-color: var(--accent-dim); }
+    .character-chip.selected {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .character-chip input { display: none; }
+
+    .character-chip .role {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+
+    .btn-create {
+      width: 100%;
+      padding: 0.8rem;
+      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+      border: none;
+      border-radius: 8px;
+      color: var(--bg-primary);
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-create:hover { opacity: 0.9; }
+    .btn-create:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .story-output {
+      min-height: 400px;
+    }
+
+    .story-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+
+    .story-placeholder .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+
+    .story-content {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      line-height: 2;
+      white-space: pre-wrap;
+      text-indent: 2em;
+    }
+
+    .story-meta {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-tag {
+      padding: 0.3rem 0.8rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .consistency-panel {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .consistency-score {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .score-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .score-high { background: rgba(110, 201, 169, 0.2); color: var(--success); }
+    .score-mid { background: rgba(201, 169, 110, 0.2); color: var(--warning); }
+    .score-low { background: rgba(201, 110, 110, 0.2); color: var(--error); }
+
+    .issue-item {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .issue-item:last-child { border-bottom: none; }
+
+    .loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      gap: 1rem;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .loading-text {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    .rag-status {
+      padding: 0.6rem 0.8rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .rag-status.active { border-color: var(--accent-dim); color: var(--accent); }
+
+    .canon-panel {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .canon-item {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+    }
+
+    .canon-item:last-child { border-bottom: none; }
+
+    .canon-item .canon-header {
+      color: var(--accent);
+      font-size: 0.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .canon-item .canon-preview {
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .series-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+
+    .series-item {
+      padding: 0.6rem 0.75rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.82rem;
+      transition: border-color 0.2s;
+    }
+
+    .series-item:hover, .series-item.active {
+      border-color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .series-item .series-title {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .series-item .series-meta {
+      color: var(--text-secondary);
+      font-size: 0.72rem;
+    }
+
+    .hint-box {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    .btn-secondary {
+      width: 100%;
+      padding: 0.65rem;
+      margin-top: 0.5rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .continue-panel {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .continue-panel h3 {
+      font-family: var(--font-serif);
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-btn {
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-secondary);
+      border-radius: 6px;
+      font-size: 0.75rem;
+      cursor: pointer;
+    }
+
+    .chapter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>AI 同人文平台</h1>
+    <p>默认接原著结局续写 · 可存档连载 · 记住原著与你的剧情走向</p>
+  </div>
+
+  <div class="container">
+    <div class="panel">
+      <h2>创作设定</h2>
+      <div class="rag-status" id="ragStatus">RAG 索引加载中...</div>
+      <form id="storyForm">
+        <div class="form-group">
+          <label>选择作品</label>
+          <select id="novelSelect" required></select>
+        </div>
+
+        <div class="form-group">
+          <label>已存档后续（点击载入续写）</label>
+          <div class="series-list" id="seriesList">
+            <p class="hint-box">暂无存档</p>
+          </div>
+          <button type="button" class="btn-secondary" id="btnNewSeries">新建后续故事</button>
+        </div>
+
+        <div class="form-group">
+          <label>故事标题</label>
+          <input type="text" id="title" placeholder="例：观音庙之后的某个清晨" required>
+        </div>
+
+        <div class="form-group">
+          <label>参与人物</label>
+          <div class="character-grid" id="characterGrid"></div>
+        </div>
+
+        <div class="form-group">
+          <label>接续起点</label>
+          <input type="text" id="timePeriodDisplay" value="原著结局之后（默认）" disabled>
+          <p class="hint-box" id="endingHint">系统会注入原著结局记忆，只写结局之后的故事。</p>
+        </div>
+
+        <div class="form-group">
+          <label id="scenarioLabel">后续剧情设定</label>
+          <textarea id="scenario" rows="4" placeholder="描述原著结局之后你想续写的剧情走向..." required></textarea>
+          <p class="hint-box" id="directionHint"></p>
+        </div>
+
+        <div class="form-group">
+          <label>故事基调</label>
+          <select id="tone">
+            <option value="warm">温暖治愈</option>
+            <option value="tragic">悲情深沉</option>
+            <option value="humorous">轻松幽默</option>
+            <option value="tense">紧张悬疑</option>
+            <option value="romantic">浪漫细腻</option>
+            <option value="reflective">沉思回味</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>叙事视角</label>
+          <input type="text" id="perspective" placeholder="例：魏无羡第一人称（可选）">
+        </div>
+
+        <div class="form-group">
+          <label>篇幅</label>
+          <select id="length">
+            <option value="short">短篇（800-1500字）</option>
+            <option value="medium" selected>中篇（1500-3000字）</option>
+            <option value="long">长篇（3000-5000字）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>额外要求（可选）</label>
+          <textarea id="notes" rows="2" placeholder="其他创作要求..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-create" id="btnCreate">开始续写后续</button>
+      </form>
+    </div>
+
+    <div class="panel story-output" id="storyOutput">
+      <div class="story-placeholder">
+        <div class="icon">📜</div>
+        <p>选择人物，设定后续剧情，开始续写</p>
+        <p style="font-size:0.8rem;margin-top:0.5rem;">只写后续，不补原著中间篇章 · 人物绝不 OOC</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API_BASE = 'http://localhost:8000/api';
+    let characters = [];
+    let novels = [];
+    let currentNovelId = '';
+    let currentSeriesId = '';
+    let currentSeries = null;
+
+    const NOVEL_UI = {
+      modaozuoshi: {
+        titlePlaceholder: '例：观音庙之后的某个清晨',
+        perspectivePlaceholder: '例：魏无羡第一人称（可选）',
+        scenarioPlaceholder: '描述原著结局之后，你想推进的剧情走向...',
+      },
+      shiyongzhuyizhe: {
+        titlePlaceholder: '例：成名之后的一个冬天',
+        perspectivePlaceholder: '例：费霓第一人称（可选）',
+        scenarioPlaceholder: '描述原著结局之后，你想推进的剧情走向...',
+      },
+    };
+
+    function getNovelUi(novelId) {
+      return NOVEL_UI[novelId] || {
+        titlePlaceholder: '输入后续故事标题',
+        perspectivePlaceholder: '叙事视角（可选）',
+        scenarioPlaceholder: '描述原著结局之后你想续写的剧情...',
+      };
+    }
+
+    function applyNovelUi(novelId) {
+      const ui = getNovelUi(novelId);
+      document.getElementById('title').placeholder = ui.titlePlaceholder;
+      document.getElementById('perspective').placeholder = ui.perspectivePlaceholder;
+      document.getElementById('scenario').placeholder = ui.scenarioPlaceholder;
+      const novel = novels.find(n => n.id === novelId);
+      const hint = document.getElementById('endingHint');
+      if (novel && novel.ending_summary) {
+        hint.textContent = `原著结局记忆：${novel.ending_summary.slice(0, 120)}…`;
+      } else {
+        hint.textContent = '系统会注入原著结局记忆，只写结局之后的故事。';
+      }
+    }
+
+    function updateModeUi() {
+      const btn = document.getElementById('btnCreate');
+      const label = document.getElementById('scenarioLabel');
+      const dir = document.getElementById('directionHint');
+      if (currentSeriesId && currentSeries) {
+        btn.textContent = `续写第 ${(currentSeries.chapters?.length || 0) + 1} 章`;
+        label.textContent = '下一章剧情走向';
+        dir.textContent = currentSeries.plot_direction
+          ? `当前走向：${currentSeries.plot_direction}`
+          : `已载入「${currentSeries.title}」，将承接前文继续写`;
+        document.getElementById('title').value = `${currentSeries.title} · 第${(currentSeries.chapters?.length || 0) + 1}章`;
+      } else {
+        btn.textContent = '开始续写后续（自动存档）';
+        label.textContent = '后续剧情设定';
+        dir.textContent = '';
+      }
+    }
+
+    async function loadNovels() {
+      const select = document.getElementById('novelSelect');
+      try {
+        const res = await fetch(`${API_BASE}/novels`);
+        if (!res.ok) throw new Error('加载作品失败');
+        novels = await res.json();
+        if (!novels.length) {
+          select.innerHTML = '<option value="">无可用作品</option>';
+          return;
+        }
+        select.innerHTML = novels.map(n =>
+          `<option value="${n.id}">${n.title}</option>`
+        ).join('');
+        currentNovelId = novels[0].id;
+        applyNovelUi(currentNovelId);
+        await Promise.all([loadRagStatus(), loadCharacters(), loadSeriesList()]);
+      } catch {
+        select.innerHTML = '<option value="">后端未连接</option>';
+        document.getElementById('ragStatus').textContent = 'RAG 状态未知（后端未连接）';
+      }
+    }
+
+    async function onNovelChange() {
+      currentNovelId = document.getElementById('novelSelect').value;
+      clearSeriesSelection();
+      applyNovelUi(currentNovelId);
+      await Promise.all([loadRagStatus(), loadCharacters(), loadSeriesList()]);
+    }
+
+    async function loadRagStatus() {
+      if (!currentNovelId) return;
+      try {
+        const res = await fetch(`${API_BASE}/rag/status?novel_id=${encodeURIComponent(currentNovelId)}`);
+        const status = await res.json();
+        const el = document.getElementById('ragStatus');
+        const emb = status.embedding_mode === 'api'
+          ? `${status.embedding_provider}: ${status.embedding_model} (API)`
+          : `${status.embedding_provider || 'local_bge'}: ${status.embedding_model} (免费本地)`;
+
+        if (status.enabled && status.total_chunks > 0) {
+          el.className = 'rag-status active';
+          el.textContent = `《${status.novel_title}》RAG 已就绪 · ${status.total_chunks} 片段 · ${emb}`;
+        } else if (status.text_files.length === 0) {
+          el.className = 'rag-status';
+          el.textContent = `《${status.novel_title}》待入库 · 运行 setup_rag.py --novel ${currentNovelId}`;
+        } else if (status.enabled) {
+          el.textContent = `《${status.novel_title}》RAG 待入库 · ${status.text_files.length} 个文件 · ${emb}`;
+        } else {
+          el.textContent = 'RAG 未启用';
+        }
+        if (status.hint) el.title = status.hint;
+      } catch {
+        document.getElementById('ragStatus').textContent = 'RAG 状态未知（后端未连接）';
+      }
+    }
+
+    async function loadCharacters() {
+      const grid = document.getElementById('characterGrid');
+      if (!currentNovelId) return;
+      try {
+        const res = await fetch(`${API_BASE}/characters?novel_id=${encodeURIComponent(currentNovelId)}`);
+        if (!res.ok) throw new Error('加载人物失败');
+        characters = await res.json();
+        if (!characters.length) {
+          grid.innerHTML = '<p style="color:var(--text-secondary);font-size:0.85rem;">未找到人物档案</p>';
+          return;
+        }
+        renderCharacterChips(characters.map(c => c.id));
+      } catch {
+        grid.innerHTML = '<p style="color:#c96e6e;font-size:0.85rem;">无法加载人物，请先启动后端</p>';
+      }
+    }
+
+    function renderCharacterChips(selectedIds) {
+      const selected = new Set(selectedIds || []);
+      const grid = document.getElementById('characterGrid');
+      grid.innerHTML = characters.map(c => `
+        <div class="character-chip ${selected.has(c.id) ? 'selected' : ''}" data-id="${c.id}" role="button" tabindex="0">
+          <input type="checkbox" name="characters" value="${c.id}" ${selected.has(c.id) ? 'checked' : ''} tabindex="-1">
+          <div>
+            <div>${c.name}</div>
+            <div class="role">${c.role}</div>
+          </div>
+        </div>
+      `).join('');
+
+      grid.querySelectorAll('.character-chip').forEach(chip => {
+        const input = chip.querySelector('input');
+        const toggle = () => {
+          if (currentSeriesId) return;
+          const on = !input.checked;
+          input.checked = on;
+          chip.classList.toggle('selected', on);
+        };
+        chip.addEventListener('click', (e) => {
+          e.preventDefault();
+          toggle();
+        });
+      });
+    }
+
+    async function loadSeriesList() {
+      const list = document.getElementById('seriesList');
+      if (!currentNovelId) return;
+      try {
+        const res = await fetch(`${API_BASE}/stories?novel_id=${encodeURIComponent(currentNovelId)}`);
+        if (!res.ok) throw new Error('加载存档失败');
+        const items = await res.json();
+        if (!items.length) {
+          list.innerHTML = '<p class="hint-box">暂无存档，创作后会自动保存</p>';
+          return;
+        }
+        list.innerHTML = items.map(s => `
+          <div class="series-item ${s.id === currentSeriesId ? 'active' : ''}" data-id="${s.id}">
+            <div class="series-title">${s.title}</div>
+            <div class="series-meta">
+              ${s.chapter_count} 章 · ${(s.character_names || []).join('、') || '—'}
+              ${s.last_summary ? `<br>${s.last_summary.slice(0, 48)}…` : ''}
+            </div>
+          </div>
+        `).join('');
+        list.querySelectorAll('.series-item').forEach(el => {
+          el.addEventListener('click', () => loadSeries(el.dataset.id));
+        });
+      } catch {
+        list.innerHTML = '<p class="hint-box">无法加载存档</p>';
+      }
+    }
+
+    async function loadSeries(seriesId) {
+      const res = await fetch(`${API_BASE}/stories/${seriesId}`);
+      if (!res.ok) {
+        alert('载入存档失败');
+        return;
+      }
+      currentSeries = await res.json();
+      currentSeriesId = currentSeries.id;
+      document.getElementById('title').value = currentSeries.title;
+      document.getElementById('tone').value = currentSeries.tone || 'warm';
+      document.getElementById('perspective').value = currentSeries.perspective || '';
+      document.getElementById('length').value = currentSeries.length || 'medium';
+      document.getElementById('scenario').value = '';
+      renderCharacterChips(currentSeries.characters || []);
+      updateModeUi();
+      await loadSeriesList();
+      renderSeriesReader(currentSeries, currentSeries.chapters.length);
+    }
+
+    function clearSeriesSelection() {
+      currentSeriesId = '';
+      currentSeries = null;
+      document.getElementById('scenario').value = '';
+      document.getElementById('title').value = '';
+      document.getElementById('notes').value = '';
+      updateModeUi();
+      if (characters.length) renderCharacterChips([]);
+    }
+
+    function renderSeriesReader(series, focusIndex) {
+      const chapters = series.chapters || [];
+      if (!chapters.length) return;
+      const idx = Math.min(Math.max(focusIndex || chapters.length, 1), chapters.length);
+      const ch = chapters[idx - 1];
+      const nav = chapters.map(c =>
+        `<button type="button" class="chapter-btn ${c.index === idx ? 'active' : ''}" data-i="${c.index}">第${c.index}章</button>`
+      ).join('');
+
+      document.getElementById('storyOutput').innerHTML = `
+        <h2 style="font-family:var(--font-serif);color:var(--accent);margin-bottom:0.35rem;">${series.title}</h2>
+        <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.8rem;">
+          《${series.novel_title}》 · 已存档 · 共 ${chapters.length} 章
+        </div>
+        ${series.plot_direction ? `<div class="hint-box" style="margin-bottom:0.8rem;">剧情走向：${series.plot_direction}</div>` : ''}
+        <div class="chapter-nav">${nav}</div>
+        <div class="story-meta">
+          ${(series.character_names || []).map(c => `<span class="meta-tag">${c}</span>`).join('')}
+          <span class="meta-tag">第${ch.index}章</span>
+        </div>
+        <div class="story-content">${ch.content}</div>
+        ${ch.summary ? `<div class="hint-box" style="margin-top:1rem;">本章摘要：${ch.summary}</div>` : ''}
+        <div class="continue-panel">
+          <h3>按当前走向继续写下一章</h3>
+          <textarea id="continueScenario" rows="3" placeholder="写下你想让下一章发生的事 / 剧情走向..."></textarea>
+          <button type="button" class="btn-create" id="btnContinueInline" style="margin-top:0.75rem;">续写第 ${chapters.length + 1} 章</button>
+        </div>
+      `;
+
+      document.querySelectorAll('.chapter-btn').forEach(btn => {
+        btn.addEventListener('click', () => renderSeriesReader(series, Number(btn.dataset.i)));
+      });
+      document.getElementById('btnContinueInline').addEventListener('click', async () => {
+        const scenario = document.getElementById('continueScenario').value.trim();
+        if (!scenario) {
+          alert('请填写下一章剧情走向');
+          return;
+        }
+        document.getElementById('scenario').value = scenario;
+        await submitStory(true);
+      });
+    }
+
+    async function submitStory(fromContinuePanel) {
+      const btn = document.getElementById('btnCreate');
+      const output = document.getElementById('storyOutput');
+      const selected = [...document.querySelectorAll('input[name=characters]:checked')].map(el => el.value);
+
+      if (!currentSeriesId && selected.length === 0) {
+        alert('请至少选择一个人物');
+        return;
+      }
+
+      const scenario = document.getElementById('scenario').value.trim();
+      if (!scenario) {
+        alert('请填写剧情设定');
+        return;
+      }
+
+      btn.disabled = true;
+      output.innerHTML = `
+        <div class="loading">
+          <div class="spinner"></div>
+          <div class="loading-text">${currentSeriesId ? '正在承接前文并续写…' : '正在结合原著结局记忆创作并自动存档…'}</div>
+        </div>
+      `;
+
+      try {
+        let res;
+        if (currentSeriesId) {
+          res = await fetch(`${API_BASE}/stories/${currentSeriesId}/continue`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              scenario,
+              title: document.getElementById('title').value,
+              additional_notes: document.getElementById('notes').value,
+              length: document.getElementById('length').value,
+            }),
+          });
+        } else {
+          res = await fetch(`${API_BASE}/stories/create`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              novel_id: currentNovelId,
+              title: document.getElementById('title').value,
+              characters: selected,
+              scenario,
+              tone: document.getElementById('tone').value,
+              perspective: document.getElementById('perspective').value,
+              length: document.getElementById('length').value,
+              additional_notes: document.getElementById('notes').value,
+              auto_save: true,
+            }),
+          });
+        }
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.detail || '创作失败');
+        }
+
+        const data = await res.json();
+        if (data.series_id) {
+          currentSeriesId = data.series_id;
+          const seriesRes = await fetch(`${API_BASE}/stories/${data.series_id}`);
+          if (seriesRes.ok) {
+            currentSeries = await seriesRes.json();
+            renderCharacterChips(currentSeries.characters || []);
+          }
+          renderStoryResult(data);
+          updateModeUi();
+          await loadSeriesList();
+        } else {
+          renderStoryResult(data);
+        }
+        document.getElementById('scenario').value = '';
+        updateModeUi();
+      } catch (err) {
+        output.innerHTML = `
+          <div class="story-placeholder">
+            <div class="icon">⚠️</div>
+            <p>创作失败：${err.message}</p>
+          </div>
+        `;
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('storyForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitStory(false);
+    });
+
+    document.getElementById('btnNewSeries').addEventListener('click', () => {
+      clearSeriesSelection();
+      loadSeriesList();
+      document.getElementById('storyOutput').innerHTML = `
+        <div class="story-placeholder">
+          <div class="icon">📜</div>
+          <p>新建后续故事：默认接原著结局</p>
+          <p style="font-size:0.8rem;margin-top:0.5rem;">写完会自动存档，可继续按走向续写</p>
+        </div>
+      `;
+    });
+
+    function renderStoryResult(data) {
+      const report = data.consistency_report;
+      const scoreClass = report.score >= 80 ? 'score-high' : report.score >= 60 ? 'score-mid' : 'score-low';
+
+      let issuesHtml = '';
+      if (report.issues && report.issues.length > 0) {
+        issuesHtml = report.issues.map(i => `
+          <div class="issue-item">
+            <strong>${i.character}</strong> [${i.issue_type}]
+            ${i.description}
+            ${i.suggestion ? `<br><em>建议：${i.suggestion}</em>` : ''}
+          </div>
+        `).join('');
+      }
+
+      let canonHtml = '';
+      if (data.canon_references && data.canon_references.length > 0) {
+        canonHtml = `
+          <div class="canon-panel">
+            <div style="font-weight:600;margin-bottom:0.8rem;color:var(--accent);">
+              原著参考片段（${data.canon_references.length} 条）
+            </div>
+            ${data.canon_references.map((c, i) => `
+              <div class="canon-item">
+                <div class="canon-header">
+                  片段${i + 1} · ${c.chapter || ''} ${c.chapter_title || ''} · 相关度 ${(c.score * 100).toFixed(0)}%
+                </div>
+                <div class="canon-preview">${c.preview}</div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      }
+
+      const continueHtml = data.series_id ? `
+        <div class="continue-panel">
+          <h3>${data.saved ? '已自动存档' : '本章完成'} · 第${data.chapter_index}章</h3>
+          ${data.plot_direction ? `<p class="hint-box" style="margin-bottom:0.6rem;">剧情走向：${data.plot_direction}</p>` : ''}
+          ${data.chapter_summary ? `<p class="hint-box" style="margin-bottom:0.6rem;">本章摘要：${data.chapter_summary}</p>` : ''}
+          <textarea id="continueScenario" rows="3" placeholder="写下你想让下一章发生的事..."></textarea>
+          <button type="button" class="btn-create" id="btnContinueInline" style="margin-top:0.75rem;">继续写第 ${(data.chapter_index || 1) + 1} 章</button>
+        </div>
+      ` : '';
+
+      document.getElementById('storyOutput').innerHTML = `
+        <h2 style="font-family:var(--font-serif);color:var(--accent);margin-bottom:0.5rem;">${data.title}</h2>
+        ${data.novel_title ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1rem;">《${data.novel_title}》 · 原著结局之后</div>` : ''}
+        <div class="story-meta">
+          ${data.characters_used.map(c => `<span class="meta-tag">${c}</span>`).join('')}
+          ${data.chapter_index ? `<span class="meta-tag">第${data.chapter_index}章</span>` : ''}
+          ${data.saved ? `<span class="meta-tag">已存档</span>` : ''}
+          ${data.generation_metadata?.canon_chunks_used ? `<span class="meta-tag">RAG × ${data.generation_metadata.canon_chunks_used}</span>` : ''}
+        </div>
+        <div class="story-content">${data.content}</div>
+        ${canonHtml}
+        <div class="consistency-panel">
+          <div class="consistency-score">
+            <div class="score-circle ${scoreClass}">${Math.round(report.score)}</div>
+            <div>
+              <div style="font-weight:600;">人物一致性 ${report.passed ? '✓ 通过' : '⚠ 需关注'}</div>
+              <div style="font-size:0.85rem;color:var(--text-secondary);">${report.summary || ''}</div>
+            </div>
+          </div>
+          ${issuesHtml}
+        </div>
+        ${continueHtml}
+      `;
+
+      const contBtn = document.getElementById('btnContinueInline');
+      if (contBtn) {
+        contBtn.addEventListener('click', async () => {
+          const scenario = document.getElementById('continueScenario').value.trim();
+          if (!scenario) {
+            alert('请填写下一章剧情走向');
+            return;
+          }
+          document.getElementById('scenario').value = scenario;
+          await submitStory(true);
+        });
+      }
+    }
+
+    document.getElementById('novelSelect').addEventListener('change', onNovelChange);
+    loadNovels();
+  </script>
+</body>
+</html>
