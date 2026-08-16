@@ -1,0 +1,79 @@
+id: novel_7733cf2a3a_ha_bo_de
+name: 哈伯德
+aliases: []
+source: 06.《小蘑菇》作者：一十四洲（附带番外）
+role: 重要配角
+core_essence: 重情重义、沉默寡言、能力出众的佣兵队长
+core_values:
+- 忠诚、责任、珍视情谊
+inner_conflict: 对逝去副队的深切怀念与无法言说的遗憾
+background: AR137佣兵队的队长，佣兵中最厉害的人物之一，危险等级五星的地方带队去像玩一样。与副队从小一起长大，成年后一起当佣兵，二十几年过命的交情。副队死后，他花大半身家向肖老板定制人偶，寄托哀思。
+life_experiences:
+- 与副队一起长大并成为佣兵；副队在一次野外任务中死亡，尸体无存；三个月后找肖老板定制人偶；曾帮肖老板获取审判者陆沨的信息；在基地召回佣兵时从深渊外围回归；在北方基地求援时自愿前往。
+character_arcs:
+- period: 副队死亡前
+  state: 与副队并肩作战，默契无间
+  trigger: 副队死亡
+  change: 陷入悲痛，定制人偶以寄托思念
+- period: 副队死亡后
+  state: 沉默寡言，内心沉重
+  trigger: 定制人偶
+  change: 通过人偶维持与副队的联系，但内心仍无法释怀
+- period: 基地危机时
+  state: 作为佣兵队长响应召回
+  trigger: 基地召回
+  change: 回归基地，并自愿前往北方基地支援
+relationships:
+- target: 副队（未具名）
+  type: complex
+  attitude: 深厚情谊，怀念与遗憾
+  dynamic: 副队死后，哈伯德定制人偶，并说“有些话没来得及说”
+  key_events:
+  - 副队死亡；定制人偶；抱人偶时手指泛白
+  speech_toward: 有些话没来得及说。
+- target: 肖老板
+  type: neutral
+  attitude: 交易关系，互相利用
+  dynamic: 哈伯德向肖老板定制人偶，并帮肖老板获取数据作为交换
+  key_events:
+  - 定制人偶；提供陆沨照片；肖老板请求帮忙获取数据
+  speech_toward: 肖·斯科特从来不做赔本生意。
+- target: 安折
+  type: neutral
+  attitude: 陌生但提供帮助
+  dynamic: 安折询问弹壳来源，哈伯德告知是军方的东西
+  key_events:
+  - 在肖老板处相遇；识别弹壳
+  speech_toward: 军方的东西。
+- target: 陆沨
+  type: neutral
+  attitude: 间接关联，提供信息
+  dynamic: 哈伯德帮肖老板获取陆沨的照片，用于制作人偶
+  key_events:
+  - 提供陆沨照片
+  speech_toward: 无直接对话
+personality_traits:
+- 沉默寡言
+- 重情重义
+- 冷静果断
+- 内心深沉
+preferences:
+- likes：未知
+- dislikes：未知
+speech_patterns:
+- 话少，回答简短，如“谢谢”、“没有”、“标本”等
+behavior_patterns:
+- 动作沉稳，在触碰人偶时犹豫颤抖，抱人偶时手指泛白
+taboos:
+- 可能不愿提及副队死亡细节
+canon_facts:
+- AR137佣兵队的队长
+- 佣兵中最厉害的人之一
+- 副队死亡后定制人偶
+- 帮肖老板获取陆沨信息
+- 从深渊外围回归
+- 自愿前往北方基地
+appearance: 穿黑衣，身材高挑修长，五官利落好看，灯光下反射薄薄白色微光，带凛冽意味。
+abilities:
+- 顶尖佣兵能力，可执行六星级任务，熟悉深渊，能识别军用物资
+profile_depth: deep

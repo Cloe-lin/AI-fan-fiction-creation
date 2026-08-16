@@ -1,0 +1,45 @@
+id: novel_969dee7e83_2_yang_shu
+name: 杨舒
+aliases: []
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 配角
+core_essence: 杨舒是冷静干练、观察敏锐的考生，说话直接，看似盛气凌人实则细心可靠。她随身带药，能快速判断他人状况，在危机中保持镇定并有效行动。
+core_values: []
+inner_conflict: ''
+background: 杨舒是《全球高考》中的考生，与游惑等人同组参与考试。她曾与部队项目打过交道，具备一定的医疗知识，但并非专业医生。在古堡任务中，她以敏锐的观察和果断的行动帮助队友，展现出独立强势的性格。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 周祺
+  type: neutral
+  attitude: 关心但保持距离
+  dynamic: 在周祺生病时主动提供帮助，但态度不冷不热。
+  key_events: []
+  speech_toward: ''
+- target: 赵嘉彤
+  type: neutral
+  attitude: 互相认可
+  dynamic: 在战斗中配合默契，互相欣赏对方的能力。
+  key_events: []
+  speech_toward: ''
+- target: 游惑
+  type: neutral
+  attitude: 尊重
+  dynamic: 认可游惑的能力，在团队中保持合作。
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 冷静
+- 敏锐
+- 直接
+- 独立
+- 强势
+- 细心
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

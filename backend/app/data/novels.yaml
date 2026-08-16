@@ -1,39 +1,141 @@
 novels:
-  - id: modaozuoshi
-    title: 魔道祖师
-    collection: modaozuoshi
-    text_subdir: modaozuoshi/text
-    source_file: modaozuoshi.txt
-    novel_source: ../魔道祖师全文+番外by墨香铜臭（未修改版）.txt
-    source_encoding: utf-8
-    default_after_ending: true
-    ending_summary: >
-      原著主线至观音庙真相大白后收束：金光瑶败亡，魏无羡与蓝忘机结为道侣，
-      云游天下；江澄与魏无羡的恩怨并未彻底和解，但杀意暂歇；温宁仍追随魏无羡；
-      蓝曦臣因金光瑶之事心神受创。后续创作默认接在此结局之后，写人物后来的生活与新事件，
-      不得回写或补写观音庙之前的中间篇章。
-    ending_state:
-      - 魏无羡与蓝忘机已确认感情，常云游或居于云深不知处
-      - 江澄仍掌云梦江氏，对魏无羡态度复杂
-      - 温宁可自由行动，忠于魏无羡
-      - 蓝曦臣需要时间疗伤，对世事更谨慎
-      - 仙门格局因金光瑶事有所震动，但日常秩序仍在
+- id: modaozuoshi
+  title: 魔道祖师
+  collection: modaozuoshi
+  text_subdir: modaozuoshi/text
+  source_file: modaozuoshi.txt
+  novel_source: ../魔道祖师全文+番外by墨香铜臭（未修改版）.txt
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: '原著主线至观音庙真相大白后收束：金光瑶败亡，魏无羡与蓝忘机结为道侣， 云游天下；江澄与魏无羡的恩怨并未彻底和解，但杀意暂歇；温宁仍追随魏无羡；
+    蓝曦臣因金光瑶之事心神受创。后续创作默认接在此结局之后，写人物后来的生活与新事件， 不得回写或补写观音庙之前的中间篇章。
 
-  - id: shiyongzhuyizhe
-    title: 实用主义者的爱情
-    collection: shiyongzhuyizhe
-    text_subdir: shiyongzhuyizhe/text
-    source_file: shiyongzhuyizhe.txt
-    novel_source: ../《实用主义者的爱情》（精校版全本+番外完）作者：孟中得意.txt
-    source_encoding: gbk
-    default_after_ending: true
-    ending_summary: >
-      原著写到费霓与方穆扬假戏真做、共同走过清苦年代，方穆扬学画成名，父母待遇恢复，
-      二人过上更安稳的生活；方穆静与瞿桦的婚姻线亦有发展。后续创作默认接在正篇结局之后，
-      写人物成名/安稳生活之后的新故事，不得回写住院分房等中间篇章的补白。
-    ending_state:
-      - 费霓与方穆扬已真心相爱，共同生活
-      - 方穆扬画作成名，生活条件改善
-      - 费霓仍务实，但更愿为感情投入
-      - 方穆静嫁给瞿桦，姐弟各有家庭
-      - 时代进入改革开放前后的新阶段
+    '
+  ending_state:
+  - 魏无羡与蓝忘机已确认感情，常云游或居于云深不知处
+  - 江澄仍掌云梦江氏，对魏无羡态度复杂
+  - 温宁可自由行动，忠于魏无羡
+  - 蓝曦臣需要时间疗伤，对世事更谨慎
+  - 仙门格局因金光瑶事有所震动，但日常秩序仍在
+  visibility: public
+  owner_id: ''
+- id: shiyongzhuyizhe
+  title: 实用主义者的爱情
+  collection: shiyongzhuyizhe
+  text_subdir: shiyongzhuyizhe/text
+  source_file: shiyongzhuyizhe.txt
+  novel_source: ../《实用主义者的爱情》（精校版全本+番外完）作者：孟中得意.txt
+  source_encoding: gbk
+  default_after_ending: true
+  ending_summary: '原著写到费霓与方穆扬假戏真做、共同走过清苦年代，方穆扬学画成名，父母待遇恢复， 二人过上更安稳的生活；方穆静与瞿桦的婚姻线亦有发展。后续创作默认接在正篇结局之后，
+    写人物成名/安稳生活之后的新故事，不得回写住院分房等中间篇章的补白。
+
+    '
+  ending_state:
+  - 费霓与方穆扬已真心相爱，共同生活
+  - 方穆扬画作成名，生活条件改善
+  - 费霓仍务实，但更愿为感情投入
+  - 方穆静嫁给瞿桦，姐弟各有家庭
+  - 时代进入改革开放前后的新阶段
+  visibility: public
+  owner_id: ''
+- id: novel_29c21d6918_4
+  title: 01.《我行让我来》作者：酱子贝（附带番外）
+  collection: novel_29c21d6918_4
+  text_subdir: novel_29c21d6918_4/text
+  source_file: novel_29c21d6918_4.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 在番外结局中，庄亦白与Pine确认了恋爱关系，Pine放弃转会留在TTC，两人在基地公开了恋情。TTC战队成员关系更加紧密，丁哥因队员接连恋爱而调侃辞职，故事在轻松幽默的氛围中收束。
+  ending_state:
+  - 庄亦白与Pine正式确立恋爱关系，Pine留在TTC，两人继续作为下路搭档。
+  - 简茸与路柏沅恋情稳定，路柏沅复诊后归队。
+  - 袁谦计划求婚，战队氛围融洽。
+  - 丁哥因队员恋爱事件调侃要辞职，但实际仍继续担任经理。
+  - TTC战队全员续约，备战德玛西亚杯。
+  visibility: public
+  owner_id: ''
+- id: novel_e5a7519d37
+  title: 《逆袭》作者：柴鸡蛋
+  collection: novel_e5a7519d37
+  text_subdir: novel_e5a7519d37/text
+  source_file: novel_e5a7519d37.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 故事在众人的欢聚与温情中落幕。吴所畏与池骋历经波折后感情更加深厚，吴所畏事业有成，两人在朋友们的见证下甜蜜互动，最终以一首《稳稳的幸福》和额头一吻定格幸福。其他几对情侣也各有归宿，汪朕与汪顾虽未明说，但关系微妙。番外以感谢宴和欢歌热舞收尾，众人各得其所，生活归于平静而温馨。
+  ending_state:
+  - 吴所畏与池骋感情稳固，吴所畏事业成功，两人甜蜜互动，吴所畏终于实现‘攻下总攻’的愿望。
+  - 姜小帅与郭城宇关系亲密，日常打闹，生活和谐。
+  - 汪朕与汪顾关系暧昧，汪顾依赖汪朕，汪朕对汪顾有柔情。
+  - 岳悦未在结尾出现，但此前已与吴所畏和解，各自安好。
+  - 众人齐聚庆祝，友情与爱情双丰收，故事在温馨氛围中结束。
+  visibility: public
+  owner_id: ''
+- id: novel_393bcad068
+  title: 02.《某某》作者：木苏里（附带番外）
+  collection: novel_393bcad068
+  text_subdir: novel_393bcad068/text
+  source_file: novel_393bcad068.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 故事在多年后的异国与日常中收束。盛望与江添历经分离与重逢，最终定居北京，与少年时代的朋友们保持着亲密联系。他们共同经历了搬家、旅行、朋友结婚等生活片段，江添逐渐将照顾盛望变成日常习惯，而盛望也重新找回了少年时的活泼与骄矜。结尾以丁老头的老房子和夏天的蝉鸣作结，暗示时间流逝但情谊长存，他们来日方长。
+  ending_state:
+  - 盛望与江添正式定居北京，生活稳定，感情深厚。
+  - 盛望与江添与高天扬、徐小嘴等旧友保持往来，友情长存。
+  - 盛望与江添与家人（盛明阳、江鸥、丁老头）关系和睦，时常探望。
+  - 盛望与江添各自事业有成，生活步入正轨。
+  - 盛望与江添的恋情修成正果，戒指内圈刻有‘太阳，和一生的爱人’，象征永恒。
+  visibility: public
+  owner_id: ''
+- id: novel_969dee7e83
+  title: 05.《全球高考》作者：木苏里（附带番外）
+  collection: novel_969dee7e83
+  text_subdir: novel_969dee7e83/text
+  source_file: novel_969dee7e83.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 在猎人小屋里，众人围炉夜话，等待可能归来的154。窗外风雪中，一个清瘦人影推门而入，正是154，他抖落伞上的雪，说‘抱歉，我来晚了’。故事在此收束，所有重要人物重聚，暗示着新的开始与圆满。
+  ending_state:
+  - 游惑与秦究在猎人小屋中重聚，关系亲密，共同等待154。
+  - 154在风雪中归来，与众人重逢。
+  - 楚月、922、高齐等人在小屋中团聚，氛围温暖。
+  - 系统残留问题得到解决，众人生活回归平静。
+  - 游惑与秦究的感情稳定，彼此信任。
+  visibility: private
+  owner_id: ''
+- id: novel_7733cf2a3a
+  title: 06.《小蘑菇》作者：一十四洲（附带番外）
+  collection: novel_7733cf2a3a
+  text_subdir: novel_7733cf2a3a/text
+  source_file: novel_7733cf2a3a.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 在深渊的第四次旅程中，安折与陆沨的关系更加亲密，两人在装甲车内温馨互动，安折撒娇抱怨陆沨的“凶”，陆沨则温柔回应。与此同时，哈伯德在战斗中英勇牺牲，唐岚为救他而坠落悬崖，两人在朝阳中相拥，展现了英雄主义的光辉。最终，安折与陆沨在回忆与亲吻中确认了彼此的爱意，故事在温馨与感伤中收束。
+  ending_state:
+  - 安折与陆沨感情稳定，彼此深爱，日常互动温馨甜蜜。
+  - 哈伯德在战斗中牺牲，唐岚为救他而坠落，两人生死相依。
+  - 纪博士仍在研究所工作，与陆沨保持损友关系。
+  - 波利·琼、哈伯德、唐岚等角色各有归宿，世界逐渐恢复和平。
+  visibility: private
+  owner_id: 261b853dcd29439c89f48bf627ef6270
+- id: novel_969dee7e83_2
+  title: 05.《全球高考》作者：木苏里（附带番外）
+  collection: novel_969dee7e83_2
+  text_subdir: novel_969dee7e83_2/text
+  source_file: novel_969dee7e83_2.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 众人齐聚猎人小屋，等待系统残留碎片154的踪迹，最终在风雪中，154以人形现身，推门而入，故事在重逢的温暖中落幕。
+  ending_state:
+  - 游惑与秦究在猎人小屋中回忆过往，等待154的归来。
+  - 楚月、922、高齐等人在小屋中围炉取暖，共同期待154的出现。
+  - 154在风雪中跋涉而来，推门而入，与众人重逢。
+  - 系统残留的碎片154以人形回归，故事在温馨的氛围中结束。
+  visibility: private
+  owner_id: user01

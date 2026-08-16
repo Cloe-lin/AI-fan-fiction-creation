@@ -5,7 +5,11 @@ pydantic-settings==2.7.0
 openai==1.58.1
 httpx==0.28.1
 python-dotenv==1.0.1
+python-multipart==0.0.20
 pyyaml==6.0.2
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+PyJWT==2.10.1
 chromadb==0.5.23
 tiktoken==0.8.0
 fastembed==0.5.1

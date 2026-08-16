@@ -1,0 +1,70 @@
+id: novel_29c21d6918_4_ding_ge
+name: 丁哥
+aliases: []
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 配角
+core_essence: TTC战队的经理，负责队员的日常管理、公关处理、合同谈判等事务，是路柏沅信任的得力助手。
+core_values:
+- 团队利益至上
+- 务实
+- 谨慎
+inner_conflict: 在维护战队形象和尊重队员个人意愿之间时常感到为难，例如在路柏沅直播事件中既担心舆论影响又理解其行为。
+background: TTC战队的经理，长期负责战队运营和队员管理，与路柏沅关系密切，了解队员们的性格和状态。
+life_experiences:
+- 处理路柏沅误入Soft直播间引发的舆论风波
+- 与平台沟通直播合作事宜
+- 参与新中单选手的招募评估
+character_arcs:
+- period: 路柏沅误入Soft直播间事件
+  state: 担忧舆论影响
+  trigger: 路柏沅在Soft直播间被认出
+  change: 从紧张到无奈，最终接受路柏沅的处理方式
+- period: 新中单招募评估
+  state: 谨慎评估Soft
+  trigger: 路柏沅推荐Soft
+  change: 从质疑到认可其天赋，但仍担心其经验不足
+relationships:
+- target: 路柏沅
+  type: complex
+  attitude: 信任且关心，但有时对其任性行为感到无奈
+  dynamic: 上下级兼朋友，丁哥常为路柏沅处理琐事，路柏沅也尊重丁哥意见
+  key_events:
+  - 处理直播事件、讨论新中单人选
+  speech_toward: “我都让你平时别登大号，你这段时间又不需要开直播……这是重点吗！！”
+- target: Soft
+  type: neutral
+  attitude: 客观评价，认可其天赋但担心其性格
+  dynamic: 作为潜在招募对象，丁哥关注其表现并参与评估
+  key_events:
+  - 在会议室与路柏沅讨论Soft的能力和缺点
+  speech_toward: “Soft是打得不错，反应很快，操作比我们今年新找的青训生都好。”
+- target: 小白
+  type: friend
+  attitude: 日常调侃，管理其行为
+  dynamic: 作为战队经理，对小白较为随意，常以玩笑方式沟通
+  key_events:
+  - 在基地聚餐时调侃小白
+  speech_toward: “你和战队合同还有两年，由不得你。”
+personality_traits:
+- mbti：ESTJ
+- big_five：openness：40；conscientiousness：80；extraversion：60；agreeableness：50；neuroticism：40
+- tags：务实；谨慎；负责；幽默；直率
+preferences:
+- likes：高效的工作；队员的稳定；可控的局面
+- dislikes：突发状况；队员任性；舆论失控
+speech_patterns:
+- 语气直接，常用感叹号表达情绪，说话带点无奈和调侃。
+behavior_patterns:
+- 习惯性为队员处理麻烦，注重团队形象，在决策时考虑周全。
+taboos:
+- 不尊重队员
+- 泄露战队机密
+canon_facts:
+- TTC战队经理
+- 负责与直播平台沟通
+- 参与新中单招募评估
+- 曾处理路柏沅误入Soft直播间事件
+appearance: 丁哥是TTC战队的经理，通常穿着衬衫或休闲装，显得干练。他身材中等，面容和善，常带着一丝无奈或调侃的表情。作为战队管理者，他气质沉稳，但偶尔也会流露出疲惫。
+abilities:
+- 擅长公关处理、合同谈判、队员管理，对电竞行业有深入了解。
+profile_depth: deep

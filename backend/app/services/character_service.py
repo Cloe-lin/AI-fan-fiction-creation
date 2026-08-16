@@ -58,9 +58,32 @@ class CharacterService:
                     core_essence=profile.core_essence[:100] + "..."
                     if len(profile.core_essence) > 100
                     else profile.core_essence,
+                    profile_depth=getattr(profile, "profile_depth", "deep") or "deep",
                 )
             )
         return result
+
+    def reload(self):
+        self._profiles.clear()
+        self._novel_by_id.clear()
+        self._load_all()
+
+    def save_profile(self, novel_id: str, profile: CharacterProfile) -> Path:
+        chars_dir = Path(settings.data_dir) / novel_id / "characters"
+        chars_dir.mkdir(parents=True, exist_ok=True)
+        path = chars_dir / f"{profile.id}.yaml"
+        data = profile.model_dump(mode="json")
+        with open(path, "w", encoding="utf-8") as f:
+            yaml.safe_dump(
+                data,
+                f,
+                allow_unicode=True,
+                sort_keys=False,
+                default_flow_style=False,
+            )
+        self._profiles[profile.id] = profile
+        self._novel_by_id[profile.id] = novel_id
+        return path
 
     def get_multiple(
         self, character_ids: list[str], novel_id: str | None = None

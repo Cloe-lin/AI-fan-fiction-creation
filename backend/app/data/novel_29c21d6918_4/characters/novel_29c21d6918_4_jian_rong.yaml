@@ -1,0 +1,87 @@
+id: novel_29c21d6918_4_jian_rong
+name: 简茸
+aliases:
+- Soft
+- 艹耳
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 主角
+core_essence: 一个表面狂妄毒舌、内心纯粹执着于电竞梦想的年轻天才中单，用尖锐的言语掩盖对胜利的渴望和对偶像的崇拜。
+core_values:
+- 实力至上
+- 真实坦率
+- 对电竞的热爱与执着
+- 对Road的崇拜与追随
+inner_conflict: 在张扬的自我表达与对职业选手身份的适应之间挣扎，同时隐藏着对Road的复杂情感（崇拜、依赖、爱慕）与自身不安全感。
+background: 简茸是星空TV的知名主播，因实力强劲和性格狂妄而爆火，后加入TTC战队成为中单选手。他染着蓝发，外表出众，但以嘴臭闻名，直播中常与观众互怼。
+life_experiences:
+- 以主播身份在星空TV爆火，因辱骂观众被从颜值区调到LOL区。
+- 在S10半决赛直播中公开质疑Kan打假赛，引发争议。
+- 加入TTC战队，成为新中单，首次上场便以犀利操作和采访发言引发关注。
+- 与Road（路柏沅）发展出亲密关系，在Road的引导下逐渐成长。
+character_arcs:
+- period: 主播时期
+  state: 自由散漫，以直播和嘴炮为生
+  trigger: S10半决赛中目睹TTC失利和Road的无奈
+  change: 萌生加入职业战队的想法，并最终加入TTC
+- period: 职业初期
+  state: 适应职业选手身份，与队友磨合
+  trigger: 首次上场和采访中的表现
+  change: 逐渐收敛部分狂妄，学会团队合作
+- period: 与Road关系发展
+  state: 对Road从崇拜到爱慕
+  trigger: Road的关心和指导
+  change: 内心冲突加剧，但最终接受自己的感情
+relationships:
+- target: 路柏沅（Road）
+  type: lover
+  attitude: 崇拜、依赖、爱慕
+  dynamic: 从偶像与粉丝，到队友，再到恋人
+  key_events:
+  - Road在采访前叮嘱他不要骂人；Road指导他训练；两人关系逐渐亲密
+  speech_toward: 在Road面前会脸红，听话，收敛脾气
+- target: 石榴
+  type: friend
+  attitude: 信任、随意
+  dynamic: 好友，常互相调侃
+  key_events:
+  - 石榴提醒他直播收敛，他回应但不在意
+  speech_toward: 语气随意，带点调侃
+- target: Kan
+  type: rival
+  attitude: 轻视、不屑
+  dynamic: 在直播中公开质疑Kan打假赛，认为其水平差
+  key_events:
+  - S10半决赛中批评Kan的表现
+  speech_toward: 尖锐、讽刺
+personality_traits:
+- 狂妄自大
+- 毒舌
+- 真实坦率
+- 执着于实力
+- 内心敏感
+- 对崇拜对象顺从
+preferences:
+- 喜欢的食物：杂酱面
+- 喜欢的颜色：蓝色（染蓝发）
+- 喜欢的游戏角色：劫
+- 喜欢的饮品：冰咖啡
+speech_patterns:
+- 语气狂妄，常用反问和讽刺，但面对Road时会变得结巴和顺从。
+behavior_patterns:
+- 直播时爱怼观众，亲自封禁黑粉；比赛时专注，对队友失误直言不讳；在Road面前会脸红和听话。
+taboos:
+- 被质疑实力
+- 被说菜
+- 被说颜值（但实际在意）
+canon_facts:
+- 染着蓝色头发
+- 鼻尖右侧有一颗小痣
+- 皮肤白，睫毛长
+- 直播时因辱骂观众被投诉多次
+- 在S10半决赛直播中质疑Kan打假赛
+- 加入TTC战队成为中单
+- 与Road发展出恋人关系
+appearance: 简茸身高约一米八，身形清瘦，皮肤白皙，睫毛长而密，眼睛水灵，鼻尖右侧有一颗小痣。他染着一头水蓝色的头发，显得更加白净，气质张扬不羁，常穿着休闲或队服，整体给人一种少年感十足的帅气。
+abilities:
+- 英雄联盟中单选手，擅长劫等刺客英雄，操作犀利，对线压制力强，有‘儿童劫’之称，但实际实力顶尖，能单杀Kan等知名选手。
+profile_depth: deep

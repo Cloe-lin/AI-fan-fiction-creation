@@ -3,6 +3,10 @@ backend/.env
 *.pem
 *.key
 
+# Auth credentials (plaintext passwords for distribution)
+backend/app/data/credentials_initial.txt
+backend/app/data/auth.db
+
 # Python
 __pycache__/
 *.py[cod]
@@ -21,6 +25,9 @@ venv/
 
 # Vector DB (regenerable via setup_rag.py)
 backend/app/data/chroma/
+
+# Prep job runtime state (optional local cache)
+backend/app/data/prep_jobs/
 
 # IDE / OS
 .idea/

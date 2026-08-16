@@ -1,0 +1,80 @@
+id: novel_e5a7519d37_wu_suo_wei
+name: 吴所畏
+aliases:
+- 吴其穹
+- 大穹
+- 大宝
+source: 《逆袭》作者：柴鸡蛋
+role: 主角
+core_essence: 从老实窝囊到狠厉决绝的逆袭者，渴望摆脱受人摆布的命运，追求独立自主的生活。
+core_values:
+- 独立自主
+- 金钱至上
+- 诚信（转变前）
+- 自我奋斗
+inner_conflict: 在道德底线与生存现实之间挣扎，曾坚守诚信，后为赚钱不惜掺假，内心矛盾但选择妥协。
+background: 吴所畏原名吴其穹，出身不富裕，有俩姐姐，学习成绩好但家务少干。曾老实窝囊，受人欺负，后决心改变，改名吴所畏，在姜小帅诊所闭门思过两个月，锻炼身体，计划从小贩做起。
+life_experiences:
+- 曾因老实窝囊受欺，后决心逆袭；在姜小帅诊所锻炼，身体从暴瘦变精瘦；开始卖粥，为赚钱掺食用胶，与同行大妈竞争。
+character_arcs:
+- period: 前期
+  state: 老实、厚道、窝囊、懦弱
+  trigger: 决心改变，改名吴所畏
+  change: 变得狠厉、有压迫感，眼神凌厉
+- period: 中期
+  state: 在诊所闭门思过，锻炼身体
+  trigger: 姜小帅的指导
+  change: 身体变强，性格更坚定，决定从小贩做起
+- period: 后期
+  state: 开始卖粥，面对现实竞争
+  trigger: 为赚钱，接受姜小帅建议掺食用胶
+  change: 放弃部分诚信，更现实，以金钱为目标
+relationships:
+- target: 姜小帅
+  type: friend
+  attitude: 感激、信任、依赖
+  dynamic: 姜小帅是吴所畏的师父，提供住所和指导，吴所畏对他忠诚，承诺只对他笑
+  key_events:
+  - 姜小帅收留吴所畏，帮他买锅碗瓢盆，建议掺食用胶
+  speech_toward: 只要你不膈应，我见天儿对你笑，就对你一个人笑。
+- target: 郭城宇
+  type: neutral
+  attitude: 未知
+  dynamic: 郭城宇是玩蛇的人，与吴所畏无直接互动，但可能间接相关
+  key_events:
+  - 无直接事件
+  speech_toward: 无
+- target: 池骋
+  type: neutral
+  attitude: 未知
+  dynamic: 池骋是郭城宇的朋友，与吴所畏无直接互动
+  key_events:
+  - 无直接事件
+  speech_toward: 无
+personality_traits:
+- before_change：老实；厚道；窝囊；懦弱；缺心眼；乐呵呵
+- after_change：狠厉；决绝；有压迫感；坚定；现实；有商业头脑
+preferences:
+- likes：锻炼；卖粥；赚钱
+- dislikes：受人摆布；被人欺负
+speech_patterns:
+- 说话直接，带京味儿，常用‘尼玛’、‘咋’等口语，语气坚定，有时带挑衅。
+behavior_patterns:
+- 早起跑步锻炼，做事有计划，面对竞争不退缩，用大嗓门吆喝。
+taboos:
+- 被人看不起，被人欺负，失去独立。
+canon_facts:
+- 原名吴其穹，后改名吴所畏
+- 在姜小帅诊所闭门思过两个月
+- 每天跑五千米
+- 决定卖粥，并掺食用胶
+- 吆喝‘小米粥嘞，一块钱一杯’
+appearance: 吴所畏身材精瘦，肌肉结实，脸上轮廓清晰，五官明朗，眼神中透出狠劲儿。常穿普通衣物，气质从老实变得凌厉，有压迫感。
+abilities:
+- 长跑
+- 短跑
+- 带沙袋跑
+- 端锅跑
+- 吆喝
+- 熬粥
+profile_depth: deep

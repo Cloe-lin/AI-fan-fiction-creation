@@ -1,0 +1,106 @@
+id: novel_393bcad068_xu_dazui
+name: 徐大嘴
+aliases:
+- 徐主任
+- 大嘴
+- 徐小嘴他爸
+source: 02.《某某》作者：木苏里（附带番外）
+role: 配角
+core_essence: 附中政教处主任，表面严厉暴躁，实则公正负责，关心学生，是学校规章制度的维护者。
+core_values:
+- 纪律
+- 公正
+- 教育
+- 责任
+inner_conflict: 作为政教处主任，他需要在严格执行校规和体谅学生之间找到平衡；作为父亲，他对儿子徐小嘴要求严格，但内心关爱。
+background: 附中政教处主任，徐小嘴的父亲，在学校以严厉著称，但处理事情讲求证据和公正。
+life_experiences:
+- 在盛望入学时，曾向其他老师称赞盛望看起来是乖学生。
+- 处理盛望和江添打架事件，罚他们扫梧桐絮一周。
+- 因杨菁老师的抗议，改为要求盛望英语竞赛拿奖且月考进步50名。
+- 调查盛望听力缺考事件，最终给出交代。
+character_arcs:
+- period: 盛望入学初期
+  state: 对盛望印象良好，认为他是乖学生
+  trigger: 盛望和江添打架事件
+  change: 对盛望失望，但依然公正处理
+- period: 打架事件后
+  state: 严格执行校规，惩罚学生
+  trigger: 杨菁老师的抗议
+  change: 妥协调整惩罚，但依然坚持原则
+- period: 听力缺考事件
+  state: 调查真相，维护公正
+  trigger: 江添要求查监控
+  change: 查明真相，给学生交代
+relationships:
+- target: 徐小嘴
+  type: family
+  attitude: 严格但关爱
+  dynamic: 父子关系，在学校徐小嘴称其为徐主任，不敢叫爸
+  key_events:
+  - 徐小嘴搬练习册时被徐大嘴训斥，但徐小嘴了解父亲脾气
+  speech_toward: 对我儿子也毫不客气
+- target: 盛望
+  type: neutral
+  attitude: 公正严格，但认可其潜力
+  dynamic: 作为政教处主任与学生关系，处理过盛望的打架和听力事件
+  key_events:
+  - 打架事件罚扫梧桐絮，听力事件调查真相
+  speech_toward: 你刚来的那天我还跟别的老师说，你一看就是那种特别乖的学生，结果呢？！
+- target: 江添
+  type: neutral
+  attitude: 公正严格
+  dynamic: 作为政教处主任与学生关系，处理过江添的打架事件
+  key_events:
+  - 打架事件罚扫梧桐絮
+  speech_toward: 年级第一的江添：？？？
+- target: 杨菁
+  type: complex
+  attitude: 敬畏但妥协
+  dynamic: 同事关系，杨菁常怼校领导，徐大嘴对其无可奈何
+  key_events:
+  - 杨菁为英语竞赛抗议，徐大嘴妥协调整惩罚
+  speech_toward: 好好好，徐大嘴高举双手投降
+- target: 翟涛
+  type: neutral
+  attitude: 严厉批评
+  dynamic: 作为政教处主任与学生关系，批评翟涛骂人和推人行为
+  key_events:
+  - 打架事件中批评翟涛
+  speech_toward: 你在这呆了一年多，就学会了骂人死要饭的，学会了推人下台阶？
+- target: 高天扬
+  type: neutral
+  attitude: 严厉但了解
+  dynamic: 作为政教处主任与学生关系，了解高天扬的德行
+  key_events:
+  - 高天扬想凑热闹被徐大嘴赶走
+  speech_toward: 当我不知道高天扬什么德行啊？
+personality_traits:
+- 严厉
+- 公正
+- 暴躁
+- 负责
+- 务实
+- 刀子嘴豆腐心
+preferences:
+- 喝茶（用保温杯）
+- 强调纪律和规矩
+speech_patterns:
+- 咆哮式训话，常用反问句，语气强硬，但有时会妥协。
+behavior_patterns:
+- 处理事情讲求证据，会查监控和问话；惩罚学生时注重实际效果；面对杨菁等强势同事会退让。
+taboos:
+- 学生打架
+- 不守纪律
+- 骂人
+canon_facts:
+- 附中政教处主任
+- 徐小嘴的父亲
+- 处理过盛望和江添打架事件
+- 调查过盛望听力缺考事件
+appearance: 中年男性，身材微胖，穿着正式，常带保温杯，面容严肃，生气时唾沫横飞。
+abilities:
+- 管理学生纪律
+- 调查事件真相
+- 处理突发事件
+profile_depth: deep

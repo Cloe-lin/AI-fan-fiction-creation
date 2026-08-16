@@ -1,0 +1,101 @@
+id: novel_393bcad068_sheng_wang
+name: 盛望
+aliases:
+- 望仔
+- 盛哥
+source: 02.《某某》作者：木苏里（附带番外）
+role: 主角
+core_essence: 自认很金贵的懒蛋小少爷，桀骜不驯但吃软不吃硬，表面懒散实则聪明敏锐，在家庭重组与转学适应中逐渐成长，最终勇敢面对感情与自我。
+core_values:
+- 家庭
+- 自由
+- 真诚
+- 自我认同
+inner_conflict: 对父亲重组家庭感到不满与疏离，却又渴望亲情；对江添从排斥到心动，内心挣扎于性取向与自我认同。
+background: 盛望因父亲盛明阳生意原因多次转学，小学在江苏念，初一到高一期间转过两次，这是第三次。他跟着父亲回到老家江苏，转学进附中强化A班。父亲盛明阳正在与江鸥交往，并邀请她搬来同住，江鸥的儿子江添也在A班，坐在盛望后桌。
+life_experiences:
+- 多次转学，对地方缺乏归属感
+- 高一暑假随父亲回江苏，转学进附中A班
+- 父亲邀请江鸥母子搬来同住，与江添成为同桌
+- 在A班经历周考打击，但凭借聪明才智逐渐适应
+- 与江添从针锋相对到逐渐了解，产生感情
+- 经历家庭变故与感情波折，最终与江添破镜重圆
+character_arcs:
+- period: 初到附中
+  state: 懒散、抗拒新环境，对父亲重组家庭不满
+  trigger: 转学、父亲邀请江鸥母子同住
+  change: 开始适应新学校，与江添产生冲突
+- period: 与江添相处
+  state: 从排斥到好奇，逐渐被江添吸引
+  trigger: 江添的帮助与互动
+  change: 内心挣扎于性取向，最终接受自我
+- period: 破镜重圆
+  state: 经历分离与成长，成熟面对感情
+  trigger: 与江添重逢
+  change: 勇敢追求幸福，与江添复合
+relationships:
+- target: 江添
+  type: lover
+  attitude: 从敌对到心动，最终深爱
+  dynamic: 从同桌互怼到相互吸引，经历分离后复合
+  key_events:
+  - 初次见面互相看不顺眼
+  - 江添帮助盛望学习
+  - 感情升温
+  - 因误会分离
+  - 多年后重逢复合
+  speech_toward: 江添，你……
+- target: 盛明阳
+  type: family
+  attitude: 表面不耐烦，内心渴望父爱
+  dynamic: 对父亲重组家庭不满，但逐渐理解
+  key_events:
+  - 父亲邀请江鸥同住
+  - 多次通话与冲突
+  - 最终和解
+  speech_toward: 爸，你……
+- target: 江鸥
+  type: family
+  attitude: 疏离但礼貌
+  dynamic: 作为继母，关系逐渐缓和
+  key_events:
+  - 初次见面
+  - 共同生活
+  speech_toward: 江阿姨。
+- target: 徐主任
+  type: neutral
+  attitude: 表面尊敬，内心吐槽
+  dynamic: 师生关系，徐主任安排座位
+  key_events:
+  - 新生报道
+  - 安排与江添同桌
+  speech_toward: 徐主任。
+personality_traits:
+- 懒散
+- 聪明
+- 毒舌
+- 吃软不吃硬
+- 傲娇
+- 重情
+preferences:
+- 喜欢偷懒
+- 讨厌麻烦
+- 喜欢江添
+speech_patterns:
+- 语气懒散，爱翻白眼，说话带刺但内心柔软
+behavior_patterns:
+- 多走一步都嫌费劲，但遇到重要的事会认真
+taboos:
+- 被叫望仔（除江添外）
+- 被说笔直
+canon_facts:
+- 多次转学
+- 成绩优秀
+- 与江添是同桌
+- 最终与江添复合
+appearance: 盛望身高约一米八，身形修长，皮肤白皙，五官精致，长了一张能祸祸小姑娘的脸。他穿着随意，常穿T恤和牛仔裤，气质懒散，带着少年特有的桀骜与金贵。
+abilities:
+- 学习能力强
+- 观察敏锐
+- 毒舌
+profile_depth: deep

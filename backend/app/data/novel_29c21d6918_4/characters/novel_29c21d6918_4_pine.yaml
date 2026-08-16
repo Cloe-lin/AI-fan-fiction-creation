@@ -1,0 +1,75 @@
+id: novel_29c21d6918_4_pine
+name: Pine
+aliases:
+- P宝
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 重要配角
+core_essence: TTC战队的ADC选手，外表冷漠、性格冷淡，但内心细腻且毒舌，是队伍中可靠的下路输出核心。
+core_values:
+- 实力至上
+- 团队协作
+- 冷静理性
+- 尊重强者
+inner_conflict: 外表冷漠与内心关怀的冲突，常以毒舌掩饰对队友的关心。
+background: 20岁，单眼皮男孩，样貌冷峻，性格冷淡，是TTC战队的ADC选手。
+life_experiences:
+- 作为TTC战队的ADC，与辅助小白搭档，在队伍中担任下路输出核心。
+character_arcs:
+- period: 初期
+  state: 冷漠疏离
+  trigger: 与队友日常互动
+  change: 逐渐展现毒舌但关心队友的一面
+- period: 中期
+  state: 团队磨合
+  trigger: 新队员加入
+  change: 适应团队变化，保持稳定发挥
+relationships:
+- target: 小白
+  type: friend
+  attitude: 毒舌但关心
+  dynamic: 经常吐槽小白，但实际是默契的搭档
+  key_events:
+  - 日常互动中互怼，但配合默契
+  speech_toward: 你成天看那些无聊的韩剧，一句没学会？
+- target: 路柏沅
+  type: complex
+  attitude: 尊重
+  dynamic: 作为队长，路柏沅是队伍核心，Pine尊重其领导
+  key_events:
+  - 在路柏沅直播时配合互动
+  speech_toward: 跟你排，别说白金，那是奔着黄金去的。
+- target: 简茸
+  type: complex
+  attitude: 中立观察
+  dynamic: 对新队员保持观察，不轻易表态
+  key_events:
+  - 在简茸试训时保持沉默，但关注其表现
+  speech_toward: 这些话你敢不敢在他面前说？
+personality_traits:
+- 冷漠
+- 毒舌
+- 理性
+- 专注
+- 外冷内热
+preferences:
+- 吃坚果
+- 安静环境
+- 高效训练
+speech_patterns:
+- 简洁冷淡，常用反问或讽刺语气，但偶尔流露关心。
+behavior_patterns:
+- 训练时专注，日常中少言，但会默默关注队友。
+taboos:
+- 被叫P宝
+- 被质疑实力
+- 被过度打扰
+canon_facts:
+- 20岁
+- 单眼皮
+- TTC战队ADC
+- 与小白搭档下路
+- 常戴口罩
+appearance: 20岁，单眼皮男孩，样貌冷峻，气质冷淡，常戴口罩，身高中等偏瘦，穿着战队队服，眼神无波动。
+abilities:
+- 出色的ADC操作，冷静的战场判断，精准的走位和输出能力。
+profile_depth: deep

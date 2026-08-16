@@ -1,0 +1,132 @@
+id: novel_29c21d6918_zhuang_yibai
+name: 庄亦白
+aliases:
+- 小白
+- Bye
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 重要配角
+core_essence: TTC战队的辅助选手，性格活泼开朗，是队内的开心果，与AD选手Pine关系亲密。
+core_values:
+- 团队荣誉
+- 友情
+- 快乐游戏
+inner_conflict: 对Pine的感情可能超越友情，但自己尚未明确，且因Pine与女陪玩双排而吃醋。
+background: TTC战队的辅助选手，ID为Bye，与AD选手Pine搭档多年，关系极好。
+life_experiences:
+- 在TTC战队担任辅助，与Pine组成下路组合。
+- 在夺冠后与队友深夜酒吧狂欢，被媒体拍到。
+- 在直播中不小心透露简茸和路柏沅的关系。
+character_arcs:
+- period: 日常相处
+  state: 与Pine关系亲密，但未明确感情
+  trigger: Pine与女陪玩双排
+  change: 开始吃醋，意识到自己对Pine的占有欲
+relationships:
+- target: Pine
+  type: complex
+  attitude: 亲密依赖，有超越友情的感情
+  dynamic: 互相陪伴，经常一起打游戏，Pine会纵容小白的任性
+  key_events:
+  - 小
+  - 白
+  - 拉
+  - P
+  - i
+  - n
+  - e
+  - 的
+  - 手
+  - 放
+  - 进
+  - 口
+  - 袋
+  - ，
+  - P
+  - i
+  - n
+  - e
+  - 因
+  - 小
+  - 白
+  - 太
+  - 烦
+  - 而
+  - 提
+  - 前
+  - 回
+  - 基
+  - 地
+  speech_toward: p宝，你手怎么这么冷啊
+- target: 简茸
+  type: friend
+  attitude: 友好但常斗嘴
+  dynamic: 队友关系，经常互怼，但关心对方
+  key_events:
+  - 在
+  - 比
+  - 赛
+  - 中
+  - 质
+  - 疑
+  - 简
+  - 茸
+  - 的
+  - 英
+  - 雄
+  - 选
+  - 择
+  - ，
+  - 被
+  - 简
+  - 茸
+  - 怼
+  - 回
+  speech_toward: 你会玩这英雄吗？
+- target: 路柏沅
+  type: family
+  attitude: 尊敬且有点怕
+  dynamic: 路柏沅是队长，也是小白的哥哥，小白对他既尊敬又有点畏惧
+  key_events:
+  - 撞
+  - 见
+  - 路
+  - 柏
+  - 沅
+  - 和
+  - 简
+  - 茸
+  - 在
+  - 厕
+  - 所
+  - ，
+  - 尴
+  - 尬
+  - 离
+  - 开
+  speech_toward: 我哥实在太过分了
+personality_traits:
+- 活泼
+- 话多
+- 有点傻气
+- 重感情
+- 容易吃醋
+preferences:
+- 打游戏
+- 吃烧烤
+- 和Pine一起玩
+speech_patterns:
+- 语气活泼，常用感叹词，喜欢用“p宝”称呼Pine，说话直接。
+behavior_patterns:
+- 喜欢拉Pine的手，经常在基地里闹腾，容易冲动。
+taboos:
+- 被说菜
+- Pine和别人双排
+canon_facts:
+- TTC战队的辅助选手
+- 与Pine关系亲密
+- 在夺冠后与队友深夜酒吧狂欢
+- 在直播中不小心透露简茸和路柏沅的关系
+appearance: 未详细描述，但推测为年轻男性，可能有点娃娃脸。
+abilities:
+- 游戏辅助技术高超，是TTC战队的重要成员。
+profile_depth: deep

@@ -1,0 +1,44 @@
+id: novel_969dee7e83_2_zhao_jiatong
+name: 赵嘉彤
+aliases: []
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 重要配角
+core_essence: 赵嘉彤是系统内资深监考官，因犯错被罚参加考试。她性格温和干练，与高齐搭档默契，对秦究保持表面平和但内心有隔阂。她关心同伴，在混乱中保持冷静，是监考官中的理性担当。
+core_values: []
+inner_conflict: ''
+background: 赵嘉彤是系统内资深监考官，编号未知，与高齐搭档。因犯错被罚参加考试，在马车中与周祺、游惑等人相遇。她与秦究有旧识，但关系不深，对系统内部事务了解颇多。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 高齐
+  type: friend
+  attitude: 搭档，互相照顾，常劝其戒酒
+  dynamic: 共同参加考试，关系稳定
+  key_events: []
+  speech_toward: ''
+- target: 秦究
+  type: neutral
+  attitude: 表面平和，内心有隔阂
+  dynamic: 因系统旧事保持距离
+  key_events: []
+  speech_toward: ''
+- target: 游惑
+  type: neutral
+  attitude: 惊讶其归来，保持礼貌
+  dynamic: 因高齐反应而关注
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 温和
+- 干练
+- 冷静
+- 理性
+- 关心同伴
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

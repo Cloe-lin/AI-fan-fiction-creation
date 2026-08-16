@@ -63,6 +63,9 @@ class CharacterProfile(BaseModel):
     appearance: str = Field(default="", description="外貌特征")
     abilities: list[str] = Field(default_factory=list, description="能力与特长")
 
+    # deep=完整档案可作主写对象；brief=简档仅适合配角
+    profile_depth: str = Field(default="deep", description="deep | brief")
+
     def to_prompt_context(self) -> str:
         """将人物档案转为 LLM 可用的上下文文本"""
         lines = [
@@ -131,3 +134,4 @@ class CharacterSummary(BaseModel):
     role: str
     novel_id: str = ""
     core_essence: str
+    profile_depth: str = "deep"

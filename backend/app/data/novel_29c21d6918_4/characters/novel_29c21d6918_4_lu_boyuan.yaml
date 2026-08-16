@@ -1,0 +1,87 @@
+id: novel_29c21d6918_4_lu_boyuan
+name: 路柏沅
+aliases:
+- Road
+- 路神
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 主角
+core_essence: TTC战队王牌打野，冷静强大，表面冷淡实则温柔可靠，对胜利有执念，是队伍的精神支柱。
+core_values:
+- 胜利
+- 团队
+- 责任
+- 公正
+inner_conflict: 手伤带来的职业危机与对胜利的渴望之间的冲突，以及作为队长在维护团队纪律与体谅队员之间的挣扎。
+background: LPL老牌战队TTC的王牌打野，ID为Road，人称路神。职业生涯辉煌，但患有手伤，需定期针灸，隐瞒家人。在S10半决赛中因手伤缺席决胜局，队伍惨败，随后面临中单Kan的疑似违规事件和退役传闻。
+life_experiences:
+- 作为TTC王牌打野，带领队伍多次取得胜利。
+- S10半决赛因手伤缺席决胜局，队伍被血虐。
+- 赛后处理Kan疑似违规事件，坚持照规矩办。
+- 被传退役，澄清两三年后退役。
+- 关注新中单人选，注意到被教练划掉的Soft。
+character_arcs:
+- period: S10半决赛前
+  state: 手伤困扰，但坚持训练，渴望胜利。
+  trigger: 半决赛决胜局因手伤无法上场。
+  change: 队伍惨败，开始反思和调整。
+- period: 赛后
+  state: 冷静处理Kan事件，同时寻找新中单。
+  trigger: 发现Soft的潜力。
+  change: 开始关注并考察Soft。
+relationships:
+- target: 简茸（Soft）
+  type: complex
+  attitude: 欣赏其天赋，关注其成长，关系逐渐亲密。
+  dynamic: 从队长与新人队员，到相互信任的伙伴。
+  key_events:
+  - 在采访前警告简茸不要骂人；关注其游戏表现。
+  speech_toward: “一会采访，知道该怎么做？”
+- target: Kan
+  type: neutral
+  attitude: 作为队长，对其违规行为零容忍。
+  dynamic: 队友关系，因违规事件产生裂痕。
+  key_events:
+  - 赛后处理Kan疑似违规事件。
+  speech_toward: “照规矩办。”
+- target: 教练
+  type: friend
+  attitude: 信任并尊重教练，但有自己的主见。
+  dynamic: 合作紧密，共同管理队伍。
+  key_events:
+  - 讨论新中单名单，接受教练的关心。
+  speech_toward: “名单也给我一份。”
+- target: 小白
+  type: friend
+  attitude: 关心队友，偶尔调侃。
+  dynamic: 多年队友，关系融洽。
+  key_events:
+  - 小白担心其退役，路柏沅开玩笑回应。
+  speech_toward: “两三年后？”
+personality_traits:
+- 冷静：面对失败和危机时保持镇定。
+- 强大：游戏技术顶尖，心理素质过硬。
+- 温柔：对队友关心，但表达含蓄。
+- 有原则：坚持公正，不徇私情。
+- 执着：对胜利有强烈渴望，即使手伤也坚持训练。
+preferences:
+- 喜欢的英雄：刺客型英雄
+- 喜欢的食物：火腿
+- 生活习惯：留基地，针灸治疗
+speech_patterns:
+- 言语简洁，语气平淡，常用短句，偶尔带点冷幽默。
+behavior_patterns:
+- 习惯性将手缩在衣袖里，动作随意但精准，面对压力时保持平静。
+taboos:
+- 过度训练加重手伤
+- 在比赛中放弃
+canon_facts:
+- LPL老牌战队TTC王牌打野
+- ID为Road，人称路神
+- 患有手伤，需定期针灸
+- 在S10半决赛中缺席决胜局
+- 被传退役，澄清两三年后退役
+- 关注新中单Soft
+appearance: 路柏沅身高约185cm，身形修长，常穿TTC队服，外套松垮，衣袖遮住手掌。气质冷峻，眼神平静，带着一种不怒自威的气场。发型随意，偶尔戴棒球帽。
+abilities:
+- 顶尖的打野技术和游戏意识，手速和反应能力极强，即使有手伤仍能打出高水平操作。
+profile_depth: deep

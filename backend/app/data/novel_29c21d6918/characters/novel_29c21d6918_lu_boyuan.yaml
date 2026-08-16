@@ -1,0 +1,84 @@
+id: novel_29c21d6918_lu_boyuan
+name: 路柏沅
+aliases:
+- Road
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 主角
+core_essence: TTC战队王牌打野，冷静沉稳，以实力和领导力著称，对胜利有执着追求。
+core_values:
+- 胜利
+- 团队纪律
+- 责任
+- 公正
+inner_conflict: 手伤困扰与职业追求之间的矛盾，以及面对队友违规时情与理的挣扎。
+background: LPL老牌战队TTC的打野选手，ID为Road，是队内核心和队长，以高超技术和冷静指挥闻名。
+life_experiences:
+- 在S10半决赛中因手伤缺席决胜局，导致队伍被血虐。
+- 赛后处理中单Kan的疑似违规行为，坚持照规矩办。
+- 在选新中单时，注意到被教练排除的Soft，并对其产生兴趣。
+character_arcs:
+- period: S10半决赛期间
+  state: 手伤复发，但坚持上场，最终因手伤缺席决胜局。
+  trigger: 队伍在决胜局被虐泉，暴露中单问题。
+  change: 决定处理Kan的问题，并开始寻找新中单。
+- period: 选新中单阶段
+  state: 对候选名单不满意，发现被划掉的Soft。
+  trigger: 教练排除Soft，但路柏沅对其刺客英雄池产生兴趣。
+  change: 开始关注Soft，为后续剧情埋下伏笔。
+relationships:
+- target: 简茸（Soft）
+  type: complex
+  attitude: 好奇且欣赏其天赋，但对其性格有顾虑。
+  dynamic: 从关注到逐渐了解，关系发展。
+  key_events:
+  - 在名单上看到Soft被划掉，询问原因
+  - 对Soft的英雄池产生兴趣
+  speech_toward: 英雄可以练。
+- target: 教练
+  type: mentor
+  attitude: 尊重但独立，有自己的判断。
+  dynamic: 教练关心其手伤，但路柏沅坚持己见。
+  key_events:
+  - 教练劝其休息，但路柏沅仍关注选人
+  - 教练提供名单，路柏沅提出异议
+  speech_toward: 知道了。找中单的事有进展了么？
+- target: Kan
+  type: neutral
+  attitude: 冷淡，公事公办。
+  dynamic: 因Kan疑似违规，路柏沅决定按规矩处理。
+  key_events:
+  - 赛后处理Kan的问题
+  - 对Kan的辩解不予理会
+  speech_toward: 照规矩办。
+- target: 小白
+  type: friend
+  attitude: 关心但保持距离。
+  dynamic: 小白担心其退役，路柏沅以玩笑回应。
+  key_events:
+  - 小白询问退役传闻
+  - 路柏沅说两三年后退役
+  speech_toward: 两三年后？
+personality_traits:
+- 冷静
+- 沉稳
+- 果断
+- 有领导力
+- 内敛
+preferences:
+- '{''游戏英雄'': [''刺客型英雄''], ''训练'': [''高强度训练''], ''饮食'': [''简单应付'']}'
+speech_patterns:
+- 言简意赅，语气平淡，常用短句。
+behavior_patterns:
+- 习惯性舒展手指，单手插兜，帽檐压低。
+taboos:
+- 过度训练导致手伤加重
+- 容忍队友违规行为
+canon_facts:
+- 手伤严重，需要针灸治疗
+- 在TTC待了多年，是队内核心
+- 对中单选拔有决定权
+- 曾因手伤缺席S10半决赛决胜局
+appearance: 染着张扬蓝发（注：原文描述新中单，但路柏沅可能也有染发，但未明确），队服外套松垮，衣袖遮住手掌。
+abilities:
+- 顶尖打野技术，手速和反应能力极强，但受手伤影响。
+profile_depth: deep

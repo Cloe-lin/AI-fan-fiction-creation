@@ -1,0 +1,98 @@
+id: novel_969dee7e83_2_you_huo
+name: 游惑
+aliases:
+- 考官A
+- A
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 主角
+core_essence: 游惑是一个外表冷漠、内心深藏秘密的强者，在绝境中冷静果决，以近乎冷酷的方式探索规则，实则背负着记忆缺失的谜团，与秦究的纠葛中逐渐揭开真相。
+core_values:
+- 生存
+- 掌控
+- 真相
+- 自由
+inner_conflict: 记忆缺失导致自我认知的困惑，以及对秦究复杂情感的矛盾——既敌对又熟悉，既抗拒又吸引。
+background: 游惑是于闻的表哥，曾长期在国外养病，记忆力有问题，对某几年发生的事和人毫无印象。因意外被卷入全球高考，成为考生，后成为考官A。
+life_experiences:
+- 在国外养病多年，记忆缺失。
+- 回国后与表弟于闻一家短暂相处。
+- 因老于踩到银箔纸钱被卷入全球高考。
+- 在雪山小屋考试中冷静探索规则，与监考官秦究结下梁子。
+- 三进三出监考处，逐渐发现与秦究的旧识关系。
+character_arcs:
+- period: 初入考场
+  state: 冷漠疏离，对考试规则一无所知
+  trigger: 被卷入全球高考
+  change: 开始主动探索规则，展现冷静果决
+- period: 与秦究交锋
+  state: 敌对与好奇并存
+  trigger: 与001号监考官秦究的冲突
+  change: 逐渐意识到自己与秦究似曾相识
+- period: 真相揭露
+  state: 记忆恢复，身份转变
+  trigger: 深入考试背后的秘密
+  change: 成为考官A，与秦究关系复杂化
+relationships:
+- target: 于闻
+  type: family
+  attitude: 表面冷淡，实则关心
+  dynamic: 于闻敬畏游惑，游惑虽毒舌但保护于闻
+  key_events:
+  - 在雪山小屋中指导于闻，共同应对考试
+  speech_toward: 滚。
+- target: 秦究
+  type: complex
+  attitude: 敌对又熟悉，逐渐产生复杂情感
+  dynamic: 从针锋相对到相互吸引，共同揭开真相
+  key_events:
+  - 三进三出监考处，与秦究多次交锋
+  speech_toward: 你谁？
+- target: 老于
+  type: family
+  attitude: 疏离但尊重
+  dynamic: 老于怕游惑，游惑对老于保持距离
+  key_events:
+  - 被老于卷入考试
+  speech_toward: （未直接对话，但态度冷淡）
+- target: 纹身男
+  type: neutral
+  attitude: 轻蔑
+  dynamic: 纹身男挑衅，游惑不屑
+  key_events:
+  - 开窗试探规则时被纹身男质问
+  speech_toward: 你谁？
+personality_traits:
+- 冷静
+- 果决
+- 傲慢
+- 毒舌
+- 外冷内热
+- 观察力强
+- 行动派
+preferences:
+- likes：掌控局面；独处；简单直接
+- dislikes：愚蠢；拖沓；无谓的社交
+speech_patterns:
+- 简短、直接、带讽刺，常用反问句，语气冷淡。
+behavior_patterns:
+- 行动先于言语，喜欢独自探索，对危险有敏锐直觉，不轻易表露情感。
+taboos:
+- 被质疑能力
+- 被触碰记忆缺失的痛处
+- 被命令
+canon_facts:
+- 右耳戴耳钉
+- 个子很高
+- 模样极为出挑
+- 记忆力有问题
+- 曾在国外养病
+- 被卷入全球高考
+- 成为考官A
+appearance: 游惑是一个二十七八岁的青年，个子很高，模样极为出挑，扶着上门框低头进屋时，与身后的山松白雪浑然成景。他皮肤白皙，右耳戴着一枚耳钉，映着油灯和雪色，亮得晃眼。他通常穿着简单的长裤和上衣，气质清冷倨傲，眼神半垂时带着薄情寡义的距离感。
+abilities:
+- 冷静分析
+- 快速学习
+- 敏锐观察
+- 身体敏捷
+- 心理抗压
+profile_depth: deep

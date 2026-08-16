@@ -1,0 +1,87 @@
+id: novel_393bcad068_jiang_tian
+name: 江添
+aliases:
+- 添哥
+source: 02.《某某》作者：木苏里（附带番外）
+role: 主角
+core_essence: 外表冷漠、内心敏感的少年，在家庭重组与情感纠葛中逐渐学会面对真实自我。
+core_values:
+- 家庭责任、学业成就、情感忠诚
+inner_conflict: 对家庭重组和继父的抗拒与对母亲的爱护之间的矛盾；对盛望的感情与自我认同的冲突。
+background: 江添是江鸥的儿子，因母亲与盛明阳交往，随母亲搬进盛家祖屋，与盛望成为继兄弟兼同班同学。
+life_experiences:
+- 高二时随母亲搬入盛家，与盛望从敌对到相恋，后因家庭压力分手，多年后重逢复合。
+character_arcs:
+- period: 初遇期
+  state: 冷漠疏离，对家庭重组不满
+  trigger: 母亲搬入盛家，与盛望成为继兄弟
+  change: 开始与盛望产生冲突，但逐渐被吸引
+- period: 相恋期
+  state: 内心挣扎，但情感逐渐升温
+  trigger: 与盛望的日常相处和共同经历
+  change: 接受自己对盛望的感情，两人成为恋人
+- period: 分离期
+  state: 被迫分手，内心痛苦
+  trigger: 家庭压力和社会舆论
+  change: 与盛望分开，多年后仍无法忘怀
+- period: 重逢期
+  state: 成熟内敛，仍深爱盛望
+  trigger: 多年后与盛望重逢
+  change: 重新追求盛望，最终复合
+relationships:
+- target: 盛望
+  type: lover
+  attitude: 从敌对到深爱，最终成为伴侣
+  dynamic: 从继兄弟到恋人，经历分离与重逢
+  key_events:
+  - 初遇时互怼，后逐渐亲近，相恋后因压力分手，多年后复合
+  speech_toward: 对盛望说话时语气从冷淡到温柔，后期充满深情
+- target: 江鸥
+  type: family
+  attitude: 孝顺但内心矛盾
+  dynamic: 对母亲有保护欲，但不满母亲的选择
+  key_events:
+  - 母亲搬入盛家，他虽抗拒但最终妥协
+  speech_toward: 对母亲说话时语气克制，有时不耐烦但会妥协
+- target: 盛明阳
+  type: family
+  attitude: 疏离但尊重
+  dynamic: 继父子关系，表面冷淡，内心有隔阂
+  key_events:
+  - 搬入盛家，与盛明阳相处不多
+  speech_toward: 对盛明阳说话时简短、礼貌但疏远
+- target: 高天扬
+  type: friend
+  attitude: 友好但保持距离
+  dynamic: 同学兼朋友，高天扬常帮他打圆场
+  key_events:
+  - 高天扬多次在冲突中调解
+  speech_toward: 对高天扬说话时随意，偶尔带点不耐烦
+personality_traits:
+- 冷漠
+- 寡言
+- 外冷内热
+- 责任感强
+- 执着
+- 敏感
+preferences:
+- 喜欢：安静；独处；冰水
+- 厌恶：吵闹；虚伪；被干涉
+speech_patterns:
+- 说话简短、冷淡，常用短句，语气低沉，偶尔带刺。
+behavior_patterns:
+- 习惯独来独往，上课睡觉但成绩优异，对在意的人会默默关心。
+taboos:
+- 被触碰隐私
+- 被质疑能力
+- 被强迫表达情感
+canon_facts:
+- 江添是盛望的继兄，两人同班同桌。
+- 江添成绩优异，稳坐年级第一。
+- 江添与盛望曾分手，多年后复合。
+appearance: 江添身量很高，有着少年人特有的利落轮廓，又不过分单薄。他常穿白色圆领T恤，单肩背包，黑色短发，眉宇间带着困意和不爽。气质冷冽，眼神淡漠，给人一种难以接近的感觉。
+abilities:
+- 学业优秀
+- 篮球等运动能力
+- 洞察力强
+profile_depth: deep

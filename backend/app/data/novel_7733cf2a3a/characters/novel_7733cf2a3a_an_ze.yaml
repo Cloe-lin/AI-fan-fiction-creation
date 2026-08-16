@@ -1,0 +1,31 @@
+id: novel_7733cf2a3a_an_ze
+name: 安泽
+aliases: []
+source: 06.《小蘑菇》作者：一十四洲（附带番外）
+role: 重要配角
+core_essence: 安泽是一个被队伍抛弃、濒临死亡的人类，他自认毫无价值，却对蘑菇安折展现出最后的温柔与善意。他用自己的基因帮助安折进化，并试图阻止安折前往危险的人类基地，最终在安折怀中死去。
+core_values: []
+inner_conflict: ''
+background: 安泽是末日世界中一个普通的人类，因缺乏价值而被队伍抛弃，独自在野外等死。他遇到蘑菇安折，用自己的基因和最后的生命帮助安折成长，并留下衣物和弹壳作为线索。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 安折
+  type: friend
+  attitude: 温柔关怀，视其为最后的温暖
+  dynamic: 安泽在临死前帮助安折，并试图保护他
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 温柔
+- 悲观
+- 自我否定
+- 善良
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

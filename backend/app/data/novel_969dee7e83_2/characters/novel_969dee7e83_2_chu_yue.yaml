@@ -1,0 +1,45 @@
+id: novel_969dee7e83_2_chu_yue
+name: 楚月
+aliases:
+- 考官Z
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 重要配角
+core_essence: 楚月是监考区的前考官Z，因违规被罚至考生休息处当老板。她性格直爽、幽默，看似不羁实则洞察人心，是少数能与考官A平等对话的人。她关心他人，曾为秦究和游惑提供帮助。
+core_values: []
+inner_conflict: ''
+background: 楚月曾是监考区的考官Z，因与考生秦究关系过密被处罚，降职为1号休息处的旅馆老板。她表面随性，实则重情重义，在考生中口碑极好。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 秦究
+  type: friend
+  attitude: 关心且尊重
+  dynamic: 曾因秦究受罚，但始终理解并支持他
+  key_events: []
+  speech_toward: ''
+- target: 游惑
+  type: neutral
+  attitude: 欣赏且好奇
+  dynamic: 作为休息处老板，对游惑印象不错，曾为他提供帮助
+  key_events: []
+  speech_toward: ''
+- target: 考官A
+  type: complex
+  attitude: 亲近且理解
+  dynamic: 曾是同事，关系特殊，能直言相劝
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 直爽
+- 幽默
+- 洞察人心
+- 重情重义
+- 随性
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

@@ -1,0 +1,81 @@
+id: novel_969dee7e83_chu_yue
+name: 楚月
+aliases:
+- 考官Z
+- 楚老板
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 重要配角
+core_essence: 楚月是监考区前考官Z，因违规被罚至考生休息处担任旅馆老板，性格豪爽直率，看似粗枝大叶实则心思细腻，是少数能与考官A平等对话的人，对考生抱有善意，在关键时刻提供帮助。
+core_values:
+- 人情味
+- 直率坦诚
+- 责任感
+- 对规则的灵活变通
+inner_conflict: 作为被罚的考官，她内心对系统规则有不满，但依然履行职责；她同情考生，但又不能完全违背系统规则，在帮助考生与遵守规则之间挣扎。
+background: 楚月曾是监考区的考官Z，因与考官A关系密切（或涉及违规）被罚至1号考生休息处担任旅馆老板。她熟悉监考区内部运作，与考官A有深厚渊源，是少数能直言相劝的人。
+life_experiences:
+- 曾担任考官Z，负责监考工作。
+- 因违规被罚至1号考生休息处，经营旅馆。
+- 接待游惑等考生，提供食宿，并给予暗示。
+- 在考官A受罚时，曾劝解并陪伴。
+character_arcs:
+- period: 考官时期
+  state: 作为考官Z，严谨但有人情味
+  trigger: 与考官A的交往及系统处罚
+  change: 被罚至休息处，身份转变
+- period: 休息处老板时期
+  state: 表面粗犷，实则关心考生
+  trigger: 遇到游惑等特殊考生
+  change: 在规则内给予帮助，并逐渐揭示过去
+relationships:
+- target: 游惑
+  type: complex
+  attitude: 欣赏且好奇
+  dynamic: 作为旅馆老板接待游惑，对其冷静和实力印象深刻，给予特殊照顾。
+  key_events:
+  - 为游惑组提供饺子，暗示考场信息。
+  speech_toward: “你一门就拿了19分？看不出来啊！”
+- target: 考官A
+  type: friend
+  attitude: 亲近且关心
+  dynamic: 曾是同事，楚月是唯一能直言劝告A的人，在A受罚时陪伴。
+  key_events:
+  - 在A处罚前劝解，提及秦究。
+  speech_toward: “挺神奇的，你居然会喜欢什么人。”
+- target: 秦究
+  type: neutral
+  attitude: 间接了解
+  dynamic: 通过考官A知晓秦究，对其与A的关系有所了解。
+  key_events:
+  - 在对话中提及秦究。
+  speech_toward: “万一那谁又回来了呢……”
+personality_traits:
+- 豪爽直率
+- 幽默风趣
+- 心思细腻
+- 不拘小节
+- 有正义感
+preferences:
+- 喝冰啤
+- 包饺子
+- 看脸办事（自称肤浅）
+speech_patterns:
+- 语气随意，常带调侃，说话直接，偶尔神秘兮兮。
+behavior_patterns:
+- 在休息处忙碌，对考生照顾，但保持距离；在关键时刻给予暗示。
+taboos:
+- 不喜欢被提及被罚原因
+- 对系统规则有保留但不会明说
+canon_facts:
+- 曾是考官Z
+- 被罚至1号休息处
+- 与考官A关系密切
+- 经营旅馆，提供食宿
+- 在考官A处罚时在场
+appearance: 楚月是一位中年女性，头发长度中等，工作时常随意扎起。她穿着朴素，常系围裙，手里可能拿着菜刀或冰啤。气质豪爽，眼神锐利，面带笑容，给人一种江湖气的感觉。
+abilities:
+- 熟悉监考区规则
+- 经营旅馆
+- 观察力强
+- 人际交往能力
+profile_depth: deep

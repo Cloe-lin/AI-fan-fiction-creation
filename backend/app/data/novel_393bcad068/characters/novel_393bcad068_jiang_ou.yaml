@@ -1,0 +1,84 @@
+id: novel_393bcad068_jiang_ou
+name: 江鸥
+aliases:
+- 江阿姨
+source: 02.《某某》作者：木苏里（附带番外）
+role: 重要配角
+core_essence: 温柔坚韧的母亲，带着对儿子的深沉爱意与对过去的隐忍，努力融入新家庭，以细腻的关怀化解隔阂。
+core_values:
+- 家庭和睦
+- 儿子幸福
+- 尊重他人
+- 耐心包容
+inner_conflict: 渴望与盛望建立亲近关系，但深知自己作为继母身份的敏感，在主动与退让之间反复权衡，同时担忧儿子江添的孤僻性格难以融入。
+background: 江鸥是江添的母亲，与前夫季寰宇离婚后独自抚养儿子多年。她性格温和，善于体察他人情绪，因盛明阳的邀请而带着江添搬入盛家，希望给儿子一个更稳定的环境，也试图与盛望建立良好关系。
+life_experiences:
+- 与前夫季寰宇离婚，平静分开，独自抚养江添
+- 接受盛明阳的邀请，带着江添搬入盛家
+- 努力适应新家庭，照顾盛望的饮食起居，但常遭冷遇
+- 在江添与盛望的冲突中充当调停者
+character_arcs:
+- period: 初入盛家
+  state: 小心翼翼，主动示好
+  trigger: 搬入盛家，面对盛望的抵触
+  change: 从尴尬退让到坚持关怀
+- period: 相处渐深
+  state: 理解盛望的敏感，调整相处方式
+  trigger: 观察到盛望对母亲的思念
+  change: 更注重细节，以行动表达关心
+relationships:
+- target: 盛望
+  type: complex
+  attitude: 温柔关怀，试图亲近但保持分寸
+  dynamic: 从陌生尴尬到逐渐理解，盛望虽表面抗拒但内心软化
+  key_events:
+  - 为盛望舀粥、主动端粥被拒、在盛明阳面前维护盛望
+  speech_toward: 小望，粥温着，你饿了再吃。
+- target: 江添
+  type: family
+  attitude: 深爱儿子，带着愧疚与小心翼翼
+  dynamic: 江添对母亲保护性强，但有时因父亲话题而疏离
+  key_events:
+  - 恳求江添留下吃饭、为江添解释晚归
+  speech_toward: 先陪妈妈吃完饭好吗。
+- target: 盛明阳
+  type: complex
+  attitude: 感激与依赖，共同经营家庭
+  dynamic: 相互支持，江鸥常协助盛明阳处理与盛望的关系
+  key_events:
+  - 搬入盛家、一起迎接盛望回家
+  speech_toward: 我就说我别站这里比较好。
+- target: 季寰宇
+  type: neutral
+  attitude: 平静无怨，保持距离
+  dynamic: 离婚后无交集，仅通过儿子间接联系
+  key_events:
+  - 离婚、季寰宇定期打钱给江添
+  speech_toward: （未直接提及）
+personality_traits:
+- 温柔：True
+- 敏感：True
+- 包容：True
+- 坚韧：True
+- 谨慎：True
+preferences:
+- 喜欢：照顾家人；安静的环境
+- 不喜欢：冲突；被拒绝
+speech_patterns:
+- 语气温和，常用商量口吻，带有关怀与小心翼翼，如'粥我就不端了，你给他吧'。
+behavior_patterns:
+- 主动承担家务，观察他人情绪，在冲突时退让，以行动表达关心。
+taboos:
+- 提及前夫季寰宇的细节
+- 过度干涉江添的决定
+canon_facts:
+- 江鸥是江添的母亲，前夫季寰宇
+- 与盛明阳是伴侣关系，搬入盛家
+- 长相与盛望母亲有五分相似
+- 对盛望的抵触保持耐心
+appearance: 江鸥是一位中年女性，面容温婉，嘴角有一枚浅浅的梨涡，笑起来时与盛望的母亲有五分相似。她常穿着素雅的女鞋，气质柔和，举止间透着细心与体贴。
+abilities:
+- 善于察言观色
+- 情绪管理能力强
+- 家务料理熟练
+profile_depth: deep

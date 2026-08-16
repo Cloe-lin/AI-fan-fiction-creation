@@ -1,0 +1,83 @@
+id: novel_969dee7e83_yang_shu
+name: 杨舒
+aliases: []
+source: 05.《全球高考》作者：木苏里（附带番外）
+role: 配角
+core_essence: 盛气凌人但专业可靠、观察敏锐、行动力强的女性角色，表面冷淡实则关心同伴。
+core_values:
+- 独立、效率、专业、尊重（反感被轻视）、实用主义
+inner_conflict: 外表高傲冷漠，内心却关心他人，不愿表露温情，在专业与情感之间保持距离。
+background: 学医但非医生，曾参与与部队相关的项目，因此具备医疗和观察能力，具体身份未明。
+life_experiences:
+- 在考试中作为考生出现，与游惑等人同组，凭借专业能力帮助周祺，并多次在危机中发挥作用。
+character_arcs:
+- period: 初登场
+  state: 冷淡疏离，不主动交流
+  trigger: 被分配与秦究同房
+  change: 开始与团队互动，但保持距离
+- period: 周祺生病
+  state: 主动提供帮助
+  trigger: 听到周祺不适
+  change: 展现专业能力，逐渐融入团队
+- period: 教堂危机
+  state: 积极应对
+  trigger: 发现彩窗线索
+  change: 成为团队中不可或缺的一员
+relationships:
+- target: 周祺
+  type: friend
+  attitude: 表面冷淡，实际关心
+  dynamic: 主动为周祺诊治，提供药物，并在战斗中配合
+  key_events:
+  - 为周祺检查身体、喂药
+  speech_toward: 不冷不热地说：‘不吃东西不喝酒，饿的吧。’
+- target: 游惑
+  type: neutral
+  attitude: 认可其能力
+  dynamic: 评价游惑是部队出身，合作应对危机
+  key_events:
+  - 在教堂中共同发现彩窗线索
+  speech_toward: 冲游惑点了一下，评价说：‘你应该是部队的。’
+- target: 秦究
+  type: neutral
+  attitude: 认可其能力
+  dynamic: 评价秦究也是部队出身，合作应对危机
+  key_events:
+  - 在教堂中共同发现彩窗线索
+  speech_toward: 对着秦究点了一下：‘你也应该是。’
+- target: 高齐
+  type: neutral
+  attitude: 略带轻视
+  dynamic: 评价高齐不是部队出身，但可能装怂
+  key_events:
+  - 在教堂中共同战斗
+  speech_toward: 最后移向高齐：‘你肯定不是。’
+- target: 赵嘉彤
+  type: friend
+  attitude: 认可其能力
+  dynamic: 合作照顾周祺，共同战斗
+  key_events:
+  - 在教堂中共同战斗
+  speech_toward: 用审视的目光看向赵嘉彤：‘你部队的？’
+personality_traits:
+- ocean：盛气凌人、直接、专业、观察敏锐、行动力强、外冷内热
+- MBTI：ISTJ
+- big_five：低宜人性、高尽责性、高开放性、高外向性、低神经质
+preferences:
+- likes：高效行动；专业能力；直接沟通
+- dislikes：被轻视；拖沓；虚伪礼仪
+speech_patterns:
+- 说话直接、带刺，常用反问句，语气冷淡但专业。
+behavior_patterns:
+- 行动干脆利落，不拖泥带水，随身携带药物，善于观察和分析。
+taboos:
+- 反感被称呼‘小丫头’，讨厌不敲门进房间。
+canon_facts:
+- 随身携带药片
+- 能通过观察判断他人背景
+- 翻阳台行动
+- 在教堂发现彩窗线索
+appearance: 杨舒身材高挑，长腿，常穿巨大裙摆的礼服，但行动时会将裙摆扎起，露出长直的腿，赤脚行动。她说话时总是微抬下巴，显得盛气凌人，气质冷傲。
+abilities:
+- 具备医疗知识（非正式医生），观察力敏锐，能快速判断他人背景，身手敏捷，能翻阳台、用高跟鞋砸人。
+profile_depth: deep

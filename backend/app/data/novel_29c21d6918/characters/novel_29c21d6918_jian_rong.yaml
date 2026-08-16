@@ -1,0 +1,76 @@
+id: novel_29c21d6918_jian_rong
+name: 简茸
+aliases:
+- Soft
+- 艹耳
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: 主角
+core_essence: 嘴强王者，实力强劲，性格狂妄，但内心渴望认可与归属
+core_values:
+- 实力至上
+- 真实坦率
+- 忠诚
+- 努力拼搏
+inner_conflict: 外表狂妄不羁，内心敏感脆弱，渴望被理解与接纳
+background: 两年多前入驻直播平台，因实力强劲和性格狂妄迅速爆火，后成为TTC战队中单选手
+life_experiences:
+- 直播平台爆火，因辱骂观众被投诉多次
+- 在S10半决赛直播中暗讽Kan打假赛
+- 被TTC战队选中成为中单选手
+- 首次上场即展现喷子形象，但被Road压制
+character_arcs:
+- period: 直播时期
+  state: 狂妄毒舌，独来独往
+  trigger: 被TTC选中
+  change: 开始融入团队，逐渐收敛锋芒
+- period: 加入TTC初期
+  state: 依然毒舌，但有所收敛
+  trigger: 与Road的互动
+  change: 对Road产生敬畏与好感
+relationships:
+- target: 路柏沅（Road）
+  type: lover
+  attitude: 敬畏、依赖、逐渐产生感情
+  dynamic: 从被压制到互相吸引
+  key_events:
+  - Road在后台警告他采访别骂人
+  - 简茸脸红答应
+  speech_toward: 知道。我不骂人……一定不骂人。
+- target: 石榴
+  type: friend
+  attitude: 信任、随意
+  dynamic: 好友关系，石榴常劝他收敛
+  key_events:
+  - 石榴提醒他直播收敛
+  - 简茸回复‘知道’
+  speech_toward: 干嘛？
+- target: Kan
+  type: enemy
+  attitude: 鄙视、嘲讽
+  dynamic: 公开嘲讽Kan打假赛
+  key_events:
+  - 在直播中暗讽Kan打假赛
+  speech_toward: 我猜他在想……‘我这两局演得这么好，一会要让庄家多给我分点钱’。
+personality_traits:
+- '{''mbti'': ''ENTP'', ''traits'': [''狂妄'', ''毒舌'', ''实力自信'', ''内心敏感'', ''重情义''],
+  ''strengths'': [''游戏天赋高'', ''反应快'', ''直率''], ''weaknesses'': [''容易得罪人'', ''情绪化'']}'
+preferences:
+- '{''likes'': [''游戏'', ''直播'', ''蓝色''], ''dislikes'': [''菜逼'', ''虚伪'', ''被误解'']}'
+speech_patterns:
+- 语速快，常用反问句，语气嚣张，偶尔带脏话
+behavior_patterns:
+- 直播时喜欢怼弹幕，比赛时专注，私下对熟人放松
+taboos:
+- 被质疑实力
+- 被说菜
+- 被误解打假赛
+canon_facts:
+- 染着张扬蓝发
+- 鼻尖右侧有一颗小小的痣
+- 直播时因辱骂观众被投诉多次
+- 在S10半决赛直播中暗讽Kan打假赛
+- 被TTC选中成为中单选手
+appearance: 皮肤白，睫毛又长又密，眼睛水灵，鼻尖右侧有小痣，染蓝色头发
+abilities:
+- 英雄联盟中单选手，擅长劫等刺客英雄，实力强劲，直播人气高
+profile_depth: deep

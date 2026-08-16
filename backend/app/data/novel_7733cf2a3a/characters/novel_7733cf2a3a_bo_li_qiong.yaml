@@ -1,0 +1,45 @@
+id: novel_7733cf2a3a_bo_li_qiong
+name: 波利·琼
+aliases:
+- 博士
+source: 06.《小蘑菇》作者：一十四洲（附带番外）
+role: 重要配角
+core_essence: 高地研究所的创始人，前审判者，慈祥睿智的长者。他庇护异种，研究科学，在末日中坚守人性与希望。最终为人类未来献出生命。
+core_values: []
+inner_conflict: ''
+background: 波利·琼曾是审判者，后建立高地研究所，收留异种，研究科学。他年老体衰，但智慧深邃，对安折如子侄般关怀。在最终决战中，他利用安折的频率数据，为人类争取生机，自己则牺牲。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 安折
+  type: family
+  attitude: 如父亲般关爱
+  dynamic: 照顾安折，传授知识，最终为安折的牺牲而悲痛
+  key_events: []
+  speech_toward: ''
+- target: 陆沨
+  type: complex
+  attitude: 复杂，有愧疚
+  dynamic: 曾为审判者，与陆沨有旧识，因安折之死而道歉
+  key_events: []
+  speech_toward: ''
+- target: 唐岚
+  type: friend
+  attitude: 信任依赖
+  dynamic: 唐岚是其得力助手，彼此忠诚
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 慈祥
+- 睿智
+- 坚定
+- 宽容
+- 冷静
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

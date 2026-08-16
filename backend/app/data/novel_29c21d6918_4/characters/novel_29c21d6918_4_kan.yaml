@@ -1,0 +1,69 @@
+id: novel_29c21d6918_4_kan
+name: Kan
+aliases: []
+source: 01.《我行让我来》作者：酱子贝（附带番外）
+role: TTC战队中单选手，因状态不佳和疑似打假赛被替换下场。
+core_essence: 一个在高压下状态下滑、内心愧疚但缺乏担当的老将，因连续失误和疑似假赛行为导致队伍失利，最终被替换。
+core_values:
+- 渴望胜利但更在意个人表现，在团队利益和个人失误间挣扎，缺乏承担责任的勇气。
+inner_conflict: 作为老将的自尊与连续失误的愧疚感，以及被怀疑打假赛的委屈和无力辩解。
+background: Kan是TTC战队的老将中单，已打了四次S赛，在队七年，比教练和队长待的时间还长。但本赛季状态下滑，在S10半决赛中表现糟糕，连续失误导致队伍陷入困境。
+life_experiences:
+- 在TTC效力七年，多次参加S赛，曾帮助战队拿下过胜利，但本赛季状态下滑，在关键比赛中连续失误，被观众和主播批评，最终被替补替换。
+character_arcs:
+- period: S10半决赛前
+  state: 作为老将，被教练叮嘱，承诺不犯错误
+  trigger: 教练赛前提醒
+  change: 表现出紧张和愧疚，但未能兑现承诺
+- period: S10半决赛中
+  state: 连续失误，导致队伍输掉两局
+  trigger: 比赛压力和个人状态不佳
+  change: 被观众和主播指责，内心愧疚，但未能调整
+- period: S10半决赛后
+  state: 被替换下场，队伍输掉决胜局
+  trigger: 教练和队长决定换人
+  change: 试图争取上场但被无视，最终在角落沉默，可能面临调查
+relationships:
+- target: Road（路柏沅）
+  type: complex
+  attitude: 敬畏和依赖，但被队长无视时感到失落
+  dynamic: 队长对Kan失望，Kan试图解释但被冷落
+  key_events:
+  - 第四局后Road头也不回离开，决胜局Kan请求上场被无视
+  speech_toward: 队长，我都说了这局我可以打。
+- target: 教练
+  type: neutral
+  attitude: 顺从但敷衍
+  dynamic: 教练赛前提醒，赛后可能调查Kan
+  key_events:
+  - 教练点名提醒，赛后与Road讨论Kan的问题
+  speech_toward: 啊……哦，当然记得，我一定不犯之前的错误了。
+- target: Soft（简茸）
+  type: rival
+  attitude: 被公开批评和嘲讽
+  dynamic: Soft在直播中多次批评Kan的表现，并暗讽其打假赛
+  key_events:
+  - Soft单杀过Kan，直播中嘲讽其伤害低，并暗示假赛
+  speech_toward: （无直接对话，但Soft评价：'8300点伤害……我往中路放只河蟹，河蟹伤害都比他高。'）
+personality_traits:
+- 老实随和
+- 紧张时容易失误
+- 缺乏自信
+- 愧疚但不敢担当
+- 依赖队长
+preferences: []
+speech_patterns:
+- 说话犹豫，常用'啊……哦'开头，语气不确定，如'我一定不犯之前的错误了'
+behavior_patterns:
+- 在压力下表现失常，失误后低头愧疚，被替换后试图争取但被无视
+taboos: []
+canon_facts:
+- 打了四次S赛
+- 在TTC待了七年
+- 本赛季状态下滑
+- 在S10半决赛中连续失误，被替换下场
+- 被Soft暗讽打假赛
+appearance: Kan是个有点胖的大高个，长相老实，非常随和的模样。他通常穿着TTC队服，在比赛中显得紧绷，失误后低垂着头，表情愧疚。
+abilities:
+- 发育团战型中单选手，但本赛季状态下滑，手速和反应不如从前，在关键团战中决策失误，伤害输出低。
+profile_depth: deep

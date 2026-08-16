@@ -30,6 +30,16 @@ class Settings(BaseSettings):
     embedding_base_url: str = ""
     embedding_model: str = ""
 
+    # 管理员令牌：兼容旧接口；正式权限以数据库账号为准
+    admin_token: str = ""
+
+    # 账号体系（SQLite）
+    auth_db_path: str = "app/data/auth.db"
+    jwt_secret: str = "change-me-aitongrenwen-jwt-secret"
+    jwt_expire_hours: int = 72
+    admin_username: str = "admin"
+    admin_password: str = ""  # 为空则 seed 时随机生成
+
     class Config:
         env_file = ".env"
         env_file_encoding = "utf-8"

@@ -71,18 +71,22 @@ pip install -r requirements.txt
 
 # 4. 配置 API Key
 copy .env.example .env
-# 编辑 .env，填入你的 LLM API Key 和模型配置
+# 编辑 .env，填入你的 LLM API Key、模型配置，并设置 JWT_SECRET
 
-# 5. 入库原著文本（RAG）
+# 5. 预置登录账号（admin + user01..user20；不开放注册）
+venv\Scripts\python scripts\seed_users.py
+# 密码在 app/data/credentials_initial.txt（已 gitignore，勿提交）
+
+# 6. 入库原著文本（RAG）
 # 将《魔道祖师》全文 txt 放入 backend/app/data/modaozuoshi/text/
 venv\Scripts\python scripts\ingest_novel.py
 
-# 6. 启动后端（首次启动会自动入库 demo 文本）
-uvicorn app.main:app --reload --port 8000
+# 7. 启动后端（当前常用端口 8010）
+uvicorn app.main:app --reload --port 8010
 
-# 7. 打开前端
+# 8. 打开前端
 # 直接用浏览器打开 frontend/index.html
-# 或使用任意静态文件服务器
+# 或使用任意静态文件服务器；登录后使用私人/公共书库
 ```
 
 ### API 配置示例
@@ -155,11 +159,21 @@ venv\Scripts\python scripts\setup_rag.py --use-demo
 
 切换 Embedding 模型或更换文本后，必须 `--force` 重建索引。
 
+## 登录与书库
+
+- **不开放注册**：预置 `admin` + `user01`…`user20`，每人不同初始密码。
+- 登录：`POST /api/auth/login` → JWT；前端自动带 `Authorization: Bearer …`。
+- 普通用户默认上传到**私人书库**；仅管理员可选**公共书库**，并可见「全选深档」。
+- 重置预置密码：`python scripts/seed_users.py --force`（会重写 `credentials_initial.txt`）。
+
 ## API 接口
 
 | 方法 | 路径 | 说明 |
 |------|------|------|
+| POST | `/api/auth/login` | 登录，返回 JWT |
+| GET | `/api/auth/me` | 当前用户 |
 | GET | `/api/health` | 健康检查（含 RAG 状态） |
+| GET | `/api/novels` | 可见书库列表（需登录） |
 | GET | `/api/characters` | 获取所有人物列表 |
 | GET | `/api/characters/{id}` | 获取人物完整档案 |
 | POST | `/api/stories/create` | 创作同人文（自动 RAG 检索） |

@@ -1,0 +1,71 @@
+id: novel_393bcad068_gao_tianyang
+name: 高天扬
+aliases:
+- 老高
+source: 02.《某某》作者：木苏里（附带番外）
+role: 重要配角
+core_essence: 高天扬是班级里的活跃分子和气氛调节者，性格开朗直率，乐于助人，是盛望融入新环境的引路人。
+core_values:
+- 友情
+- 集体荣誉
+- 乐观
+- 幽默
+inner_conflict: 内心渴望被认可，但常因成绩不佳而自卑，通过插科打诨掩饰不安。
+background: 高天扬是A班学生，成绩中等偏下，但人缘极好，常被老师抓典型，但依然乐观。
+life_experiences:
+- 多次被徐主任没收手机，成为反面教材；主动帮助盛望适应新环境；在考试中关心盛望。
+character_arcs:
+- period: 盛望转学初期
+  state: 好奇、热情
+  trigger: 盛望成为新同桌
+  change: 主动与盛望交流，提供帮助，成为朋友
+relationships:
+- target: 盛望
+  type: friend
+  attitude: 友好、热心
+  dynamic: 主动帮助盛望适应环境，常开玩笑，关系逐渐亲密
+  key_events:
+  - 介绍班级情况，提醒考试，考试时关心
+  speech_toward: 哥们儿，别往心里去；朋友，任重道远
+- target: 江添
+  type: friend
+  attitude: 尊敬、亲近
+  dynamic: 称江添为添哥，常帮忙叫醒，关系融洽
+  key_events:
+  - 叫醒江添，解释座位安排
+  speech_toward: 醒醒嘿添哥，自习了
+- target: 徐主任
+  type: neutral
+  attitude: 无奈、调侃
+  dynamic: 常被徐主任抓典型，私下称其为大嘴
+  key_events:
+  - 手机被没收，被扣分
+  speech_toward: 等毕业了，找人打徐大嘴一顿
+personality_traits:
+- 开朗
+- 幽默
+- 热心
+- 直率
+- 乐观
+preferences:
+- 喜欢开玩笑
+- 喜欢八卦
+- 喜欢用网络用语
+speech_patterns:
+- 常用儿化音，爱用网络流行语，说话直白幽默
+behavior_patterns:
+- 喜欢插科打诨，主动关心同学，常被老师抓典型
+taboos:
+- 不喜欢被叫全名
+- 不喜欢被说成绩差
+canon_facts:
+- 高天扬是A班学生
+- 常被徐主任没收手机
+- 称江添为添哥
+- 喜欢用儿化音
+appearance: 高天扬留着圆寸头，穿着校服，身材中等，气质阳光，常带着笑容，给人一种亲切感。
+abilities:
+- 善于交际
+- 调节气氛
+- 快速融入集体
+profile_depth: deep

@@ -1,0 +1,93 @@
+id: novel_e5a7519d37_wang_gu
+name: 汪顾
+aliases:
+- 汪硕
+source: 《逆袭》作者：柴鸡蛋
+role: 配角
+core_essence: 汪顾是一个性格张扬、爱凑热闹、嘴硬心软的角色，与汪朕关系亲密，常与池骋、吴所畏等人嬉闹，但内心深处有对过去的执念和嫉妒。
+core_values:
+- 兄弟情义
+- 自由自在
+- 爱憎分明
+inner_conflict: 汪顾表面玩世不恭，内心却对池骋与吴所畏的感情既嫉妒又不屑，同时对自己与汪朕的关系有依赖和矛盾。
+background: 汪顾是汪朕的兄弟，与池骋有旧情，后与汪朕在一起。他性格活泼，喜欢捉弄人，但有时也显得幼稚。
+life_experiences:
+- 汪顾曾与池骋有过一段感情，后分手。他经常与汪朕一起行动，参与捉弄吴所畏等事件。
+character_arcs:
+- period: 早期
+  state: 与池骋有旧情，性格张扬
+  trigger: 池骋与吴所畏在一起
+  change: 开始嫉妒和不满
+- period: 中期
+  state: 与汪朕关系亲密，参与捉弄吴所畏
+  trigger: 池骋入狱
+  change: 幸灾乐祸，积极回国看热闹
+- period: 后期
+  state: 与池骋、吴所畏关系缓和
+  trigger: 池骋出狱后
+  change: 仍爱调侃，但不再敌对
+relationships:
+- target: 汪朕
+  type: complex
+  attitude: 依赖且亲密
+  dynamic: 汪顾常与汪朕一起行动，但汪朕对他冷淡，汪顾有时会抱怨
+  key_events:
+  - 汪顾叫汪朕回国看热闹，汪朕不理，但提到吴大眼儿时汪朕才起身
+  speech_toward: 汪朕我草你大爷！
+- target: 池骋
+  type: complex
+  attitude: 复杂，有旧情也有嫉妒
+  dynamic: 汪顾与池骋有旧情，但池骋现在与吴所畏在一起，汪顾常调侃或挑衅
+  key_events:
+  - 池骋入狱时汪顾高兴，出狱后汪顾在门口唱歌被池骋教训
+  speech_toward: 有这么跟前夫说话的么？
+- target: 吴所畏
+  type: rival
+  attitude: 爱捉弄，但无恶意
+  dynamic: 汪顾常与吴所畏斗嘴，参与捉弄他
+  key_events:
+  - 用水气球砸吴所畏，嘲笑他
+  speech_toward: 吴大眼儿！
+- target: 姜小帅
+  type: friend
+  attitude: 友好，常一起玩
+  dynamic: 汪顾与姜小帅一起捉弄吴所畏，互相笑骂
+  key_events:
+  - 在喷水车事件中合作
+  speech_toward: 你丫真废物！
+- target: 郭城宇
+  type: friend
+  attitude: 友好，但有时抱怨
+  dynamic: 汪顾与郭城宇一起行动，但郭城宇更照顾姜小帅
+  key_events:
+  - 在喷水车事件中，郭城宇拉姜小帅没拉汪顾
+  speech_toward: 郭子你个重色轻友的，就知道拉姜小帅，怎么不拽我一把？
+personality_traits:
+- 张扬
+- 爱凑热闹
+- 嘴硬
+- 心软
+- 幼稚
+- 重情义
+preferences:
+- 喜欢捉弄人
+- 喜欢看热闹
+- 喜欢唱歌（跑调）
+speech_patterns:
+- 说话直接，常用脏话，爱调侃人，语气夸张
+behavior_patterns:
+- 喜欢用行动表达情绪，如唱歌、砸水球，有时冲动
+taboos:
+- 不喜欢被忽视
+- 不喜欢被池骋教训
+canon_facts:
+- 汪顾是汪朕的兄弟
+- 与池骋有旧情
+- 曾因池骋入狱而高兴
+- 参与捉弄吴所畏
+appearance: 汪顾皮肤较黑，身材中等，常穿休闲装，气质张扬，爱笑，表情丰富。
+abilities:
+- 擅长捉弄人
+- 唱歌跑调但爱唱
+- 行动力强
+profile_depth: deep
