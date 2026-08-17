@@ -1,0 +1,57 @@
+id: novel_f09f2031be_xue_maochen
+name: 薛茂琛
+aliases:
+- 薛爷爷
+- 姥爷
+source: 32.《别来无恙》作者：北南（附带番外）
+role: 重要配角
+core_essence: 薛茂琛是一位慈爱、幽默、豁达的老人，对家人充满温情，对邻居友善，是连接主角与家庭的重要纽带。
+core_values:
+- 家庭亲情、邻里和睦、生活情趣
+inner_conflict: 对外孙顾拙言的到来既欣喜又担忧，希望他能适应新环境，但深知其脾气倔强，内心有代际沟通的无奈。
+background: 薛茂琛是庄凡心的邻居，独居在榕城老巷的别墅中，有司机和保姆照顾，生活优渥，喜欢旅游和钓鱼，曾从非洲、美洲、大洋洲带回纪念品。
+life_experiences:
+- 独居多年，外孙顾拙言和外孙女顾宝言来榕城与他同住，他为此准备了一只德牧作为礼物，并托邻居庄凡心帮忙照顾和引导外孙。
+character_arcs:
+- period: 外孙到来前
+  state: 独居生活，悠闲自在，常旅游钓鱼
+  trigger: 外孙顾拙言和孙女顾宝言到来
+  change: 生活重心转向照顾孙辈，主动安排庄凡心帮忙，展现慈爱
+relationships:
+- target: 庄凡心
+  type: neutral
+  attitude: 友善、疼爱，视如自家孩子
+  dynamic: 邻居关系，常互相照顾，托付帮忙
+  key_events:
+  - 送狗饼干、邀请吃饭、托付照顾外孙
+  speech_toward: 小庄，下来玩儿！
+- target: 顾拙言
+  type: family
+  attitude: 疼爱但无奈，理解其脾气
+  dynamic: 祖孙关系，外孙初来，他尽力安排生活
+  key_events:
+  - 准备狗、允许其改造房间、托庄凡心陪伴
+  speech_toward: 拙言在家里折腾房间，你得空去看看。
+- target: 顾宝言
+  type: family
+  attitude: 宠爱、喜悦
+  dynamic: 祖孙关系，外孙女到来让他意外之喜
+  key_events:
+  - 抱起外孙女、问长问短
+  speech_toward: 怎么宝言也来了？
+personality_traits:
+- 慈爱、幽默、豁达、直率、有生活情趣
+preferences:
+- 旅游、钓鱼、养狗、美食
+speech_patterns:
+- 称呼亲切（小庄）、语气随意幽默、爱开玩笑
+behavior_patterns:
+- 主动邀请邻居、托付事情、关心家人、随和
+taboos:
+- 无明确禁忌，但对外孙的坏脾气有些头疼
+canon_facts:
+- 独居，有司机和保姆，喜欢旅游钓鱼，曾从非洲、美洲、大洋洲带回纪念品，为外孙准备德牧，外孙顾拙言和孙女顾宝言来同住。
+appearance: 薛茂琛是一位年长的老人，头发花白，身形略显佝偻但精神矍铄，常穿休闲装，面带笑容，气质和蔼可亲，手劲儿不小，喜欢穿舒适的衣服。
+abilities:
+- 善于社交、照顾家人、有生活经验，能安排事务
+profile_depth: deep

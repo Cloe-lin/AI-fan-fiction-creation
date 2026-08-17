@@ -137,3 +137,13 @@ def assert_can_access_job(job, actor: Actor) -> None:
     if actor.user_id and owner and actor.user_id == owner:
         return
     raise HTTPException(status_code=403, detail="无权访问该准备任务")
+
+
+def assert_can_access_story(series, actor: Actor) -> None:
+    """同人文存档仅作者本人可见；管理员可查看全部。"""
+    if actor.is_admin:
+        return
+    owner = getattr(series, "owner_id", "") or ""
+    if actor.user_id and owner and actor.user_id == owner:
+        return
+    raise HTTPException(status_code=403, detail="这是其他用户的存档，无权访问")

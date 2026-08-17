@@ -64,6 +64,7 @@ class StorySeries(BaseModel):
         default="",
         description="用户整体剧情走向（随续写累积）",
     )
+    owner_id: str = Field(default="", description="作者用户 ID；仅本人与管理员可见")
     chapters: list[StoryChapter] = Field(default_factory=list)
     created_at: str = Field(default_factory=_now)
     updated_at: str = Field(default_factory=_now)
@@ -84,6 +85,7 @@ class StorySeriesSummary(BaseModel):
     plot_direction: str
     updated_at: str
     last_summary: str = ""
+    owner_id: str = ""
 
 
 class StoryCreateRequest(BaseModel):

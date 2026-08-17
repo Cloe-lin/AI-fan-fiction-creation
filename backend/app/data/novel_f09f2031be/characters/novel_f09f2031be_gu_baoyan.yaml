@@ -1,0 +1,45 @@
+id: novel_f09f2031be_gu_baoyan
+name: 顾宝言
+aliases:
+- 小妹
+- 宝言
+source: 32.《别来无恙》作者：北南（附带番外）
+role: 配角
+core_essence: 顾拙言的妹妹，七八岁的小女孩，天真可爱，喜欢画画和玩游戏，依赖哥哥但有时也调皮捣蛋。
+core_values: []
+inner_conflict: ''
+background: 顾宝言是顾拙言的妹妹，随哥哥来到榕城外公家，性格活泼，很快适应新环境，与庄凡心相处融洽。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 顾拙言
+  type: family
+  attitude: 亲近依赖
+  dynamic: 兄妹关系，常被哥哥逗弄，但感情深厚
+  key_events: []
+  speech_toward: ''
+- target: 庄凡心
+  type: friend
+  attitude: 喜欢亲近
+  dynamic: 喜欢小庄哥哥，一起画画玩耍
+  key_events: []
+  speech_toward: ''
+- target: 薛茂琛
+  type: family
+  attitude: 尊敬喜爱
+  dynamic: 外公，疼爱外孙女
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 天真
+- 活泼
+- 依赖哥哥
+- 调皮
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

@@ -1,0 +1,45 @@
+id: novel_f09f2031be_zhao_jianqiu
+name: 赵见秋
+aliases:
+- 赵阿姨
+source: 32.《别来无恙》作者：北南（附带番外）
+role: 配角
+core_essence: 庄凡心的母亲，国内有名的园艺设计师。她温柔亲切，有分寸感，关心儿子但尊重其独立，是家庭中温暖而理性的存在。
+core_values: []
+inner_conflict: ''
+background: 赵见秋是庄凡心的母亲，职业为园艺设计师，与丈夫庄显炀共同经营家庭。她性格温和，善于与人相处，对儿子的朋友顾拙言也关怀备至，体现了慈母形象。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 庄凡心
+  type: family
+  attitude: 关爱、支持，偶尔调侃
+  dynamic: 母子关系亲密，赵见秋关心庄凡心的成长，尊重他的选择。
+  key_events: []
+  speech_toward: ''
+- target: 庄显炀
+  type: family
+  attitude: 恩爱、默契
+  dynamic: 夫妻关系和谐，共同教育儿子，相互支持。
+  key_events: []
+  speech_toward: ''
+- target: 顾拙言
+  type: neutral
+  attitude: 友善、关心
+  dynamic: 作为邻居长辈，对顾拙言亲切照顾，询问其家庭情况，但保持适当距离。
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 温柔
+- 亲切
+- 有分寸
+- 理性
+- 关心家人
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

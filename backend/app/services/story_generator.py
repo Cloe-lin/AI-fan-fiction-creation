@@ -51,7 +51,9 @@ def build_system_prompt(novel_title: str) -> str:
 
 
 class StoryGenerator:
-    async def generate(self, request: StoryCreateRequest) -> StoryCreateResponse:
+    async def generate(
+        self, request: StoryCreateRequest, *, owner_id: str = ""
+    ) -> StoryCreateResponse:
         novel = novel_registry.require(request.novel_id)
 
         series: StorySeries | None = None
@@ -61,6 +63,8 @@ class StoryGenerator:
                 raise ValueError(f"存档不存在: {request.series_id}")
             if series.novel_id != request.novel_id:
                 raise ValueError("存档作品与当前作品不一致")
+            if series.owner_id and owner_id and series.owner_id != owner_id:
+                raise ValueError("无权续写他人存档")
             # 续写时沿用存档人物/基调
             request.characters = series.characters or request.characters
             request.tone = series.tone
@@ -163,6 +167,7 @@ class StoryGenerator:
                 consistency_report=consistency_report,
                 memory=memory,
                 existing=series,
+                owner_id=owner_id,
             )
             series_id = series.id
             chapter_index = chapter.index
@@ -214,9 +219,12 @@ class StoryGenerator:
         consistency_report: ConsistencyReport,
         memory: dict,
         existing: StorySeries | None,
+        owner_id: str = "",
     ) -> tuple[StorySeries, StoryChapter]:
         if existing:
             series = existing
+            if not series.owner_id and owner_id:
+                series.owner_id = owner_id
         else:
             series = StorySeries(
                 novel_id=request.novel_id,
@@ -228,6 +236,7 @@ class StoryGenerator:
                 perspective=request.perspective,
                 length=request.length,
                 plot_direction=memory.get("plot_direction", request.scenario),
+                owner_id=owner_id,
             )
 
         chapter = StoryChapter(

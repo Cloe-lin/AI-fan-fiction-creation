@@ -35,7 +35,13 @@ class StoryStore:
         path.unlink()
         return True
 
-    def list_by_novel(self, novel_id: str) -> list[StorySeriesSummary]:
+    def list_by_novel(
+        self,
+        novel_id: str,
+        *,
+        owner_id: str = "",
+        is_admin: bool = False,
+    ) -> list[StorySeriesSummary]:
         items: list[StorySeriesSummary] = []
         for path in sorted(self.root.glob("*.json"), key=lambda p: p.stat().st_mtime, reverse=True):
             try:
@@ -44,6 +50,10 @@ class StoryStore:
                 continue
             if data.get("novel_id") != novel_id:
                 continue
+            story_owner = data.get("owner_id", "") or ""
+            if not is_admin:
+                if not owner_id or story_owner != owner_id:
+                    continue
             chapters = data.get("chapters") or []
             last = chapters[-1] if chapters else {}
             items.append(
@@ -58,6 +68,7 @@ class StoryStore:
                     plot_direction=data.get("plot_direction", ""),
                     updated_at=data.get("updated_at", ""),
                     last_summary=last.get("summary", ""),
+                    owner_id=story_owner,
                 )
             )
         return items

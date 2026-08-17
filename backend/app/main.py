@@ -3,6 +3,8 @@ from pathlib import Path
 
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from app.config import settings
@@ -32,6 +34,7 @@ from app.services.access import (
     Actor,
     assert_can_access_job,
     assert_can_access_novel,
+    assert_can_access_story,
     get_actor,
     require_admin_user,
     require_login,
@@ -106,10 +109,25 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# 前端：用 http://127.0.0.1:8010/ 打开，避免直接双击 html（file://）导致登录无响应
+_FRONTEND_DIR = Path(__file__).resolve().parents[2] / "frontend"
+_FRONTEND_INDEX = _FRONTEND_DIR / "index.html"
+
+
+@app.get("/")
+async def frontend_index():
+    if not _FRONTEND_INDEX.exists():
+        raise HTTPException(status_code=404, detail="frontend/index.html 未找到")
+    return FileResponse(_FRONTEND_INDEX, media_type="text/html; charset=utf-8")
+
+
+if _FRONTEND_DIR.is_dir():
+    app.mount("/static", StaticFiles(directory=str(_FRONTEND_DIR)), name="frontend_static")
 
 
 @app.get("/api/health")
@@ -344,8 +362,13 @@ async def create_story(
     if not novel:
         raise HTTPException(status_code=404, detail=f"作品 '{request.novel_id}' 不存在")
     assert_can_access_novel(novel, actor)
+    if request.series_id:
+        existing = story_store.get(request.series_id)
+        if not existing:
+            raise HTTPException(status_code=404, detail=f"存档 '{request.series_id}' 不存在")
+        assert_can_access_story(existing, actor)
     try:
-        return await story_generator.generate(request)
+        return await story_generator.generate(request, owner_id=actor.user_id)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
@@ -361,7 +384,11 @@ async def list_stories(
     if not novel:
         raise HTTPException(status_code=404, detail=f"作品 '{novel_id}' 不存在")
     assert_can_access_novel(novel, actor)
-    return story_store.list_by_novel(novel_id)
+    return story_store.list_by_novel(
+        novel_id,
+        owner_id=actor.user_id,
+        is_admin=actor.is_admin,
+    )
 
 
 @app.get("/api/stories/{series_id}", response_model=StorySeries)
@@ -372,6 +399,7 @@ async def get_story(series_id: str, actor: Actor = Depends(require_login)):
     novel = novel_registry.get(series.novel_id)
     if novel:
         assert_can_access_novel(novel, actor)
+    assert_can_access_story(series, actor)
     return series
 
 
@@ -387,6 +415,7 @@ async def continue_story(
     novel = novel_registry.get(series.novel_id)
     if novel:
         assert_can_access_novel(novel, actor)
+    assert_can_access_story(series, actor)
 
     create_req = StoryCreateRequest(
         novel_id=series.novel_id,
@@ -401,7 +430,7 @@ async def continue_story(
         auto_save=True,
     )
     try:
-        return await story_generator.generate(create_req)
+        return await story_generator.generate(create_req, owner_id=actor.user_id)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     except Exception as e:
@@ -416,6 +445,7 @@ async def delete_story(series_id: str, actor: Actor = Depends(require_login)):
     novel = novel_registry.get(series.novel_id)
     if novel:
         assert_can_access_novel(novel, actor)
+    assert_can_access_story(series, actor)
     if not story_store.delete(series_id):
         raise HTTPException(status_code=404, detail=f"存档 '{series_id}' 不存在")
     return {"success": True, "id": series_id}

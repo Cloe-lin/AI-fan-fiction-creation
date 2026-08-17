@@ -8,82 +8,249 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #0a0a0f;
-      --bg-secondary: #12121a;
-      --bg-card: #1a1a26;
-      --border: #2a2a3a;
-      --text-primary: #e8e6e3;
-      --text-secondary: #9a9590;
-      --accent: #c9a96e;
-      --accent-dim: #8a7344;
-      --accent-glow: rgba(201, 169, 110, 0.15);
-      --success: #6ec9a9;
-      --warning: #c9a96e;
-      --error: #c96e6e;
+      --bg-primary: #fff6f4;
+      --bg-secondary: #ffe9e4;
+      --bg-card: #fffbf9;
+      --bg-elevated: #fff1ec;
+      --border: #f0d0c4;
+      --border-light: #f5ddd4;
+      --text-primary: #4a3530;
+      --text-secondary: #9a7068;
+      --text-muted: #c49a90;
+      --accent: #c9a06a;
+      --accent-dim: #a87d4a;
+      --accent-glow: rgba(201, 160, 106, 0.16);
+      --accent-glow-strong: rgba(201, 160, 106, 0.26);
+      --pink: #e87a9a;
+      --pink-soft: #f5a8bc;
+      --success: #5cbf9a;
+      --warning: #c9a06a;
+      --error: #e55a6a;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      --shadow: 0 4px 24px rgba(201, 160, 106, 0.14);
       --font-serif: 'Noto Serif SC', serif;
       --font-sans: 'Noto Sans SC', sans-serif;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+
     body {
       font-family: var(--font-sans);
       background: var(--bg-primary);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232, 122, 154, 0.16), transparent),
+        radial-gradient(ellipse 55% 40% at 100% 0%, rgba(201, 160, 106, 0.18), transparent),
+        radial-gradient(ellipse 60% 40% at 0% 100%, rgba(245, 168, 188, 0.22), transparent),
+        linear-gradient(165deg, #fff9f7 0%, #ffe8e2 40%, #fff4ee 100%);
       color: var(--text-primary);
       min-height: 100vh;
       line-height: 1.6;
     }
 
-    .hero {
+    /* ---- Login ---- */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background: rgba(255, 240, 236, 0.85);
+      backdrop-filter: blur(12px);
+    }
+
+    .login-overlay.visible { display: flex; }
+
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .login-brand {
       text-align: center;
-      padding: 3rem 2rem 2rem;
-      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+      margin-bottom: 1.75rem;
+    }
+
+    .login-brand h1 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 700;
+      background: linear-gradient(120deg, var(--pink) 0%, var(--accent) 55%, #d4b07a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .login-brand p {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+
+    .login-error {
+      display: block;
+      margin-top: 0.75rem;
+      color: var(--error);
+      font-size: 0.85rem;
+      min-height: 1.25rem;
+      line-height: 1.4;
+      word-break: break-word;
+    }
+
+    .login-error:not(:empty) {
+      padding: 0.55rem 0.75rem;
+      background: rgba(229, 90, 106, 0.1);
+      border: 1px solid rgba(229, 90, 106, 0.3);
+      border-radius: 8px;
+    }
+
+    /* ---- App header ---- */
+    .app-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
 
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
+    .app-header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .hero p {
+    .app-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .app-brand-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      background: linear-gradient(120deg, var(--pink) 0%, var(--accent) 60%, #d4b07a 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: 0.08em;
+    }
+
+    .app-brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .user-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.8rem;
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      max-width: 600px;
-      margin: 0 auto;
+    }
+
+    .user-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+    }
+
+    .user-badge.admin .dot { background: linear-gradient(135deg, var(--pink), var(--accent)); }
+
+    .btn-ghost {
+      padding: 0.35rem 0.85rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent-dim);
+      color: var(--accent);
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 1.5rem 2rem 2rem;
       display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 2rem;
+      grid-template-columns: min(380px, 100%) 1fr;
+      gap: 1.5rem;
+      align-items: start;
     }
 
     @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
+      .container { grid-template-columns: 1fr; padding: 1rem; }
+      .app-header-inner { padding: 0.75rem 1rem; }
+      .import-panel { padding: 0 1rem; }
+    }
+
+    .sidebar-panel {
+      position: sticky;
+      top: 4.5rem;
+      max-height: calc(100vh - 5.5rem);
+      overflow-y: auto;
+    }
+
+    @media (max-width: 900px) {
+      .sidebar-panel { position: static; max-height: none; }
     }
 
     .panel {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
+      border-radius: var(--radius-md);
+      padding: 1.35rem 1.5rem;
+      box-shadow: var(--shadow);
     }
 
     .panel h2 {
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--accent);
       margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.55rem;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .panel-icon {
+      font-size: 1rem;
+      opacity: 0.85;
     }
 
     .form-group {
@@ -99,19 +266,25 @@
 
     input, textarea, select {
       width: 100%;
-      padding: 0.6rem 0.8rem;
+      padding: 0.65rem 0.85rem;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       color: var(--text-primary);
       font-family: var(--font-sans);
       font-size: 0.9rem;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
 
     input:focus, textarea:focus, select:focus {
       outline: none;
       border-color: var(--accent-dim);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    input:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
     }
 
     textarea { resize: vertical; min-height: 80px; }
@@ -126,19 +299,21 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 0.5rem 0.7rem;
+      padding: 0.55rem 0.75rem;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       transition: all 0.2s;
       font-size: 0.85rem;
+      user-select: none;
     }
 
-    .character-chip:hover { border-color: var(--accent-dim); }
+    .character-chip:hover { border-color: var(--accent-dim); transform: translateY(-1px); }
     .character-chip.selected {
       border-color: var(--accent);
-      background: var(--accent-glow);
+      background: var(--accent-glow-strong);
+      box-shadow: 0 0 0 1px rgba(201, 160, 106, 0.35);
     }
 
     .character-chip input { display: none; }
@@ -150,24 +325,76 @@
 
     .btn-create {
       width: 100%;
-      padding: 0.8rem;
-      background: linear-gradient(135deg, var(--accent-dim), var(--accent));
+      padding: 0.85rem 1rem;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--accent) 55%, #d4b07a 100%);
       border: none;
-      border-radius: 8px;
-      color: var(--bg-primary);
+      border-radius: var(--radius-sm);
+      color: #fff;
       font-family: var(--font-serif);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
-      transition: opacity 0.2s;
+      transition: transform 0.15s, opacity 0.2s, box-shadow 0.2s;
       margin-top: 0.5rem;
+      letter-spacing: 0.04em;
     }
 
-    .btn-create:hover { opacity: 0.9; }
-    .btn-create:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-create:hover:not(:disabled) {
+      opacity: 0.95;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(201, 160, 106, 0.4);
+    }
+
+    .btn-create:active:not(:disabled) { transform: translateY(0); }
+    .btn-create:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    .btn-create.btn-sm,
+    .btn-secondary.btn-sm {
+      width: auto;
+      padding: 0.55rem 1.1rem;
+      margin-top: 0;
+      font-size: 0.85rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-top: 0.75rem;
+    }
 
     .story-output {
-      min-height: 400px;
+      min-height: calc(100vh - 8rem);
+    }
+
+    .story-output-header {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .story-output-body {
+      min-height: 420px;
+    }
+
+    .output-title {
+      font-family: var(--font-serif);
+      color: var(--accent);
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .output-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
     }
 
     .story-placeholder {
@@ -175,23 +402,40 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 400px;
+      min-height: 480px;
       color: var(--text-secondary);
       text-align: center;
+      padding: 2rem;
     }
 
     .story-placeholder .icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      opacity: 0.3;
+      width: 72px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      opacity: 0.7;
+    }
+
+    .story-placeholder p:first-of-type {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
     }
 
     .story-content {
       font-family: var(--font-serif);
-      font-size: 1rem;
-      line-height: 2;
+      font-size: 1.02rem;
+      line-height: 2.1;
       white-space: pre-wrap;
       text-indent: 2em;
+      color: var(--text-primary);
     }
 
     .story-meta {
@@ -237,7 +481,7 @@
     }
 
     .score-high { background: rgba(110, 201, 169, 0.2); color: var(--success); }
-    .score-mid { background: rgba(201, 169, 110, 0.2); color: var(--warning); }
+    .score-mid { background: rgba(201, 160, 106, 0.2); color: var(--warning); }
     .score-low { background: rgba(201, 110, 110, 0.2); color: var(--error); }
 
     .issue-item {
@@ -274,16 +518,34 @@
     }
 
     .rag-status {
-      padding: 0.6rem 0.8rem;
+      padding: 0.65rem 0.85rem;
       background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 0.8rem;
       color: var(--text-secondary);
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .rag-status.active { border-color: var(--accent-dim); color: var(--accent); }
+    .rag-status::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .rag-status.active {
+      border-color: var(--accent-dim);
+      color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .rag-status.active::before { background: var(--success); }
 
     .canon-panel {
       margin-top: 1.5rem;
@@ -355,20 +617,27 @@
 
     .btn-secondary {
       width: 100%;
-      padding: 0.65rem;
+      padding: 0.65rem 1rem;
       margin-top: 0.5rem;
-      background: transparent;
+      background: var(--bg-secondary);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       color: var(--text-secondary);
       font-family: var(--font-sans);
       font-size: 0.85rem;
       cursor: pointer;
+      transition: all 0.2s;
     }
 
-    .btn-secondary:hover {
+    .btn-secondary:hover:not(:disabled) {
       border-color: var(--accent-dim);
       color: var(--accent);
+      background: var(--accent-glow);
+    }
+
+    .btn-secondary:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
     }
 
     .continue-panel {
@@ -410,12 +679,103 @@
 
     .import-panel {
       max-width: 1200px;
-      margin: 1.5rem auto 0;
-      padding: 0 2rem 1rem;
+      margin: 0 auto;
+      padding: 1.25rem 2rem 0;
     }
 
-    .import-panel .panel {
+    .import-panel .panel { margin-bottom: 0; }
+
+    /* Collapsible prep section */
+    .prep-details {
+      overflow: hidden;
+    }
+
+    .prep-details > summary {
+      list-style: none;
+      cursor: pointer;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      color: var(--accent);
+      padding-bottom: 0.55rem;
       margin-bottom: 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      user-select: none;
+    }
+
+    .prep-details > summary::-webkit-details-marker { display: none; }
+
+    .prep-details > summary::after {
+      content: '▼';
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      transition: transform 0.2s;
+    }
+
+    .prep-details[open] > summary::after { transform: rotate(180deg); }
+
+    .prep-summary-title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .prep-summary-hint {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .prep-body {
+      padding-top: 1rem;
+    }
+
+    .file-drop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 1.25rem 1rem;
+      border: 1px dashed var(--border-light);
+      border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .file-drop:hover {
+      border-color: var(--accent-dim);
+      background: var(--accent-glow);
+    }
+
+    .file-drop.dragover {
+      border-color: var(--accent);
+      background: var(--accent-glow-strong);
+      transform: scale(1.01);
+    }
+
+    .file-drop input[type="file"] { display: none; }
+
+    .file-drop-icon { font-size: 1.5rem; opacity: 0.6; }
+
+    .file-drop-text {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    .file-drop-name {
+      font-size: 0.78rem;
+      color: var(--accent);
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .progress-bar {
@@ -429,7 +789,7 @@
     .progress-bar > span {
       display: block;
       height: 100%;
-      background: var(--accent);
+      background: linear-gradient(90deg, var(--pink), var(--accent));
       width: 0%;
       transition: width 0.3s ease;
     }
@@ -444,16 +804,19 @@
       display: flex;
       gap: 0.75rem;
       align-items: flex-start;
-      padding: 0.75rem;
+      padding: 0.85rem;
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       background: var(--bg-secondary);
+      transition: all 0.2s;
     }
+
+    .candidate-item:hover { border-color: var(--border-light); }
 
     .candidate-item.selected {
       border-color: var(--accent);
-      background: var(--accent-glow);
+      background: var(--accent-glow-strong);
     }
 
     .candidate-item .meta {
@@ -488,22 +851,36 @@
 
     #prepStatusBox {
       display: none;
-      margin-top: 0.75rem;
+      margin-top: 1rem;
+      padding: 0.85rem 1rem;
+      background: var(--bg-secondary);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
       font-size: 0.85rem;
       color: var(--text-secondary);
+    }
+
+    .app-footer {
+      text-align: center;
+      padding: 1.25rem 2rem 2rem;
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="hero">
-    <h1>AI 同人文平台</h1>
-    <p>默认接原著结局续写 · 可存档连载 · 记住原著与你的剧情走向</p>
-  </div>
-
-  <div class="import-panel" id="loginPanel">
-    <div class="panel">
-      <h2>登录</h2>
-      <p class="hint-box">内测账号：user01–user20（普通用户）/ admin（管理员）。不开放自助注册，密码见管理员分发的凭据。</p>
+  <!-- Login overlay -->
+  <div class="login-overlay visible" id="loginPanel">
+    <div class="login-card panel">
+      <div class="login-brand">
+        <h1>AI 同人文</h1>
+        <p>默认接原著结局续写 · 可存档连载</p>
+      </div>
       <div class="form-group">
         <label>用户名</label>
         <input type="text" id="loginUsername" placeholder="user01" autocomplete="username">
@@ -512,16 +889,40 @@
         <label>密码</label>
         <input type="password" id="loginPassword" placeholder="初始密码" autocomplete="current-password">
       </div>
-      <button type="button" class="btn-create" id="btnLogin" style="width:auto;padding:0.6rem 1.2rem;">登录</button>
-      <span id="loginError" style="margin-left:0.75rem;color:var(--error);font-size:0.85rem;"></span>
+      <button type="button" class="btn-create" id="btnLogin">登录</button>
+      <span class="login-error" id="loginError"></span>
+      <p class="hint-box" style="margin-top:1rem;text-align:center;">内测账号 user01–user20 / admin · 不开放注册</p>
     </div>
   </div>
 
   <div id="appMain" style="display:none;">
+  <header class="app-header">
+    <div class="app-header-inner">
+      <div class="app-brand">
+        <span class="app-brand-title">AI 同人文平台</span>
+        <span class="app-brand-sub">接原著结局 · 人物不 OOC · 可存档连载</span>
+      </div>
+      <div class="user-bar">
+        <span class="user-badge" id="userBadge">
+          <span class="dot"></span>
+          <span id="currentUserLabel">—</span>
+        </span>
+        <button type="button" class="btn-ghost" id="btnLogout">退出</button>
+      </div>
+    </div>
+  </header>
+
   <div class="import-panel" id="importPanel">
-    <div class="panel" id="prepPanel">
-      <h2>导入小说（现上传现准备）</h2>
-      <p class="hint-box">当前登录：<strong id="currentUserLabel">—</strong>。深档约 3–5 分钟。默认<strong>私人书库</strong>；管理员可选<strong>公共书库</strong>。抽取约 6 人候选、不预勾选；你勾选深档，未勾选做简档。</p>
+    <details class="panel prep-details" id="prepDetails" open>
+      <summary>
+        <span class="prep-summary-title">
+          <span>📚</span>
+          <span>导入小说</span>
+        </span>
+        <span class="prep-summary-hint">上传 txt · 抽取人物 · 准备书库</span>
+      </summary>
+      <div class="prep-body" id="prepPanel">
+      <p class="hint-box">深档约 3–5 分钟。默认<strong>私人书库</strong>；管理员可选<strong>公共书库</strong>。抽取约 6 人候选、不预勾选；你勾选深档，未勾选做简档。</p>
       <div class="form-group">
         <label>入库目标</label>
         <select id="prepVisibility">
@@ -535,31 +936,40 @@
       </div>
       <div class="form-group">
         <label>小说全文（仅 .txt）</label>
-        <input type="file" id="prepFile" accept=".txt,text/plain">
+        <label class="file-drop" for="prepFile">
+          <span class="file-drop-icon">📄</span>
+          <span class="file-drop-text">点击选择或拖入 .txt 文件</span>
+          <span class="file-drop-name" id="prepFileName">未选择文件</span>
+          <input type="file" id="prepFile" accept=".txt,text/plain">
+        </label>
       </div>
-      <button type="button" class="btn-create" id="btnPrepUpload" style="width:auto;padding:0.6rem 1.2rem;">上传并抽取人物</button>
-      <button type="button" class="btn-secondary" id="btnPrepRetryExtract" style="margin-left:0.5rem;">重新抽取</button>
-      <button type="button" class="btn-secondary" id="btnLogout" style="margin-left:0.5rem;">退出登录</button>
+      <div class="btn-row">
+        <button type="button" class="btn-create btn-sm" id="btnPrepUpload">上传并抽取人物</button>
+        <button type="button" class="btn-secondary btn-sm" id="btnPrepRetryExtract">重新抽取</button>
+      </div>
 
       <div id="prepCandidatesWrap" style="display:none;margin-top:1rem;">
-        <label>勾选深档人物（约 6 人候选，不预勾选；至少选 1 人，最多 6 人。未勾选的做简档）</label>
+        <label>勾选深档人物（约 6 人候选，不预勾选；至少选 1 人，最多 6 人）</label>
         <div class="candidate-grid" id="prepCandidateGrid"></div>
-        <button type="button" class="btn-secondary" id="btnPrepSelectAll" style="margin-right:0.5rem;display:none;">全选深档（管理员）</button>
-        <button type="button" class="btn-create" id="btnPrepStart" style="width:auto;padding:0.6rem 1.2rem;" disabled>开始准备</button>
-        <button type="button" class="btn-secondary" id="btnPrepUpgradeHint" style="margin-left:0.5rem;" title="预留功能">以后补深档</button>
+        <div class="btn-row">
+          <button type="button" class="btn-secondary btn-sm" id="btnPrepSelectAll" style="display:none;">全选深档（管理员）</button>
+          <button type="button" class="btn-create btn-sm" id="btnPrepStart" disabled>开始准备</button>
+          <button type="button" class="btn-secondary btn-sm" id="btnPrepUpgradeHint" title="预留功能">以后补深档</button>
+        </div>
       </div>
 
       <div id="prepStatusBox">
         <div id="prepStatusText">—</div>
         <div class="progress-bar"><span id="prepProgressBar"></span></div>
       </div>
-    </div>
+      </div>
+    </details>
   </div>
 
   <div class="container">
-    <div class="panel">
-      <h2>创作设定</h2>
-      <p class="hint-box" style="margin-bottom:0.75rem;">可选<strong>公共书库</strong>与你的<strong>私人书库</strong>作品。上方可自行上传准备（约 3–5 分钟）。</p>
+    <div class="panel sidebar-panel">
+      <h2><span class="panel-icon">✒</span> 创作设定</h2>
+      <p class="hint-box" style="margin-bottom:0.75rem;">可选<strong>公共书库</strong>与你的<strong>私人书库</strong>作品。</p>
       <div class="rag-status" id="ragStatus">RAG 索引加载中...</div>
       <form id="storyForm">
         <div class="form-group">
@@ -568,7 +978,7 @@
         </div>
 
         <div class="form-group">
-          <label>已存档后续（点击载入续写）</label>
+          <label>我的存档（仅自己可见，点击载入续写）</label>
           <div class="series-list" id="seriesList">
             <p class="hint-box">暂无存档</p>
           </div>
@@ -633,21 +1043,25 @@
     </div>
 
     <div class="panel story-output" id="storyOutput">
-      <div class="story-placeholder">
-        <div class="icon">📜</div>
-        <p>选择人物，设定后续剧情，开始续写</p>
-        <p style="font-size:0.8rem;margin-top:0.5rem;">只写后续，不补原著中间篇章 · 人物绝不 OOC</p>
+      <h2 class="story-output-header"><span class="panel-icon">📜</span> 续写正文</h2>
+      <div class="story-output-body" id="storyOutputBody">
+        <div class="story-placeholder">
+          <div class="icon">📜</div>
+          <p>选择人物，设定后续剧情</p>
+          <p style="font-size:0.82rem;margin-top:0.35rem;color:var(--text-muted);">只写结局之后 · 人物绝不 OOC</p>
+        </div>
       </div>
     </div>
   </div>
 
-  <p style="text-align:center;padding:1rem 2rem 2rem;font-size:0.75rem;color:var(--text-secondary);">
-    内测预置账号 · 不开放注册
-  </p>
+  <p class="app-footer">内测预置账号 · 不开放注册</p>
   </div><!-- #appMain -->
 
   <script>
-    const API_BASE = 'http://localhost:8010/api';
+    // 优先同源 /api（用 http://localhost:8010/ 打开）；file:// 打开时回退到本机后端
+    const API_BASE = (location.protocol === 'http:' || location.protocol === 'https:')
+      ? `${location.origin}/api`
+      : 'http://127.0.0.1:8010/api';
     const AUTH_TOKEN_KEY = 'aitongrenwen_auth_token';
     const AUTH_USER_KEY = 'aitongrenwen_auth_user';
     let characters = [];
@@ -697,14 +1111,31 @@
       return apiHeaders(extra);
     }
 
+    function setStoryOutput(html) {
+      document.getElementById('storyOutputBody').innerHTML = html;
+    }
+
+    function storyPlaceholder(main, sub) {
+      return `
+        <div class="story-placeholder">
+          <div class="icon">📜</div>
+          <p>${main}</p>
+          ${sub ? `<p style="font-size:0.82rem;margin-top:0.35rem;color:var(--text-muted);">${sub}</p>` : ''}
+        </div>
+      `;
+    }
+
     function applyAuthUi() {
       const loggedIn = !!getToken() && !!currentUser;
-      document.getElementById('loginPanel').style.display = loggedIn ? 'none' : 'block';
+      document.getElementById('loginPanel').classList.toggle('visible', !loggedIn);
       document.getElementById('appMain').style.display = loggedIn ? 'block' : 'none';
       if (!loggedIn) return;
 
       const label = document.getElementById('currentUserLabel');
-      label.textContent = `${currentUser.display_name || currentUser.username}（${currentUser.role === 'admin' ? '管理员' : '用户'}）`;
+      const badge = document.getElementById('userBadge');
+      const roleText = currentUser.role === 'admin' ? '管理员' : '用户';
+      label.textContent = `${currentUser.display_name || currentUser.username} · ${roleText}`;
+      badge.classList.toggle('admin', currentUser.role === 'admin');
 
       const pubOpt = document.getElementById('prepVisibilityPublic');
       const selectAllBtn = document.getElementById('btnPrepSelectAll');
@@ -908,7 +1339,7 @@
         if (!res.ok) throw new Error('加载存档失败');
         const items = await res.json();
         if (!items.length) {
-          list.innerHTML = '<p class="hint-box">暂无存档，创作后会自动保存</p>';
+          list.innerHTML = '<p class="hint-box">暂无存档，创作后会自动保存（仅自己可见）</p>';
           return;
         }
         list.innerHTML = items.map(s => `
@@ -968,11 +1399,9 @@
         `<button type="button" class="chapter-btn ${c.index === idx ? 'active' : ''}" data-i="${c.index}">第${c.index}章</button>`
       ).join('');
 
-      document.getElementById('storyOutput').innerHTML = `
-        <h2 style="font-family:var(--font-serif);color:var(--accent);margin-bottom:0.35rem;">${series.title}</h2>
-        <div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.8rem;">
-          《${series.novel_title}》 · 已存档 · 共 ${chapters.length} 章
-        </div>
+      document.getElementById('storyOutputBody').innerHTML = `
+        <h3 class="output-title">${series.title}</h3>
+        <div class="output-subtitle">《${series.novel_title}》 · 已存档 · 共 ${chapters.length} 章</div>
         ${series.plot_direction ? `<div class="hint-box" style="margin-bottom:0.8rem;">剧情走向：${series.plot_direction}</div>` : ''}
         <div class="chapter-nav">${nav}</div>
         <div class="story-meta">
@@ -1004,7 +1433,7 @@
 
     async function submitStory(fromContinuePanel) {
       const btn = document.getElementById('btnCreate');
-      const output = document.getElementById('storyOutput');
+      const output = document.getElementById('storyOutputBody');
       const selected = [...document.querySelectorAll('input[name=characters]:checked')].map(el => el.value);
 
       if (!currentSeriesId && selected.length === 0) {
@@ -1081,12 +1510,12 @@
         document.getElementById('scenario').value = '';
         updateModeUi();
       } catch (err) {
-        output.innerHTML = `
+        setStoryOutput(`
           <div class="story-placeholder">
             <div class="icon">⚠️</div>
             <p>创作失败：${err.message}</p>
           </div>
-        `;
+        `);
       } finally {
         btn.disabled = false;
       }
@@ -1100,13 +1529,7 @@
     document.getElementById('btnNewSeries').addEventListener('click', () => {
       clearSeriesSelection();
       loadSeriesList();
-      document.getElementById('storyOutput').innerHTML = `
-        <div class="story-placeholder">
-          <div class="icon">📜</div>
-          <p>新建后续故事：默认接原著结局</p>
-          <p style="font-size:0.8rem;margin-top:0.5rem;">写完会自动存档，可继续按走向续写</p>
-        </div>
-      `;
+      setStoryOutput(storyPlaceholder('新建后续故事：默认接原著结局', '写完会自动存档，可继续按走向续写'));
     });
 
     function renderStoryResult(data) {
@@ -1153,9 +1576,9 @@
         </div>
       ` : '';
 
-      document.getElementById('storyOutput').innerHTML = `
-        <h2 style="font-family:var(--font-serif);color:var(--accent);margin-bottom:0.5rem;">${data.title}</h2>
-        ${data.novel_title ? `<div style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:1rem;">《${data.novel_title}》 · 原著结局之后</div>` : ''}
+      setStoryOutput(`
+        <h3 class="output-title">${data.title}</h3>
+        ${data.novel_title ? `<div class="output-subtitle">《${data.novel_title}》 · 原著结局之后</div>` : ''}
         <div class="story-meta">
           ${data.characters_used.map(c => `<span class="meta-tag">${c}</span>`).join('')}
           ${data.chapter_index ? `<span class="meta-tag">第${data.chapter_index}章</span>` : ''}
@@ -1175,7 +1598,7 @@
           ${issuesHtml}
         </div>
         ${continueHtml}
-      `;
+      `);
 
       const contBtn = document.getElementById('btnContinueInline');
       if (contBtn) {
@@ -1314,6 +1737,47 @@
       prepPollTimer = setInterval(pollPrepJob, 2500);
     }
 
+    function updatePrepFileName() {
+      const input = document.getElementById('prepFile');
+      const label = document.getElementById('prepFileName');
+      const file = input.files && input.files[0];
+      label.textContent = file ? file.name : '未选择文件';
+    }
+
+    document.getElementById('prepFile').addEventListener('change', updatePrepFileName);
+
+    (function initFileDrop() {
+      const fileDrop = document.querySelector('.file-drop');
+      const fileInput = document.getElementById('prepFile');
+      if (!fileDrop || !fileInput) return;
+
+      ['dragenter', 'dragover'].forEach(evt => {
+        fileDrop.addEventListener(evt, (e) => {
+          e.preventDefault();
+          fileDrop.classList.add('dragover');
+        });
+      });
+      ['dragleave', 'drop'].forEach(evt => {
+        fileDrop.addEventListener(evt, (e) => {
+          e.preventDefault();
+          fileDrop.classList.remove('dragover');
+        });
+      });
+      fileDrop.addEventListener('drop', (e) => {
+        const files = e.dataTransfer && e.dataTransfer.files;
+        if (!files || !files.length) return;
+        const file = files[0];
+        if (!file.name.toLowerCase().endsWith('.txt')) {
+          alert('仅支持 .txt 文件');
+          return;
+        }
+        const dt = new DataTransfer();
+        dt.items.add(file);
+        fileInput.files = dt.files;
+        updatePrepFileName();
+      });
+    })();
+
     document.getElementById('btnPrepUpload').addEventListener('click', async () => {
       const fileInput = document.getElementById('prepFile');
       const file = fileInput.files && fileInput.files[0];
@@ -1442,11 +1906,15 @@
       const username = document.getElementById('loginUsername').value.trim();
       const password = document.getElementById('loginPassword').value;
       const err = document.getElementById('loginError');
+      const btn = document.getElementById('btnLogin');
       err.textContent = '';
       if (!username || !password) {
         err.textContent = '请输入用户名和密码';
         return;
       }
+      btn.disabled = true;
+      const oldText = btn.textContent;
+      btn.textContent = '登录中…';
       try {
         const res = await fetch(`${API_BASE}/auth/login`, {
           method: 'POST',
@@ -1454,17 +1922,35 @@
           body: JSON.stringify({ username, password }),
         });
         const data = await res.json().catch(() => ({}));
-        if (!res.ok) throw new Error(data.detail || '登录失败');
+        if (!res.ok) {
+          const detail = data.detail;
+          const msg = typeof detail === 'string'
+            ? detail
+            : (Array.isArray(detail) ? detail.map(d => d.msg || d).join('；') : '登录失败');
+          throw new Error(msg);
+        }
+        if (!data.access_token) throw new Error('登录响应异常：未返回令牌');
         setSession(data.access_token, data.user);
         applyAuthUi();
         loadNovels();
       } catch (e) {
-        err.textContent = String(e.message || e);
+        let msg = String(e.message || e);
+        if (msg.includes('Failed to fetch') || msg.includes('NetworkError') || msg.includes('fetch')) {
+          msg = `无法连接后端（${API_BASE}）。请先启动：uvicorn app.main:app --reload --port 8010，并用浏览器打开 http://127.0.0.1:8010/`;
+        }
+        err.textContent = msg;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = oldText;
       }
     });
 
     document.getElementById('loginPassword').addEventListener('keydown', (e) => {
       if (e.key === 'Enter') document.getElementById('btnLogin').click();
+    });
+
+    document.getElementById('loginUsername').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') document.getElementById('loginPassword').focus();
     });
 
     document.getElementById('btnLogout').addEventListener('click', () => {

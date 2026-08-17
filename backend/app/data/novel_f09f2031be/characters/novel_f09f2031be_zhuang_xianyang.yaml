@@ -1,0 +1,44 @@
+id: novel_f09f2031be_zhuang_xianyang
+name: 庄显炀
+aliases:
+- 庄教授
+source: 32.《别来无恙》作者：北南（附带番外）
+role: 配角
+core_essence: 庄显炀是庄凡心的父亲，一位美院教授，艺术修养深厚，性格开明幽默，尊重孩子的选择，是家庭中的温暖支持者。
+core_values: []
+inner_conflict: ''
+background: 庄显炀是美院教授，与妻子赵见秋共同营造了充满艺术氛围的家庭，对儿子庄凡心的成长和教育倾注心血，支持他追求珠宝设计的梦想。
+life_experiences: []
+character_arcs: []
+relationships:
+- target: 庄凡心
+  type: family
+  attitude: 关爱且支持
+  dynamic: 父子关系融洽，庄显炀鼓励庄凡心追求艺术梦想，并尊重他的选择。
+  key_events: []
+  speech_toward: ''
+- target: 赵见秋
+  type: family
+  attitude: 恩爱和睦
+  dynamic: 夫妻关系和谐，共同经营家庭，支持儿子的成长。
+  key_events: []
+  speech_toward: ''
+- target: 顾拙言
+  type: neutral
+  attitude: 友善
+  dynamic: 作为邻居家长，对顾拙言礼貌友善，并邀请他到家吃饭。
+  key_events: []
+  speech_toward: ''
+personality_traits:
+- 开明
+- 幽默
+- 温和
+- 尊重孩子
+preferences: []
+speech_patterns: []
+behavior_patterns: []
+taboos: []
+canon_facts: []
+appearance: ''
+abilities: []
+profile_depth: brief

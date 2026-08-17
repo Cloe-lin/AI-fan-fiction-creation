@@ -139,3 +139,39 @@ novels:
   - 系统残留的碎片154以人形回归，故事在温馨的氛围中结束。
   visibility: private
   owner_id: user01
+- id: novel_365d2679ff
+  title: 18.《我在无限游戏里封神》作者：壶鱼辣椒（附带番外）
+  collection: novel_365d2679ff
+  text_subdir: novel_365d2679ff/text
+  source_file: novel_365d2679ff.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 白柳在成为新邪神后，选择重置所有世界线，抹除自身存在，以灵魂封住欲望之门，换取世界线的和平与众人幸福。十年后，世界线融合，白柳以人类身份归来，与谢塔重逢，并逐渐与记忆恢复的旧友们重聚，最终在冬夜的热闹与温暖中迎来圆满结局。
+  ending_state:
+  - 白柳：以人类身份回归，与谢塔重逢，与旧友重聚，开始新生活。
+  - 谢塔：等待十年后与白柳重逢，拥有体温和心跳，与白柳共同生活。
+  - 陆驿站：保留记忆，与方点共同守护世界线，等待白柳归来。
+  - 刘佳仪：恢复部分记忆，与白柳重逢，要求白柳买红豆饼。
+  - 木柯：恢复部分记忆，与白柳重逢，指责白柳不告而别。
+  - 牧四诚：恢复部分记忆，与白柳重逢，激动落泪并责骂白柳。
+  visibility: private
+  owner_id: user02
+- id: novel_f09f2031be
+  title: 32.《别来无恙》作者：北南（附带番外）
+  collection: novel_f09f2031be
+  text_subdir: novel_f09f2031be/text
+  source_file: novel_f09f2031be.txt
+  novel_source: ''
+  source_encoding: utf-8
+  default_after_ending: true
+  ending_summary: 庄凡心与顾拙言在经历抄袭诬陷、抑郁症等重重磨难后，终于沉冤得雪，江回被判刑，程嘉玛获释。庄凡心决定重拾珠宝设计梦想，并入股silhouette。两人在洛杉矶正式注册结婚，在礼堂中交换誓言，从此幸福相守。
+  ending_state:
+  - 庄凡心与顾拙言在洛杉矶正式结婚，互相戴上婚戒，承诺一生相伴。
+  - 庄凡心决定重返校园完成珠宝设计学业，并成为silhouette的股东。
+  - 江回因侵犯知识产权和诽谤罪被判三年有期徒刑，事业尽毁。
+  - 程嘉玛因罪责较轻被释放，但名声受损。
+  - 庄凡心与顾拙言获得双方家庭认可，两家人团聚庆祝。
+  - 庄凡心克服抑郁，重拾信心，与顾拙言开始新生活。
+  visibility: private
+  owner_id: user03
