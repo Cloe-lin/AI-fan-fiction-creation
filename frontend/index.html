@@ -8,28 +8,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #fff6f4;
-      --bg-secondary: #ffe9e4;
-      --bg-card: #fffbf9;
-      --bg-elevated: #fff1ec;
-      --border: #f0d0c4;
-      --border-light: #f5ddd4;
-      --text-primary: #4a3530;
-      --text-secondary: #9a7068;
-      --text-muted: #c49a90;
-      --accent: #c9a06a;
-      --accent-dim: #a87d4a;
-      --accent-glow: rgba(201, 160, 106, 0.16);
-      --accent-glow-strong: rgba(201, 160, 106, 0.26);
-      --pink: #e87a9a;
-      --pink-soft: #f5a8bc;
+      --bg-primary: #F8F4EC;
+      --bg-secondary: #F0EADD;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #F5F0E6;
+      --border: #E8DDC8;
+      --border-light: #EDE5D4;
+      --text-primary: #1A1722;
+      --text-secondary: #3A3644;
+      --text-muted: #706B78;
+      --accent: #D4AF62;
+      --accent-dim: #B88D44;
+      --accent-glow: rgba(212, 175, 98, 0.15);
+      --accent-glow-strong: rgba(212, 175, 98, 0.28);
+      --pink: #A82C38;
+      --pink-soft: #C4485A;
       --success: #5cbf9a;
-      --warning: #c9a06a;
-      --error: #e55a6a;
+      --warning: #D4AF62;
+      --error: #A82C38;
+      --cyan: #2A3B63;
+      --purple: #7B42C2;
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
-      --shadow: 0 4px 24px rgba(201, 160, 106, 0.14);
+      --shadow: 0 4px 24px rgba(212, 175, 98, 0.14);
       --font-serif: 'Noto Serif SC', serif;
       --font-sans: 'Noto Sans SC', sans-serif;
     }
@@ -45,16 +47,113 @@
       font-family: var(--font-sans);
       background: var(--bg-primary);
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232, 122, 154, 0.16), transparent),
-        radial-gradient(ellipse 55% 40% at 100% 0%, rgba(201, 160, 106, 0.18), transparent),
-        radial-gradient(ellipse 60% 40% at 0% 100%, rgba(245, 168, 188, 0.22), transparent),
-        linear-gradient(165deg, #fff9f7 0%, #ffe8e2 40%, #fff4ee 100%);
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 175, 98, 0.08), transparent),
+        radial-gradient(ellipse 55% 40% at 100% 0%, rgba(212, 175, 98, 0.06), transparent);
       color: var(--text-primary);
       min-height: 100vh;
       line-height: 1.6;
     }
 
-    /* ---- Login ---- */
+    /* ---- Landing Page ---- */
+    .landing-page {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #18141D;
+      background-image: url('images/landing-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: opacity 0.6s ease;
+    }
+
+    .landing-page.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .landing-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(24, 20, 29, 0.25) 0%,
+        rgba(24, 20, 29, 0.45) 50%,
+        rgba(24, 20, 29, 0.75) 100%
+      );
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .landing-title {
+      font-family: var(--font-serif);
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #F3E9D2;
+      letter-spacing: 0.18em;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+      margin-bottom: 0.75rem;
+    }
+
+    .landing-subtitle {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: #D4CEDB;
+      letter-spacing: 0.15em;
+      margin-bottom: 2.5rem;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .landing-enter-btn {
+      display: inline-block;
+      padding: 0.85rem 3rem;
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1A1722;
+      background: linear-gradient(135deg, #D4AF62 0%, #E6C886 50%, #D4AF62 100%);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      letter-spacing: 0.12em;
+      box-shadow: 0 4px 24px rgba(212, 175, 98, 0.35);
+      transition: all 0.3s ease;
+      animation: landing-pulse 2.5s ease-in-out infinite;
+    }
+
+    .landing-enter-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 32px rgba(212, 175, 98, 0.5);
+    }
+
+    @keyframes landing-pulse {
+      0%, 100% { box-shadow: 0 4px 24px rgba(212, 175, 98, 0.35); }
+      50% { box-shadow: 0 4px 36px rgba(212, 175, 98, 0.55); }
+    }
+
+    .landing-hint {
+      margin-top: 1.5rem;
+      font-size: 0.82rem;
+      color: #948CA2;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 600px) {
+      .landing-title { font-size: 2rem; letter-spacing: 0.1em; }
+      .landing-subtitle { font-size: 0.95rem; }
+    }
+
+    /* ---- Login Overlay (revealed after landing) ---- */
     .login-overlay {
       position: fixed;
       inset: 0;
@@ -63,8 +162,8 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      background: rgba(255, 240, 236, 0.85);
-      backdrop-filter: blur(12px);
+      background: rgba(248, 244, 236, 0.88);
+      backdrop-filter: blur(16px);
     }
 
     .login-overlay.visible { display: flex; }
@@ -84,7 +183,7 @@
       font-family: var(--font-serif);
       font-size: 1.75rem;
       font-weight: 700;
-      background: linear-gradient(120deg, var(--pink) 0%, var(--accent) 55%, #d4b07a 100%);
+      background: linear-gradient(120deg, #D4AF62 0%, #B88D44 50%, #D4AF62 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -93,7 +192,7 @@
     }
 
     .login-brand p {
-      color: var(--text-secondary);
+      color: var(--text-muted);
       font-size: 0.85rem;
     }
 
@@ -109,8 +208,8 @@
 
     .login-error:not(:empty) {
       padding: 0.55rem 0.75rem;
-      background: rgba(229, 90, 106, 0.1);
-      border: 1px solid rgba(229, 90, 106, 0.3);
+      background: rgba(168, 44, 56, 0.1);
+      border: 1px solid rgba(168, 44, 56, 0.3);
       border-radius: 8px;
     }
 
@@ -119,7 +218,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.82);
+      background: rgba(248, 244, 236, 0.85);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -144,7 +243,7 @@
       font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 600;
-      background: linear-gradient(120deg, var(--pink) 0%, var(--accent) 60%, #d4b07a 100%);
+      background: linear-gradient(120deg, #D4AF62 0%, #B88D44 50%, #D4AF62 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -326,10 +425,10 @@
     .btn-create {
       width: 100%;
       padding: 0.85rem 1rem;
-      background: linear-gradient(135deg, var(--pink) 0%, var(--accent) 55%, #d4b07a 100%);
+      background: linear-gradient(135deg, #D4AF62 0%, #E6C886 50%, #D4AF62 100%);
       border: none;
       border-radius: var(--radius-sm);
-      color: #fff;
+      color: #1A1722;
       font-family: var(--font-serif);
       font-size: 0.95rem;
       font-weight: 600;
@@ -342,7 +441,7 @@
     .btn-create:hover:not(:disabled) {
       opacity: 0.95;
       transform: translateY(-1px);
-      box-shadow: 0 4px 18px rgba(201, 160, 106, 0.4);
+      box-shadow: 0 4px 18px rgba(212, 175, 98, 0.4);
     }
 
     .btn-create:active:not(:disabled) { transform: translateY(0); }
@@ -1006,8 +1105,19 @@
   </style>
 </head>
 <body>
-  <!-- Login overlay -->
-  <div class="login-overlay visible" id="loginPanel">
+  <!-- Landing page (full-screen, click to enter) -->
+  <div class="landing-page" id="landingPage">
+    <div class="landing-overlay"></div>
+    <div class="landing-content">
+      <h1 class="landing-title">AI 同人文</h1>
+      <p class="landing-subtitle">默认接原著结局续写 · 人物绝不背离原著</p>
+      <button class="landing-enter-btn" id="btnLandingEnter">进 入 平 台</button>
+      <p class="landing-hint">内测体验 · 数据本地存储</p>
+    </div>
+  </div>
+
+  <!-- Login overlay (shown after landing dismissed) -->
+  <div class="login-overlay" id="loginPanel">
     <div class="login-card panel">
       <div class="login-brand">
         <h1>AI 同人文</h1>
@@ -1274,6 +1384,7 @@
 
     function applyAuthUi() {
       const loggedIn = !!getToken() && !!currentUser;
+      document.getElementById('landingPage').classList.toggle('hidden', loggedIn);
       document.getElementById('loginPanel').classList.toggle('visible', !loggedIn);
       document.getElementById('appMain').style.display = loggedIn ? 'block' : 'none';
       if (!loggedIn) return;
@@ -2279,6 +2390,19 @@
       syncPrepStartButton();
     });
 
+    document.getElementById('btnLandingEnter').addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.getElementById('landingPage').classList.add('hidden');
+      document.getElementById('loginPanel').classList.add('visible');
+      setTimeout(() => document.getElementById('loginUsername').focus(), 400);
+    });
+
+    document.getElementById('landingPage').addEventListener('click', () => {
+      document.getElementById('landingPage').classList.add('hidden');
+      document.getElementById('loginPanel').classList.add('visible');
+      setTimeout(() => document.getElementById('loginUsername').focus(), 400);
+    });
+
     document.getElementById('btnLogin').addEventListener('click', async () => {
       const username = document.getElementById('loginUsername').value.trim();
       const password = document.getElementById('loginPassword').value;
@@ -2344,6 +2468,8 @@
     document.getElementById('btnLogout').addEventListener('click', () => {
       setSession('', null);
       stopPrepPoll();
+      document.getElementById('landingPage').classList.remove('hidden');
+      document.getElementById('loginPanel').classList.remove('visible');
       applyAuthUi();
     });
 
