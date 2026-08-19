@@ -29,6 +29,18 @@ backend/app/data/chroma/
 # Prep job runtime state (optional local cache)
 backend/app/data/prep_jobs/
 
+# Local-only user uploads (not for public repo)
+backend/app/data/novel_1d1be85577/
+backend/app/data/novel_1d1be85577_2/
+
+# Root-level novel dumps
+/*.txt
+!backend/app/data/**/text/*.txt
+!backend/app/data/**/text/samples/*.txt
+
+.workbuddy/
+product_strategy.html
+
 # IDE / OS
 .idea/
 .vscode/

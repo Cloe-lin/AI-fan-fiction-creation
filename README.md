@@ -50,6 +50,10 @@
 
 ## 快速开始
 
+> **详细本地部署：** [docs/本地部署教程-完整版.md](docs/本地部署教程-完整版.md)  
+> **个人免登录版（独立仓库）：** [AI-fan-fiction-personal](https://github.com/Cloe-lin/AI-fan-fiction-personal) · [本地部署教程](https://github.com/Cloe-lin/AI-fan-fiction-personal/blob/master/docs/本地部署教程.md)  
+> **版本快照：** Git 标签 `v0.7-full` · 说明见 [docs/VERSION-full.md](docs/VERSION-full.md)
+
 ### 环境要求
 
 - Python 3.11+
