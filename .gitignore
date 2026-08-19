@@ -42,6 +42,21 @@ backend/app/data/novel_1d1be85577_2/
 !backend/app/data/**/text/*.txt
 !backend/app/data/**/text/samples/*.txt
 
+# Internal docs (eval / interview / prompt iteration — keep local only)
+docs/AIPM共性能力对照.md
+docs/Prompt变更单-模板.md
+docs/如何搭建测评指标.md
+docs/简历STAR-项目经历.md
+docs/评测与Prompt迭代.md
+docs/评测报告-P0P1.md
+docs/评测跑分日志-P0P1.txt
+docs/评测跑分结果-P0P1.csv
+docs/评测集-扩展版.csv
+docs/评测集-跑分结果模板.csv
+docs/评测集-黄金与挑战.csv
+docs/评测集说明.md
+docs/面试QA-20题.md
+
 .workbuddy/
 product_strategy.html
 
