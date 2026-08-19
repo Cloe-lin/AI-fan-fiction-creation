@@ -1,0 +1,24 @@
+case_id,set_type,novel_id,novel_title,characters,chapter_type,user_scenario,tone,length,prior_context,must_have,must_not,expect_block,expect_auto_score_min,human_score,notes
+GOLD-MDZS-001,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,原著结局之后，魏无羡与蓝忘机回云深不知处的一个清晨，魏无羡吵着要下厨，蓝忘机沉默应对。,warm,medium,,"接结局后；魏无羡活泼但不无轻重到毁人设；蓝忘机克制深情","写成夷陵老祖时期或求学时期中间篇；蓝忘机突然油腻玩梗",false,70,,黄金-日常互动
+GOLD-MDZS-002,gold,modaozuoshi,魔道祖师,"wei_wuxian,jiang_cheng",first,结局后数年，魏无羡与江澄在莲花坞外偶遇，两人试探性说话，既别扭又放不下。,reflective,medium,,"关系复杂别扭；江澄嘴硬；不轻易和解成无仇","写成互相毫无芥蒂的兄弟情；补写世家战争中间篇",false,65,,黄金-复杂关系
+GOLD-MDZS-003,gold,modaozuoshi,魔道祖师,"lan_wangji,lan_xichen",first,结局后，蓝曦臣与蓝忘机在静室谈及宗门事务，兄长关心弟弟近况。,warm,short,,"蓝氏礼数；兄弟克制关怀","蓝忘机变成话痨；写成射日之征时期",false,70,,黄金-蓝氏兄弟
+GOLD-MDZS-004,gold,modaozuoshi,魔道祖师,"wei_wuxian,wen_ning",first,结局后，温宁来看魏无羡，两人回忆故人但情绪克制，不煽情过头。,warm,medium,,"温宁讷讷；魏无羡护短但不失控","温宁性格大变油嘴滑舌；写成乱葬岗中间篇",false,70,,黄金-故人
+GOLD-MDZS-005,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji,jiang_cheng",first,结局后三人因一件小事同处一室，气氛尴尬，魏无羡打圆场。,humorous,medium,,"三人张力和尴尬感","强行喜大普奔和解；补写观音庙之前情节当正文主线",false,65,,黄金-三角张力
+GOLD-MDZS-006,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",continue,上一章不欢而散后，蓝忘机夜间寻来，两人把话说开一点，仍含蓄。,romantic,medium,上章：魏无羡玩笑过火，蓝忘机沉默离开。末句停在廊上夜色。,"必须承接上章离开；含蓄；推进关系一小步","无视上章冲突重开；写成首次相遇",false,70,,黄金-续写连贯
+GOLD-SYZYZ-001,gold,shiyongzhuyizhe,实用主义者的爱情,"fei_ni,fang_muyang",first,原著结局之后，费霓与方沐阳在日常工作间隙交换一个很克制的关心。,warm,medium,,"人物语气符合原著后期状态；接结局后","写成相识初期甜宠教学篇；人设幼稚化",false,70,,黄金-实用主义日常
+GOLD-SYZYZ-002,gold,shiyongzhuyizhe,实用主义者的爱情,"fei_ni,fang_mujing",first,结局后费霓与方沐京因一件合作事宜产生分歧，理性争论而非撕破脸。,tense,medium,,"理性、边界感","无脑吵架泼妇骂街；补写虐恋中段",false,65,,黄金-冲突克制
+GOLD-SYZYZ-003,gold,shiyongzhuyizhe,实用主义者的爱情,"fei_ni,fang_muyang",continue,承接上章误会，本章双方各退一步，把合作谈拢。,reflective,medium,上章：因行程冲突产生误会，不欢而散。,"承接误会；推进解决","完全忘记上章；写成初遇",false,70,,黄金-续写和解
+GOLD-MDZS-007,gold,modaozuoshi,魔道祖师,"lan_wangji",first,结局后蓝忘机独自夜猎归来，想起魏无羡的一句玩笑，神色微动。,reflective,short,,"蓝忘机内敛；单一视角也要有层次","蓝忘机变成现代霸总独白",false,70,,黄金-单人
+GOLD-MDZS-008,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,用户要求：只写结局后两人逛集市买糖葫芦的轻松片段，不要大剧情。,humorous,short,,"轻量日常；不拔高成救世","硬塞大剧情反转；写成童年莲花坞",false,70,,黄金-短篇约束
+GOLD-MDZS-009,gold,modaozuoshi,魔道祖师,"jiang_cheng,lan_xichen",first,结局后江澄与蓝曦臣因宗门往来短暂会面，客套中带刺。,tense,medium,,"江澄防备；曦臣得体","两人突然称兄道弟无隔阂",false,65,,黄金-客套张力
+GOLD-MDZS-010,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,结局后魏无羡做噩梦惊醒，蓝忘机安抚，重点写情绪与克制肢体语言。,warm,medium,,"怕狗等创伤可点到为止；蓝氏克制","过度血腥猎奇；写成夷陵老祖屠杀现场再现当主线",false,70,,黄金-情绪戏
+CHAL-MDZS-001,challenge,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,请写云深不知处求学时期魏无羡翻墙被蓝忘机抓到的故事。,humorous,medium,,"审查应识别为中间篇补白","若正文真写成求学主线且审查未报 mid_chapter_fill 则评测失败",true,,"期望拦截-中间篇"
+CHAL-MDZS-002,challenge,modaozuoshi,魔道祖师,"wei_wuxian",first,写魏无羡在不夜天战场上如何布阵杀敌的详细过程（当作当前正在发生）。,tense,long,,"应判定与结局后续写冲突/中间篇","允许当成结局后回忆闪回且一笔带过可酌情",true,,"期望拦截-战争中间篇"
+CHAL-MDZS-003,challenge,modaozuoshi,魔道祖师,"lan_wangji",first,让蓝忘机用网络流行语对魏无羡大声表白，性格改成外向戏精。,humorous,short,,"明显 OOC，应低分或 error","若高分通过则审查失效",true,,"期望拦截-OOC"
+CHAL-MDZS-004,challenge,modaozuoshi,魔道祖师,"jiang_cheng",first,让江澄 trace 原谅一切并跪求魏无羡回家，完全放下所有心结，一次谈妥。,warm,medium,,"违背人物弧光与复杂关系，应 warning/error","扁平化和解若给高分则失败",true,,"期望拦截-关系OOC"
+CHAL-MDZS-005,challenge,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,用户设定只要买菜，但请你改成两人重返射日之征战场再战一场。,tense,medium,,"偏离用户买菜设定 + 可能中间篇","direction_mismatch 应出现",true,,"期望拦截-偏离设定"
+CHAL-SYZYZ-001,challenge,shiyongzhuyizhe,实用主义者的爱情,"fei_ni,fang_muyang",first,请从两人刚认识、互相试探的第一周开始写起，当作正篇正在发生。,romantic,medium,,"应识别为非结局后续写/中段补白",,true,,"期望拦截-非结局后"
+GOLD-MDZS-011,gold,modaozuoshi,魔道祖师,"wei_wuxian,lan_wangji",first,结局后两人协助处理一桩小纠纷，魏无羡出主意，蓝忘机执行边界。,warm,medium,,"分工符合性格","魏无羡突然冷血无情；蓝忘机冲动莽撞",false,70,,黄金-办事
+GOLD-MDZS-012,gold,modaozuoshi,魔道祖师,"wen_ning,wei_wuxian",continue,上章温宁受伤未说，本章魏无羡发现端倪并照顾他。,warm,medium,上章：夜猎结束温宁右臂动作僵了一下，被魏无羡忽略。,"必须点出上章伏笔","忽略伏笔另起炉灶",false,70,,黄金-伏笔回收
+GOLD-SYZYZ-004,gold,shiyongzhuyizhe,实用主义者的爱情,"fei_ni",first,结局后费霓独自复盘一次工作决策，内心独白理性、克制。,reflective,short,,"理性自我剖析","无脑恋爱脑独白",false,70,,黄金-单人理性
+GOLD-MDZS-013,gold,modaozuoshi,魔道祖师,"lan_wangji,wei_wuxian",first,结局后蓝忘机教魏无羡一段新曲，魏无羡学不好却起哄。,warm,medium,,"蓝忘机耐心克制；魏无羡嘻闹有分寸","写成互殴虐恋",false,70,,黄金-乐器日常

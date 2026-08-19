@@ -35,6 +35,7 @@ from app.services.access import (
     assert_can_access_job,
     assert_can_access_novel,
     assert_can_access_story,
+    assert_can_edit_novel,
     get_actor,
     require_admin_user,
     require_login,
@@ -351,6 +352,44 @@ async def get_character(
     if not profile:
         raise HTTPException(status_code=404, detail=f"人物 '{character_id}' 不存在")
     return profile
+
+
+@app.put("/api/characters/{character_id}", response_model=CharacterProfile)
+async def update_character(
+    character_id: str,
+    body: CharacterProfile,
+    novel_id: str = Query(..., description="作品 ID"),
+    actor: Actor = Depends(require_login),
+):
+    """人工编辑人物深档/简档（写入 YAML，立即影响后续创作注入）。"""
+    novel = novel_registry.get(novel_id)
+    if not novel:
+        raise HTTPException(status_code=404, detail=f"作品 '{novel_id}' 不存在")
+    assert_can_edit_novel(novel, actor)
+
+    existing = character_service.get(character_id, novel_id=novel_id)
+    if not existing:
+        existing = character_service.get_by_name(character_id, novel_id=novel_id)
+    if not existing:
+        raise HTTPException(status_code=404, detail=f"人物 '{character_id}' 不存在")
+
+    # 锁定身份字段，避免误改导致引用断裂
+    data = body.model_dump(mode="json")
+    data["id"] = existing.id
+    if not (data.get("source") or "").strip():
+        data["source"] = existing.source or novel.title
+    depth = (data.get("profile_depth") or existing.profile_depth or "deep").strip().lower()
+    if depth not in {"deep", "brief"}:
+        depth = "deep"
+    data["profile_depth"] = depth
+
+    try:
+        updated = CharacterProfile(**data)
+    except Exception as e:
+        raise HTTPException(status_code=422, detail=f"档案格式无效: {e}") from e
+
+    character_service.save_profile(novel_id, updated)
+    return updated
 
 
 @app.post("/api/stories/create", response_model=StoryCreateResponse)

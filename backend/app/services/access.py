@@ -130,6 +130,21 @@ def assert_can_access_novel(novel, actor: Actor) -> None:
     raise HTTPException(status_code=403, detail="这是私人书库作品，无权访问")
 
 
+def assert_can_edit_novel(novel, actor: Actor) -> None:
+    """编辑人物档案等写操作：私人书仅主人；公共书仅管理员。"""
+    assert_can_access_novel(novel, actor)
+    if actor.is_admin:
+        return
+    visibility = getattr(novel, "visibility", "public") or "public"
+    owner_id = getattr(novel, "owner_id", "") or ""
+    if visibility == "private" and actor.user_id and actor.user_id == owner_id:
+        return
+    raise HTTPException(
+        status_code=403,
+        detail="无权编辑该作品的人物档案（公共书仅管理员可改，私人书仅本人可改）",
+    )
+
+
 def assert_can_access_job(job, actor: Actor) -> None:
     if actor.is_admin:
         return

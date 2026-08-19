@@ -843,6 +843,138 @@
       border: 1px solid var(--border);
     }
 
+    .character-chip {
+      position: relative;
+    }
+
+    .chip-profile-btn {
+      margin-left: auto;
+      flex-shrink: 0;
+      align-self: center;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--accent-dim);
+      font-size: 0.72rem;
+      padding: 0.2rem 0.45rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .chip-profile-btn:hover {
+      border-color: var(--accent);
+      color: var(--pink);
+      background: var(--accent-glow);
+    }
+
+    .profile-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1200;
+      background: rgba(74, 53, 48, 0.42);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .profile-modal-overlay.visible {
+      display: flex;
+    }
+
+    .profile-modal {
+      width: min(720px, 100%);
+      max-height: min(88vh, 920px);
+      overflow: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.35rem 1.4rem;
+    }
+
+    .profile-modal h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-modal .modal-sub {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+
+    .profile-modal .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    @media (max-width: 640px) {
+      .profile-modal .form-row { grid-template-columns: 1fr; }
+    }
+
+    .profile-modal label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.3rem;
+    }
+
+    .profile-modal input,
+    .profile-modal textarea,
+    .profile-modal select {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      padding: 0.55rem 0.7rem;
+      font-family: inherit;
+      font-size: 0.88rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .profile-modal textarea {
+      min-height: 4.5rem;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .profile-modal textarea.tall {
+      min-height: 7rem;
+    }
+
+    .profile-modal .section-title {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--accent-dim);
+      margin: 0.85rem 0 0.5rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .profile-modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: flex-end;
+      margin-top: 0.75rem;
+      position: sticky;
+      bottom: 0;
+      background: linear-gradient(180deg, transparent, var(--bg-card) 28%);
+      padding-top: 0.85rem;
+    }
+
+    .profile-modal-error {
+      color: var(--error);
+      font-size: 0.82rem;
+      min-height: 1.2em;
+      flex: 1;
+      align-self: center;
+    }
+
     .btn-secondary:disabled,
     .btn-create:disabled {
       opacity: 0.45;
@@ -892,6 +1024,20 @@
       <button type="button" class="btn-create" id="btnLogin">登录</button>
       <span class="login-error" id="loginError"></span>
       <p class="hint-box" style="margin-top:1rem;text-align:center;">内测账号 user01–user20 / admin · 不开放注册</p>
+    </div>
+  </div>
+
+  <!-- Character profile view/edit modal -->
+  <div class="profile-modal-overlay" id="profileModalOverlay" aria-hidden="true">
+    <div class="profile-modal" role="dialog" aria-labelledby="profileModalTitle">
+      <h2 id="profileModalTitle">人物档案</h2>
+      <p class="modal-sub" id="profileModalSub">查看与编辑深档；保存后立即用于后续创作注入。</p>
+      <div id="profileModalBody"></div>
+      <div class="profile-modal-actions">
+        <span class="profile-modal-error" id="profileModalError"></span>
+        <button type="button" class="btn-secondary" id="btnProfileClose">关闭</button>
+        <button type="button" class="btn-create btn-sm" id="btnProfileSave" style="width:auto;display:none;">保存档案</button>
+      </div>
     </div>
   </div>
 
@@ -993,6 +1139,7 @@
         <div class="form-group">
           <label>参与人物</label>
           <div class="character-grid" id="characterGrid"></div>
+          <p class="hint-box">点击人物旁「档案」可查看；有权限时可手动编辑深档（私人书本人 / 公共书管理员）。</p>
         </div>
 
         <div class="form-group">
@@ -1296,6 +1443,227 @@
       }
     }
 
+    function canEditCurrentNovelProfiles() {
+      const novel = novels.find(n => n.id === currentNovelId);
+      if (!novel) return false;
+      if (isAdminUnlocked()) return true;
+      return novel.visibility === 'private' && !!novel.is_mine;
+    }
+
+    function linesToList(text) {
+      return String(text || '')
+        .split(/\r?\n/)
+        .map(s => s.trim())
+        .filter(Boolean);
+    }
+
+    function listToLines(arr) {
+      return (arr || []).join('\n');
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    let editingProfileId = '';
+    let editingProfileSnapshot = null;
+
+    function closeProfileModal() {
+      document.getElementById('profileModalOverlay').classList.remove('visible');
+      document.getElementById('profileModalOverlay').setAttribute('aria-hidden', 'true');
+      document.getElementById('profileModalError').textContent = '';
+      editingProfileId = '';
+      editingProfileSnapshot = null;
+    }
+
+    function fillProfileForm(profile, editable) {
+      const body = document.getElementById('profileModalBody');
+      const dis = editable ? '' : 'disabled';
+      const depth = profile.profile_depth || 'deep';
+      body.innerHTML = `
+        <div class="form-row">
+          <div>
+            <label>姓名</label>
+            <input type="text" id="pf_name" value="${escapeHtml(profile.name)}" ${dis}>
+          </div>
+          <div>
+            <label>定位 / 角色</label>
+            <input type="text" id="pf_role" value="${escapeHtml(profile.role)}" ${dis}>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label>档案深度</label>
+            <select id="pf_depth" ${dis}>
+              <option value="deep" ${depth === 'deep' ? 'selected' : ''}>深档</option>
+              <option value="brief" ${depth === 'brief' ? 'selected' : ''}>简档</option>
+            </select>
+          </div>
+          <div>
+            <label>别名（每行一个）</label>
+            <textarea id="pf_aliases" ${dis}>${escapeHtml(listToLines(profile.aliases))}</textarea>
+          </div>
+        </div>
+        <div class="section-title">人物底色</div>
+        <label>人物底色（core_essence）</label>
+        <textarea id="pf_core_essence" class="tall" ${dis}>${escapeHtml(profile.core_essence || '')}</textarea>
+        <label>核心价值观（每行一条）</label>
+        <textarea id="pf_core_values" ${dis}>${escapeHtml(listToLines(profile.core_values))}</textarea>
+        <label>内心矛盾</label>
+        <textarea id="pf_inner_conflict" ${dis}>${escapeHtml(profile.inner_conflict || '')}</textarea>
+        <div class="section-title">经历与弧光</div>
+        <label>出身与经历</label>
+        <textarea id="pf_background" class="tall" ${dis}>${escapeHtml(profile.background || '')}</textarea>
+        <label>重要人生经历（每行一条）</label>
+        <textarea id="pf_life_experiences" ${dis}>${escapeHtml(listToLines(profile.life_experiences))}</textarea>
+        <label>人物弧光 JSON（character_arcs）</label>
+        <textarea id="pf_arcs" class="tall" ${dis}>${escapeHtml(JSON.stringify(profile.character_arcs || [], null, 2))}</textarea>
+        <div class="section-title">人际关系</div>
+        <label>人际关系 JSON（relationships）</label>
+        <textarea id="pf_relationships" class="tall" ${dis}>${escapeHtml(JSON.stringify(profile.relationships || [], null, 2))}</textarea>
+        <div class="section-title">性格与言行</div>
+        <label>性格特征（每行一条）</label>
+        <textarea id="pf_personality" ${dis}>${escapeHtml(listToLines(profile.personality_traits))}</textarea>
+        <label>喜好与习惯（每行一条）</label>
+        <textarea id="pf_preferences" ${dis}>${escapeHtml(listToLines(profile.preferences))}</textarea>
+        <label>说话方式 / 口头禅（每行一条）</label>
+        <textarea id="pf_speech" ${dis}>${escapeHtml(listToLines(profile.speech_patterns))}</textarea>
+        <label>行为习惯（每行一条）</label>
+        <textarea id="pf_behavior" ${dis}>${escapeHtml(listToLines(profile.behavior_patterns))}</textarea>
+        <label>绝对禁忌（每行一条）</label>
+        <textarea id="pf_taboos" ${dis}>${escapeHtml(listToLines(profile.taboos))}</textarea>
+        <div class="section-title">原著约束</div>
+        <label>原著铁律（每行一条）</label>
+        <textarea id="pf_canon" ${dis}>${escapeHtml(listToLines(profile.canon_facts))}</textarea>
+        <label>外貌</label>
+        <textarea id="pf_appearance" ${dis}>${escapeHtml(profile.appearance || '')}</textarea>
+        <label>能力与特长（每行一条）</label>
+        <textarea id="pf_abilities" ${dis}>${escapeHtml(listToLines(profile.abilities))}</textarea>
+      `;
+    }
+
+    async function openProfileModal(characterId) {
+      const errEl = document.getElementById('profileModalError');
+      errEl.textContent = '';
+      if (!currentNovelId || !characterId) return;
+      try {
+        const res = await fetch(
+          `${API_BASE}/characters/${encodeURIComponent(characterId)}?novel_id=${encodeURIComponent(currentNovelId)}`,
+          { headers: apiHeaders() }
+        );
+        if (!res.ok) {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(data.detail || '加载档案失败');
+        }
+        const profile = await res.json();
+        editingProfileId = profile.id;
+        editingProfileSnapshot = profile;
+        const editable = canEditCurrentNovelProfiles();
+        document.getElementById('profileModalTitle').textContent =
+          `${profile.name} · ${profile.profile_depth === 'brief' ? '简档' : '深档'}`;
+        document.getElementById('profileModalSub').textContent = editable
+          ? '可编辑后保存；列表字段每行一条，弧光/关系用 JSON。保存后立即影响后续创作。'
+          : '当前为只读（公共书仅管理员可改；私人书仅本人可改）。';
+        fillProfileForm(profile, editable);
+        document.getElementById('btnProfileSave').style.display = editable ? 'inline-block' : 'none';
+        document.getElementById('profileModalOverlay').classList.add('visible');
+        document.getElementById('profileModalOverlay').setAttribute('aria-hidden', 'false');
+      } catch (e) {
+        alert(e.message || '无法打开档案');
+      }
+    }
+
+    function collectProfileFromForm() {
+      const base = editingProfileSnapshot || {};
+      let arcs = [];
+      let relationships = [];
+      try {
+        arcs = JSON.parse(document.getElementById('pf_arcs').value || '[]');
+        if (!Array.isArray(arcs)) throw new Error('弧光必须是数组');
+      } catch (e) {
+        throw new Error('人物弧光 JSON 无效：' + e.message);
+      }
+      try {
+        relationships = JSON.parse(document.getElementById('pf_relationships').value || '[]');
+        if (!Array.isArray(relationships)) throw new Error('人际关系必须是数组');
+      } catch (e) {
+        throw new Error('人际关系 JSON 无效：' + e.message);
+      }
+      return {
+        id: editingProfileId || base.id,
+        name: document.getElementById('pf_name').value.trim(),
+        aliases: linesToList(document.getElementById('pf_aliases').value),
+        source: base.source || '',
+        role: document.getElementById('pf_role').value.trim(),
+        core_essence: document.getElementById('pf_core_essence').value.trim(),
+        core_values: linesToList(document.getElementById('pf_core_values').value),
+        inner_conflict: document.getElementById('pf_inner_conflict').value.trim(),
+        background: document.getElementById('pf_background').value.trim(),
+        life_experiences: linesToList(document.getElementById('pf_life_experiences').value),
+        character_arcs: arcs,
+        relationships,
+        personality_traits: linesToList(document.getElementById('pf_personality').value),
+        preferences: linesToList(document.getElementById('pf_preferences').value),
+        speech_patterns: linesToList(document.getElementById('pf_speech').value),
+        behavior_patterns: linesToList(document.getElementById('pf_behavior').value),
+        taboos: linesToList(document.getElementById('pf_taboos').value),
+        canon_facts: linesToList(document.getElementById('pf_canon').value),
+        appearance: document.getElementById('pf_appearance').value.trim(),
+        abilities: linesToList(document.getElementById('pf_abilities').value),
+        profile_depth: document.getElementById('pf_depth').value,
+      };
+    }
+
+    async function saveProfileFromModal() {
+      const errEl = document.getElementById('profileModalError');
+      errEl.textContent = '';
+      if (!canEditCurrentNovelProfiles()) {
+        errEl.textContent = '无权保存';
+        return;
+      }
+      let body;
+      try {
+        body = collectProfileFromForm();
+      } catch (e) {
+        errEl.textContent = e.message;
+        return;
+      }
+      if (!body.name || !body.role || !body.core_essence || !body.background) {
+        errEl.textContent = '姓名、定位、人物底色、出身经历为必填';
+        return;
+      }
+      const btn = document.getElementById('btnProfileSave');
+      btn.disabled = true;
+      try {
+        const res = await fetch(
+          `${API_BASE}/characters/${encodeURIComponent(editingProfileId)}?novel_id=${encodeURIComponent(currentNovelId)}`,
+          {
+            method: 'PUT',
+            headers: apiHeaders({ 'Content-Type': 'application/json' }),
+            body: JSON.stringify(body),
+          }
+        );
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          const detail = data.detail;
+          throw new Error(typeof detail === 'string' ? detail : (detail && JSON.stringify(detail)) || '保存失败');
+        }
+        const selected = Array.from(document.querySelectorAll('input[name="characters"]:checked')).map(i => i.value);
+        await loadCharacters();
+        renderCharacterChips(selected);
+        closeProfileModal();
+        alert('档案已保存，后续创作将使用新深档。');
+      } catch (e) {
+        errEl.textContent = e.message || '保存失败';
+      } finally {
+        btn.disabled = false;
+      }
+    }
+
     function renderCharacterChips(selectedIds) {
       const selected = new Set(selectedIds || []);
       const grid = document.getElementById('characterGrid');
@@ -1308,9 +1676,10 @@
         <div class="character-chip ${selected.has(c.id) ? 'selected' : ''}" data-id="${c.id}" role="button" tabindex="0">
           <input type="checkbox" name="characters" value="${c.id}" ${selected.has(c.id) ? 'checked' : ''} tabindex="-1">
           <div>
-            <div>${c.name}${tag}</div>
-            <div class="role">${c.role}</div>
+            <div>${escapeHtml(c.name)}${tag}</div>
+            <div class="role">${escapeHtml(c.role || '')}</div>
           </div>
+          <button type="button" class="chip-profile-btn" data-profile-id="${escapeHtml(c.id)}" title="查看/编辑档案">档案</button>
         </div>`;
       }).join('');
 
@@ -1323,8 +1692,16 @@
           chip.classList.toggle('selected', on);
         };
         chip.addEventListener('click', (e) => {
+          if (e.target.closest('.chip-profile-btn')) return;
           e.preventDefault();
           toggle();
+        });
+      });
+      grid.querySelectorAll('.chip-profile-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          openProfileModal(btn.getAttribute('data-profile-id'));
         });
       });
     }
@@ -1942,6 +2319,17 @@
       } finally {
         btn.disabled = false;
         btn.textContent = oldText;
+      }
+    });
+
+    document.getElementById('btnProfileClose').addEventListener('click', closeProfileModal);
+    document.getElementById('btnProfileSave').addEventListener('click', saveProfileFromModal);
+    document.getElementById('profileModalOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'profileModalOverlay') closeProfileModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && document.getElementById('profileModalOverlay').classList.contains('visible')) {
+        closeProfileModal();
       }
     });
 
