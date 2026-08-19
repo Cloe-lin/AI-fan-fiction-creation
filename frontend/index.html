@@ -8,30 +8,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #F8F4EC;
-      --bg-secondary: #F0EADD;
-      --bg-card: #FFFFFF;
-      --bg-elevated: #F5F0E6;
-      --border: #E8DDC8;
-      --border-light: #EDE5D4;
-      --text-primary: #1A1722;
-      --text-secondary: #3A3644;
-      --text-muted: #706B78;
-      --accent: #D4AF62;
-      --accent-dim: #B88D44;
-      --accent-glow: rgba(212, 175, 98, 0.15);
-      --accent-glow-strong: rgba(212, 175, 98, 0.28);
-      --pink: #A82C38;
-      --pink-soft: #C4485A;
+      /* ── 暗黑赛博 · 金箔 + 酒红 + 幽蓝 + 幻紫 ── */
+      --bg-primary: #18141D;
+      --bg-secondary: #241F2C;
+      --bg-card: #1E1A26;
+      --bg-elevated: #2A2533;
+      --border: #3B3447;
+      --border-light: #4A4258;
+      --text-primary: #F3E9D2;
+      --text-secondary: #D4CEDB;
+      --text-muted: #948CA2;
+      --accent: #E6C886;
+      --accent-dim: #D4AF62;
+      --accent-glow: rgba(212, 175, 98, 0.12);
+      --accent-glow-strong: rgba(212, 175, 98, 0.22);
+      --red: #C85060;
+      --red-soft: #A82C38;
+      --blue: #3A5A9E;
+      --purple: #9B5FE0;
       --success: #5cbf9a;
-      --warning: #D4AF62;
-      --error: #A82C38;
-      --cyan: #2A3B63;
-      --purple: #7B42C2;
+      --warning: #E6C886;
+      --error: #C85060;
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
-      --shadow: 0 4px 24px rgba(212, 175, 98, 0.14);
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
       --font-serif: 'Noto Serif SC', serif;
       --font-sans: 'Noto Sans SC', sans-serif;
     }
@@ -40,120 +41,124 @@
 
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--accent-dim); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--purple); }
 
     body {
       font-family: var(--font-sans);
       background: var(--bg-primary);
       background-image:
-        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 175, 98, 0.08), transparent),
-        radial-gradient(ellipse 55% 40% at 100% 0%, rgba(212, 175, 98, 0.06), transparent);
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(168, 44, 56, 0.12), transparent),
+        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(42, 59, 99, 0.18), transparent),
+        radial-gradient(ellipse 50% 40% at 50% 100%, rgba(123, 66, 194, 0.10), transparent),
+        radial-gradient(circle 300px at 90% 90%, rgba(212, 175, 98, 0.06), transparent);
       color: var(--text-primary);
       min-height: 100vh;
       line-height: 1.6;
     }
 
-    /* ---- Landing Page ---- */
-    .landing-page {
+    /* ── 封面入场页 ── */
+    #coverPage {
       position: fixed;
       inset: 0;
-      z-index: 300;
+      z-index: 9999;
+      background-color: #18141D;
+      background-image: url('/static/images/landing-bg.png');
+      background-size: cover;
+      background-position: center;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: #18141D;
-      background-image: url('images/landing-bg.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      justify-content: flex-end;
+      padding-bottom: 10vh;
       cursor: pointer;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.8s ease;
     }
 
-    .landing-page.hidden {
+    #coverPage.hidden {
       opacity: 0;
       pointer-events: none;
     }
 
-    .landing-overlay {
+    #coverPage::before {
+      content: '';
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        180deg,
-        rgba(24, 20, 29, 0.25) 0%,
-        rgba(24, 20, 29, 0.45) 50%,
-        rgba(24, 20, 29, 0.75) 100%
+        to bottom,
+        rgba(24, 20, 29, 0.15) 0%,
+        rgba(24, 20, 29, 0.05) 40%,
+        rgba(24, 20, 29, 0.55) 80%,
+        rgba(24, 20, 29, 0.80) 100%
       );
     }
 
-    .landing-content {
+    .cover-content {
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
     }
 
-    .landing-title {
+    .cover-title {
       font-family: var(--font-serif);
-      font-size: 3.2rem;
+      font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 700;
-      color: #F3E9D2;
       letter-spacing: 0.18em;
-      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
-      margin-bottom: 0.75rem;
+      background: linear-gradient(120deg, #E6C886 0%, var(--red) 45%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 2px 12px rgba(123, 66, 194, 0.35));
     }
 
-    .landing-subtitle {
-      font-family: var(--font-serif);
-      font-size: 1.15rem;
-      color: #D4CEDB;
-      letter-spacing: 0.15em;
-      margin-bottom: 2.5rem;
-      text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
+    .cover-subtitle {
+      font-size: clamp(0.85rem, 2vw, 1rem);
+      color: rgba(243, 233, 210, 0.75);
+      letter-spacing: 0.2em;
+      font-weight: 300;
     }
 
-    .landing-enter-btn {
-      display: inline-block;
-      padding: 0.85rem 3rem;
-      font-family: var(--font-serif);
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #1A1722;
-      background: linear-gradient(135deg, #D4AF62 0%, #E6C886 50%, #D4AF62 100%);
-      border: none;
+    .cover-enter-btn {
+      margin-top: 0.5rem;
+      padding: 0.75rem 2.8rem;
+      border: 1px solid rgba(155, 95, 224, 0.6);
       border-radius: 999px;
+      color: #D4CEDB;
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      letter-spacing: 0.25em;
       cursor: pointer;
-      letter-spacing: 0.12em;
-      box-shadow: 0 4px 24px rgba(212, 175, 98, 0.35);
       transition: all 0.3s ease;
-      animation: landing-pulse 2.5s ease-in-out infinite;
+      backdrop-filter: blur(6px);
+      background: rgba(42, 59, 99, 0.25);
     }
 
-    .landing-enter-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 32px rgba(212, 175, 98, 0.5);
+    .cover-enter-btn:hover {
+      background: rgba(123, 66, 194, 0.28);
+      border-color: var(--purple);
+      color: #F3E9D2;
+      box-shadow: 0 0 24px rgba(123, 66, 194, 0.4);
     }
 
-    @keyframes landing-pulse {
-      0%, 100% { box-shadow: 0 4px 24px rgba(212, 175, 98, 0.35); }
-      50% { box-shadow: 0 4px 36px rgba(212, 175, 98, 0.55); }
+    .cover-hint {
+      font-size: 0.72rem;
+      color: rgba(243, 233, 210, 0.4);
+      letter-spacing: 0.15em;
+      margin-top: -0.4rem;
     }
 
-    .landing-hint {
-      margin-top: 1.5rem;
-      font-size: 0.82rem;
-      color: #948CA2;
-      letter-spacing: 0.1em;
+    @keyframes coverFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    @media (max-width: 600px) {
-      .landing-title { font-size: 2rem; letter-spacing: 0.1em; }
-      .landing-subtitle { font-size: 0.95rem; }
-    }
+    .cover-content { animation: coverFadeIn 1.2s ease 0.3s both; }
 
-    /* ---- Login Overlay (revealed after landing) ---- */
+    /* ---- Login ---- */
     .login-overlay {
       position: fixed;
       inset: 0;
@@ -162,8 +167,8 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      background: rgba(248, 244, 236, 0.88);
-      backdrop-filter: blur(16px);
+      background: rgba(24, 20, 29, 0.88);
+      backdrop-filter: blur(12px);
     }
 
     .login-overlay.visible { display: flex; }
@@ -183,7 +188,7 @@
       font-family: var(--font-serif);
       font-size: 1.75rem;
       font-weight: 700;
-      background: linear-gradient(120deg, #D4AF62 0%, #B88D44 50%, #D4AF62 100%);
+      background: linear-gradient(120deg, var(--accent) 0%, var(--red) 50%, var(--purple) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -192,7 +197,7 @@
     }
 
     .login-brand p {
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 0.85rem;
     }
 
@@ -208,8 +213,8 @@
 
     .login-error:not(:empty) {
       padding: 0.55rem 0.75rem;
-      background: rgba(168, 44, 56, 0.1);
-      border: 1px solid rgba(168, 44, 56, 0.3);
+      background: rgba(229, 90, 106, 0.1);
+      border: 1px solid rgba(229, 90, 106, 0.3);
       border-radius: 8px;
     }
 
@@ -218,7 +223,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(248, 244, 236, 0.85);
+      background: rgba(24, 20, 29, 0.88);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
@@ -243,7 +248,7 @@
       font-family: var(--font-serif);
       font-size: 1.15rem;
       font-weight: 600;
-      background: linear-gradient(120deg, #D4AF62 0%, #B88D44 50%, #D4AF62 100%);
+      background: linear-gradient(120deg, var(--accent) 0%, var(--red) 45%, var(--purple) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -281,7 +286,7 @@
       background: var(--success);
     }
 
-    .user-badge.admin .dot { background: linear-gradient(135deg, var(--pink), var(--accent)); }
+    .user-badge.admin .dot { background: linear-gradient(135deg, var(--red), var(--accent)); }
 
     .btn-ghost {
       padding: 0.35rem 0.85rem;
@@ -296,8 +301,8 @@
     }
 
     .btn-ghost:hover {
-      border-color: var(--accent-dim);
-      color: var(--accent);
+      border-color: var(--purple);
+      color: var(--purple);
     }
 
     .container {
@@ -333,6 +338,11 @@
       border-radius: var(--radius-md);
       padding: 1.35rem 1.5rem;
       box-shadow: var(--shadow);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .panel:hover {
+      box-shadow: 0 6px 32px rgba(123, 66, 194, 0.15), 0 2px 12px rgba(42, 59, 99, 0.2);
     }
 
     .panel h2 {
@@ -377,8 +387,8 @@
 
     input:focus, textarea:focus, select:focus {
       outline: none;
-      border-color: var(--accent-dim);
-      box-shadow: 0 0 0 3px var(--accent-glow);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(58, 90, 158, 0.2);
     }
 
     input:disabled {
@@ -408,11 +418,11 @@
       user-select: none;
     }
 
-    .character-chip:hover { border-color: var(--accent-dim); transform: translateY(-1px); }
+    .character-chip:hover { border-color: var(--purple); transform: translateY(-1px); }
     .character-chip.selected {
-      border-color: var(--accent);
-      background: var(--accent-glow-strong);
-      box-shadow: 0 0 0 1px rgba(201, 160, 106, 0.35);
+      border-color: var(--blue);
+      background: rgba(42, 59, 99, 0.25);
+      box-shadow: 0 0 0 1px rgba(58, 90, 158, 0.4);
     }
 
     .character-chip input { display: none; }
@@ -425,10 +435,10 @@
     .btn-create {
       width: 100%;
       padding: 0.85rem 1rem;
-      background: linear-gradient(135deg, #D4AF62 0%, #E6C886 50%, #D4AF62 100%);
+      background: linear-gradient(135deg, var(--red) 0%, var(--blue) 55%, var(--purple) 100%);
       border: none;
       border-radius: var(--radius-sm);
-      color: #1A1722;
+      color: #F3E9D2;
       font-family: var(--font-serif);
       font-size: 0.95rem;
       font-weight: 600;
@@ -441,7 +451,7 @@
     .btn-create:hover:not(:disabled) {
       opacity: 0.95;
       transform: translateY(-1px);
-      box-shadow: 0 4px 18px rgba(212, 175, 98, 0.4);
+      box-shadow: 0 4px 22px rgba(123, 66, 194, 0.45), 0 0 12px rgba(168, 44, 56, 0.25);
     }
 
     .btn-create:active:not(:disabled) { transform: translateY(0); }
@@ -604,7 +614,7 @@
       width: 40px;
       height: 40px;
       border: 3px solid var(--border);
-      border-top-color: var(--accent);
+      border-top-color: var(--purple);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
@@ -639,9 +649,9 @@
     }
 
     .rag-status.active {
-      border-color: var(--accent-dim);
-      color: var(--accent);
-      background: var(--accent-glow);
+      border-color: var(--success);
+      color: var(--success);
+      background: rgba(92, 191, 154, 0.1);
     }
 
     .rag-status.active::before { background: var(--success); }
@@ -692,8 +702,8 @@
     }
 
     .series-item:hover, .series-item.active {
-      border-color: var(--accent);
-      background: var(--accent-glow);
+      border-color: var(--purple);
+      background: rgba(123, 66, 194, 0.1);
     }
 
     .series-item .series-title {
@@ -729,9 +739,9 @@
     }
 
     .btn-secondary:hover:not(:disabled) {
-      border-color: var(--accent-dim);
-      color: var(--accent);
-      background: var(--accent-glow);
+      border-color: var(--purple);
+      color: var(--purple);
+      background: rgba(123, 66, 194, 0.1);
     }
 
     .btn-secondary:disabled {
@@ -849,13 +859,13 @@
     }
 
     .file-drop:hover {
-      border-color: var(--accent-dim);
-      background: var(--accent-glow);
+      border-color: var(--purple);
+      background: rgba(123, 66, 194, 0.08);
     }
 
     .file-drop.dragover {
-      border-color: var(--accent);
-      background: var(--accent-glow-strong);
+      border-color: var(--purple);
+      background: rgba(123, 66, 194, 0.15);
       transform: scale(1.01);
     }
 
@@ -888,7 +898,7 @@
     .progress-bar > span {
       display: block;
       height: 100%;
-      background: linear-gradient(90deg, var(--pink), var(--accent));
+      background: linear-gradient(90deg, var(--red), var(--blue), var(--purple));
       width: 0%;
       transition: width 0.3s ease;
     }
@@ -914,8 +924,8 @@
     .candidate-item:hover { border-color: var(--border-light); }
 
     .candidate-item.selected {
-      border-color: var(--accent);
-      background: var(--accent-glow-strong);
+      border-color: var(--blue);
+      background: rgba(42, 59, 99, 0.2);
     }
 
     .candidate-item .meta {
@@ -961,9 +971,9 @@
     }
 
     .chip-profile-btn:hover {
-      border-color: var(--accent);
-      color: var(--pink);
-      background: var(--accent-glow);
+      border-color: var(--purple);
+      color: var(--purple);
+      background: rgba(123, 66, 194, 0.12);
     }
 
     .profile-modal-overlay {
@@ -971,7 +981,7 @@
       position: fixed;
       inset: 0;
       z-index: 1200;
-      background: rgba(74, 53, 48, 0.42);
+      background: rgba(24, 20, 29, 0.65);
       align-items: center;
       justify-content: center;
       padding: 1rem;
@@ -1062,7 +1072,7 @@
       margin-top: 0.75rem;
       position: sticky;
       bottom: 0;
-      background: linear-gradient(180deg, transparent, var(--bg-card) 28%);
+      background: linear-gradient(180deg, transparent, #1E1A26 28%);
       padding-top: 0.85rem;
     }
 
@@ -1105,18 +1115,18 @@
   </style>
 </head>
 <body>
-  <!-- Landing page (full-screen, click to enter) -->
-  <div class="landing-page" id="landingPage">
-    <div class="landing-overlay"></div>
-    <div class="landing-content">
-      <h1 class="landing-title">AI 同人文</h1>
-      <p class="landing-subtitle">默认接原著结局续写 · 人物绝不背离原著</p>
-      <button class="landing-enter-btn" id="btnLandingEnter">进 入 平 台</button>
-      <p class="landing-hint">内测体验 · 数据本地存储</p>
+
+  <!-- ── 封面入场页 ── -->
+  <div id="coverPage">
+    <div class="cover-content">
+      <div class="cover-title">AI 同人文</div>
+      <div class="cover-subtitle">多用户内测 · 原著结局后续续写</div>
+      <button class="cover-enter-btn" id="coverEnterBtn">进 入 登 录</button>
+      <div class="cover-hint">点击任意位置继续</div>
     </div>
   </div>
 
-  <!-- Login overlay (shown after landing dismissed) -->
+  <!-- Login overlay -->
   <div class="login-overlay" id="loginPanel">
     <div class="login-card panel">
       <div class="login-brand">
@@ -1382,10 +1392,19 @@
       `;
     }
 
+    let coverDismissed = false;
+
+    function dismissCover() {
+      const cover = document.getElementById('coverPage');
+      cover.classList.add('hidden');
+      setTimeout(() => { cover.style.display = 'none'; }, 800);
+      coverDismissed = true;
+      applyAuthUi();
+    }
+
     function applyAuthUi() {
       const loggedIn = !!getToken() && !!currentUser;
-      document.getElementById('landingPage').classList.toggle('hidden', loggedIn);
-      document.getElementById('loginPanel').classList.toggle('visible', !loggedIn);
+      document.getElementById('loginPanel').classList.toggle('visible', !loggedIn && coverDismissed);
       document.getElementById('appMain').style.display = loggedIn ? 'block' : 'none';
       if (!loggedIn) return;
 
@@ -1550,7 +1569,7 @@
         }
         renderCharacterChips(characters.map(c => c.id));
       } catch {
-        grid.innerHTML = '<p style="color:#c96e6e;font-size:0.85rem;">无法加载人物，请先启动后端</p>';
+        grid.innerHTML = '<p style="color:var(--error);font-size:0.85rem;">无法加载人物，请先启动后端</p>';
       }
     }
 
@@ -2390,19 +2409,6 @@
       syncPrepStartButton();
     });
 
-    document.getElementById('btnLandingEnter').addEventListener('click', (e) => {
-      e.stopPropagation();
-      document.getElementById('landingPage').classList.add('hidden');
-      document.getElementById('loginPanel').classList.add('visible');
-      setTimeout(() => document.getElementById('loginUsername').focus(), 400);
-    });
-
-    document.getElementById('landingPage').addEventListener('click', () => {
-      document.getElementById('landingPage').classList.add('hidden');
-      document.getElementById('loginPanel').classList.add('visible');
-      setTimeout(() => document.getElementById('loginUsername').focus(), 400);
-    });
-
     document.getElementById('btnLogin').addEventListener('click', async () => {
       const username = document.getElementById('loginUsername').value.trim();
       const password = document.getElementById('loginPassword').value;
@@ -2468,16 +2474,31 @@
     document.getElementById('btnLogout').addEventListener('click', () => {
       setSession('', null);
       stopPrepPoll();
-      document.getElementById('landingPage').classList.remove('hidden');
-      document.getElementById('loginPanel').classList.remove('visible');
+      coverDismissed = true;
       applyAuthUi();
     });
+
+    // ── 封面入场页：点击进入登录 ──
+    (function () {
+      const cover = document.getElementById('coverPage');
+      cover.addEventListener('click', dismissCover);
+      document.getElementById('coverEnterBtn').addEventListener('click', (e) => {
+        e.stopPropagation();
+        dismissCover();
+      });
+    })();
 
     (async () => {
       loadSessionUser();
       if (getToken()) {
         const ok = await verifySession().catch(() => false);
         if (!ok) setSession('', null);
+      }
+      if (getToken() && currentUser) {
+        coverDismissed = true;
+        const cover = document.getElementById('coverPage');
+        cover.style.display = 'none';
+        cover.classList.add('hidden');
       }
       applyAuthUi();
       if (getToken() && currentUser) {
