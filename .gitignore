@@ -29,7 +29,11 @@ backend/app/data/chroma/
 # Prep job runtime state (optional local cache)
 backend/app/data/prep_jobs/
 
-# Local-only user uploads (not for public repo)
+# Local story saves (generated at runtime)
+backend/app/data/stories/
+!backend/app/data/stories/.gitkeep
+
+# Local-only uploads (keep demo books in repo)
 backend/app/data/novel_1d1be85577/
 backend/app/data/novel_1d1be85577_2/
 
